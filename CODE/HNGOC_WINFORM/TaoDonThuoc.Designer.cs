@@ -442,6 +442,7 @@
             huyButton.TabIndex = 1;
             huyButton.Text = "Hủy";
             huyButton.UseVisualStyleBackColor = true;
+            huyButton.Click += huyButton_Click;
             // 
             // hoanThanhButton
             // 
@@ -452,6 +453,7 @@
             hoanThanhButton.TabIndex = 0;
             hoanThanhButton.Text = "Hoàn thành";
             hoanThanhButton.UseVisualStyleBackColor = true;
+            hoanThanhButton.Click += hoanThanhButton_Click;
             // 
             // TaoDonThuoc
             // 
@@ -460,9 +462,9 @@
             ClientSize = new Size(1277, 683);
             Controls.Add(tableLayoutPanel1);
             Name = "TaoDonThuoc";
-            Text = "TaoDonThuoc";
-            Load += TaoDonThuoc_Load;
+            Text = "CHI TIẾT ĐƠN";
             FormClosed += TaoDonThuoc_FormClosed;
+            Load += TaoDonThuoc_Load;
             tableLayoutPanel1.ResumeLayout(false);
             thongTinBenhAn.ResumeLayout(false);
             InformationSection.ResumeLayout(false);

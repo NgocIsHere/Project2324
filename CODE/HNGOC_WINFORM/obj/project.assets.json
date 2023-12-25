@@ -1524,11 +1524,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My Folder\\OneDrive - VNU-HCMUS\\Documents\\Desktop\\BAI TAP CAC MON\\AdvancedDatabase\\Project\\HNGOC_WINFORM\\HNGOC_WINFORM\\QLPHONGKHAM.csproj",
+      "projectUniqueName": "D:\\My Folder\\OneDrive - VNU-HCMUS\\Documents\\Desktop\\BAI TAP CAC MON\\AdvancedDatabase\\Project23_24\\CODE\\HNGOC_WINFORM\\QLPHONGKHAM.csproj",
       "projectName": "QLPHONGKHAM",
-      "projectPath": "D:\\My Folder\\OneDrive - VNU-HCMUS\\Documents\\Desktop\\BAI TAP CAC MON\\AdvancedDatabase\\Project\\HNGOC_WINFORM\\HNGOC_WINFORM\\QLPHONGKHAM.csproj",
+      "projectPath": "D:\\My Folder\\OneDrive - VNU-HCMUS\\Documents\\Desktop\\BAI TAP CAC MON\\AdvancedDatabase\\Project23_24\\CODE\\HNGOC_WINFORM\\QLPHONGKHAM.csproj",
       "packagesPath": "C:\\Users\\LTC\\.nuget\\packages\\",
-      "outputPath": "D:\\My Folder\\OneDrive - VNU-HCMUS\\Documents\\Desktop\\BAI TAP CAC MON\\AdvancedDatabase\\Project\\HNGOC_WINFORM\\HNGOC_WINFORM\\obj\\",
+      "outputPath": "D:\\My Folder\\OneDrive - VNU-HCMUS\\Documents\\Desktop\\BAI TAP CAC MON\\AdvancedDatabase\\Project23_24\\CODE\\HNGOC_WINFORM\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\LTC\\AppData\\Roaming\\NuGet\\NuGet.Config",

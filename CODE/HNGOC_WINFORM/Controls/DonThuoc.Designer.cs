@@ -166,6 +166,7 @@
             Label.TabIndex = 0;
             Label.Text = "ĐƠN THUỐC";
             Label.TextAlign = ContentAlignment.MiddleLeft;
+            Label.Click += Label_Click;
             // 
             // tableLayoutPanel1
             // 

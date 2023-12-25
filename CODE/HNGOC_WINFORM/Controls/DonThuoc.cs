@@ -26,12 +26,8 @@ namespace QLPHONGKHAM.Controls
         public static string gioiTinh { get; set; }
         public static string thongTinTongQuan { get; set; }
         public static string tinhTrangDiUng { get; set; }
-        public static string idDonThuoc { get; set; }
-        public static string ngayKeDon {  get; set; }
-
-        string ngay = DateTime.Now.Day.ToString("d2");
-        string thang = DateTime.Now.Month.ToString("d2");
-        string nam = DateTime.Now.Year.ToString();
+        public static string idDonThuocGlobal { get; set; }
+        public static string ngayKeDon { get; set; }
         public DonThuoc()
         {
             InitializeComponent();
@@ -62,32 +58,38 @@ namespace QLPHONGKHAM.Controls
         }
 
         //Them Don Thuoc
-        private void themButton_Click(object sender, EventArgs e)
-        { 
-            DonThuoc.hoTen = this.tenBenhNhanBox.Text;
-            DonThuoc.ngaySinh = this.ngaySinhBox.Value.ToString();
-            DonThuoc.diaChi = this.diaChiBox.Text;
-            DonThuoc.sdt = this.sdtBox.Text;
-            DonThuoc.tinhTrangDiUng = this.tinhTrangDiUngBox.Text;
-            DonThuoc.thongTinTongQuan = this.thongTinTongQuanBox.Text;
-            DonThuoc.ngayKeDon = this.ngayKeDonBox.Value.ToString();
+        private void TaoDonThuocMoi()
+        {
+            connection.connect();
+            SqlParameter[] paras =
+            {
+                new SqlParameter("@ID_BENHAN", SqlDbType.Char){Value = DonThuoc.idBenhAn},
+                new SqlParameter("@NGAYLAPDON", SqlDbType.Date){Value = Convert.ToDateTime(DonThuoc.ngayKeDon)},
+                new SqlParameter("@NewIDDon", SqlDbType.VarChar, 8) { Direction = ParameterDirection.Output }
+            };
 
-            if (namRadioButton.Checked)
+            int status = connection.ExecuteStoredProcedureWithParams("SP_THEMDONTHUOC", paras);
+            if (status == 0)
             {
-                DonThuoc.gioiTinh = "Nam";
+                idDonThuocGlobal = paras[2].Value.ToString();
+                MessageBox.Show("TẠO ĐƠN THÀNH CÔNG");
             }
-            else if (nuRadioButton.Checked)
+            else
             {
-                DonThuoc.gioiTinh = "Nữ";
+                MessageBox.Show("TẠO ĐƠN KHÔNG THÀNH CÔNG");
             }
-            
+        }
+        private void themButton_Click(object sender, EventArgs e)
+        {
+            TaoDonThuocMoi();
             TaoDonThuoc taoDonThuoc = new TaoDonThuoc();
             taoDonThuoc.ShowDialog();
         }
 
         private void donThuocButton_Click(object sender, EventArgs e)
         {
-
+            DanhSachDonThuoc dsdt = new DanhSachDonThuoc();
+            dsdt.ShowDialog();
         }
 
         private void benhNhanTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -98,6 +100,16 @@ namespace QLPHONGKHAM.Controls
             DataGridViewRow row = new DataGridViewRow();
             row = benhNhanTable.Rows[e.RowIndex];
 
+            //Set global variable
+            DonThuoc.hoTen = Convert.ToString(row.Cells["HOTEN"].Value);
+            DonThuoc.ngaySinh = Convert.ToString(row.Cells["NGAYSINH"].Value);
+            DonThuoc.diaChi = Convert.ToString(row.Cells["DIACHI"].Value);
+            DonThuoc.sdt = Convert.ToString(row.Cells["SDT"].Value);
+            DonThuoc.tinhTrangDiUng = Convert.ToString(row.Cells["TINHTRANGDIUNG"].Value);
+            DonThuoc.thongTinTongQuan = Convert.ToString(row.Cells["THONGTINTONGQUAN"].Value);
+            DonThuoc.ngayKeDon = this.ngayKeDonBox.Value.ToString();
+            DonThuoc.gioiTinh = Convert.ToString(row.Cells["GIOITINH"].Value);
+
             //Match the value to the text boxes
             this.tenBenhNhanBox.Text = Convert.ToString(row.Cells["HOTEN"].Value);
             this.sdtBox.Text = Convert.ToString(row.Cells["SDT"].Value);
@@ -105,7 +117,7 @@ namespace QLPHONGKHAM.Controls
             this.thongTinTongQuanBox.Text = Convert.ToString(row.Cells["THONGTINTONGQUAN"].Value);
             this.tinhTrangDiUngBox.Text = Convert.ToString(row.Cells["TINHTRANGDIUNG"].Value);
             this.ngaySinhBox.Value = Convert.ToDateTime(row.Cells["NGAYSINH"].Value);
-            
+
             DonThuoc.idBenhAn = Convert.ToString(benhNhanTable.SelectedRows[0].Cells["ID"].Value);
             string gioiTinh = Convert.ToString(row.Cells["GIOITINH"].Value);
             if (gioiTinh == "Nam")
@@ -118,6 +130,11 @@ namespace QLPHONGKHAM.Controls
                 nuRadioButton.Checked = true;
                 namRadioButton.Checked = false;
             }
+        }
+
+        private void Label_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
