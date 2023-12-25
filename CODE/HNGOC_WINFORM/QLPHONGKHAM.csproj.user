@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Controls\DonThuoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\QuanLyThuoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="DanhSachThuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="QTV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TaoDonThuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="DataSet.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+</Project>
