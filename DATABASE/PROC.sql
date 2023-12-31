@@ -18,10 +18,10 @@ END
 GO
 
 CREATE OR ALTER
-PROCEDURE SP_XEMDANHSACHTHUOC 
+PROCEDURE SP_XEMDSTHUOC 
 AS 
 BEGIN 
-	SELECT ID_THUOC, TENTHUOC, DONGIA, DONVI, SOLUONG, HANSUDUNG, GHICHU FROM dbo.THUOC
+	SELECT * FROM dbo.THUOC
 END 
 GO
 
@@ -33,12 +33,28 @@ BEGIN
 END
 GO
 
--- THÊM THUỐC: QTV
 CREATE OR ALTER
-PROCEDURE SP_THEMTHUOC 
-	@TENTHUOC NVARCHAR(255),
+PROCEDURE SP_XemDonThuocCuaBenhNhan
+	@ID_BENHAN INT
+AS
+BEGIN 
+	IF NOT EXISTS (SELECT 1 FROM dbo.BENHAN WHERE @ID_BENHAN = ID)
+	BEGIN
+		PRINT(N'BỆNH NHÂN KHÔNG TỒN TẠI')
+		RETURN -1
+	END
+	SELECT ID_DON, ID_BENHAN, HOTEN, NGAYLAPDON FROM dbo.DONTHUOC JOIN dbo.BENHAN ON BENHAN.ID = DONTHUOC.ID_BENHAN
+	WHERE @ID_BENHAN = ID_BENHAN
+	RETURN 0
+END
+GO
+
+
+-- THÊM THUỐC: QTV
+CREATE OR ALTER PROCEDURE SP_THEMTHUOC 
+	@TENTHUOC NVARCHAR(60),
     @DONGIA INT,
-    @DONVI NVARCHAR(50),
+    @DONVI NVARCHAR(30),
 	@SOLUONG INT,
 	@HANSUDUNG DATE,
 	@GHICHU NVARCHAR(255)
@@ -46,20 +62,11 @@ AS
 BEGIN
 	IF EXISTS (SELECT 1 FROM dbo.THUOC WHERE @TENTHUOC = TENTHUOC)
 	BEGIN
-		PRINT(N'THUỐC NÀY ĐÃ TỒN TẠI')
 		RETURN -1
 	END
-	
-	DECLARE @NewID INT
-	SELECT @NewID = COUNT(*) + 2 FROM THUOC
-	DECLARE @ID_THUOC VARCHAR(8)
-	SET @ID_THUOC = 'TH' + RIGHT('0000000' + CAST(@NewID AS VARCHAR), 6)
-
-	PRINT(@ID_THUOC)
-
+	-- Insert the new record with the calculated ID_THUOC
 	INSERT INTO dbo.THUOC
 	(
-	    ID_THUOC,
 	    TENTHUOC,
 	    DONGIA,
 	    DONVI,
@@ -68,13 +75,13 @@ BEGIN
 	    GHICHU
 	)
 	VALUES
-	(   @ID_THUOC,   -- ID_THUOC - varchar(8)
-	    @TENTHUOC, -- TENTHUOC - nvarchar(255)
-	    @DONGIA, -- DONGIA - int
-	    @DONVI, -- DONVI - nvarchar(50)
-	    @SOLUONG, -- SOLUONG - int
-	    @HANSUDUNG, -- HANSUDUNG - date
-	    @GHICHU  -- GHICHU - nvarchar(255)
+	(   
+	    @TENTHUOC,
+	    @DONGIA, 
+	    @DONVI, 
+	    @SOLUONG,
+	    @HANSUDUNG,
+	    @GHICHU 
 	 )
 	 PRINT (N'THÊM THUỐC MỚI THÀNH CÔNG')
 	 RETURN 0
@@ -84,10 +91,10 @@ GO
 --CẬP NHẬT THUỐC
 CREATE OR ALTER
 PROCEDURE SP_CAPNHATTHUOC 
-	@ID_THUOC VARCHAR(8),
-	@TENTHUOC NVARCHAR(255),
+	@ID_THUOC INT,
+	@TENTHUOC NVARCHAR(60),
     @DONGIA INT,
-    @DONVI NVARCHAR(50),
+    @DONVI NVARCHAR(30),
 	@SOLUONG INT,
 	@HANSUDUNG DATE,
 	@GHICHU NVARCHAR(255)
@@ -138,7 +145,7 @@ GO
 
 -- XÓA THUỐC: QTV
 CREATE OR ALTER
-PROCEDURE SP_XOATHUOC @ID_THUOC VARCHAR(8)
+PROCEDURE SP_XOATHUOC @ID_THUOC INT
 AS
 BEGIN
 	-- Nếu thuốc không tồn tại 
@@ -161,9 +168,9 @@ GO
 
 -- THÊM ĐƠN THUỐC
 CREATE OR ALTER PROCEDURE SP_THEMDONTHUOC
-    @ID_BENHAN CHAR(8),
+    @ID_BENHAN INT,
     @NGAYLAPDON DATE,
-    @NewIDDon VARCHAR(8) OUTPUT -- Define an output parameter to hold the new ID_DON
+    @ID_DON INT OUTPUT
 AS
 BEGIN
     IF NOT EXISTS (SELECT 1 FROM dbo.BENHAN WHERE @ID_BENHAN = ID)
@@ -172,30 +179,10 @@ BEGIN
         RETURN -1
     END
 
-    -- TẠO ID ĐƠN MỚI
-    DECLARE @NextID INT
-    DECLARE @NewID CHAR(8)
+    INSERT INTO dbo.DONTHUOC (ID_BENHAN, NGAYLAPDON)
+    VALUES (@ID_BENHAN, @NGAYLAPDON)
 
-    SELECT @NextID = ISNULL(MAX(CONVERT(INT, RIGHT(ID_DON, 6))), 0) + 1
-    FROM DONTHUOC 
-    WHERE ID_BENHAN = @ID_BENHAN
-
-    SET @NewID = 'DT' + RIGHT('000000' + CAST(@NextID AS VARCHAR), 6)
-
-    INSERT dbo.DONTHUOC
-    (
-        ID_DON,
-        ID_BENHAN,
-        NGAYLAPDON
-    )
-    VALUES
-    (
-        @NewID,  -- ID_DON - varchar(8)
-        @ID_BENHAN,  -- ID_BENHAN - char(8)
-        @NGAYLAPDON -- NGAYLAPDON - date
-    )
-
-    SET @NewIDDon = @NewID -- Assign the newly generated ID_DON to the output parameter
+	SET @ID_DON = SCOPE_IDENTITY()
     PRINT (N'TẠO ĐƠN THUỐC THÀNH CÔNG')
     RETURN 0
 END
@@ -204,8 +191,8 @@ GO
 -- CẬP NHẬT ĐƠN THUỐC
 CREATE OR ALTER
 PROCEDURE SP_CAPNHATDONTHUOC
-	@ID_DON VARCHAR(8),
-	@ID_BENHAN CHAR(8),
+	@ID_DON INT,
+	@ID_BENHAN INT,
 	@NGAYLAPDON DATE
 AS
 BEGIN
@@ -226,20 +213,20 @@ GO
 
 -- XÓA ĐƠN THUỐC: VIỆC NÀY SẼ XÓA TOÀN BỘ CHI TIẾT THUỐC VÀ HOÀN LẠI THUỐC VÀO KHO
 CREATE OR ALTER PROCEDURE SP_XOADONTHUOC
-	@ID_DON VARCHAR(8),
-	@ID_BENHAN CHAR(8)
+	@ID_DON INT,
+	@ID_BENHAN INT
 AS
 BEGIN
 	-- Kiểm tra xem đơn thuốc có tồn tại hay không
 	IF NOT EXISTS (SELECT 1 FROM dbo.DONTHUOC WHERE ID_DON = @ID_DON AND ID_BENHAN = @ID_BENHAN)
 	BEGIN
-		PRINT (N'KHÔNG TỒN TẠI ĐƠN THUỐC')
+		PRINT (N'KHÔNG TỒN TẠI')
 		RETURN -1
 	END
 
 	BEGIN TRANSACTION
 
-	DECLARE @ID_THUOC VARCHAR(8)
+	DECLARE @ID_THUOC INT
 	DECLARE @SOLUONGXUAT INT
 
 	-- Lấy danh sách các thuốc trong đơn thuốc cần xóa
@@ -282,10 +269,11 @@ GO
 -- THÊM THUỐC VÀO CHI TIẾT ĐƠN
 CREATE OR ALTER
 PROCEDURE SP_THEMCHITIETDON
-	@ID_DON VARCHAR(8),
-	@ID_BENHAN CHAR(8),
-	@ID_THUOC VARCHAR(8),
-	@SOLUONG INT
+	@ID_DON INT,
+	@ID_BENHAN INT,
+	@ID_THUOC INT,
+	@SOLUONG INT,
+	@GHICHU NVARCHAR(30)
 AS 
 BEGIN
 	-- KHÔNG TỒN TẠI ĐƠN THUỐC
@@ -329,13 +317,15 @@ BEGIN
 	    ID_DON,
 	    ID_BENHAN,
 	    ID_THUOC,
-	    SOLUONG
+	    SOLUONG,
+		GHICHU
 	)
 	VALUES
 	(   @ID_DON,  -- ID_DON - varchar(8)
 	    @ID_BENHAN,  -- ID_BENHAN - char(8)
 	    @ID_THUOC,  -- ID_THUOC - varchar(8)
-	    @SOLUONG -- SOLUONG - int
+	    @SOLUONG, -- SOLUONG - int
+		@GHICHU
 	)
 
 	-- TRỪ SỐ LƯỢNG THUỐC RA KHỎI BẢNG THUỐC
@@ -353,9 +343,9 @@ GO
 -- XÓA THUỐC RA KHỎI CHI TIẾT ĐƠN
 CREATE OR ALTER
 PROCEDURE SP_XOACHITIETDON
-	@ID_DON VARCHAR(8),
-	@ID_BENHAN CHAR(8),
-	@ID_THUOC VARCHAR(8)
+	@ID_DON INT,
+	@ID_BENHAN INT,
+	@ID_THUOC INT
 AS
 BEGIN
 	--KHÔNG TỒN TẠI CHI TIẾT ĐƠN
@@ -386,10 +376,10 @@ END
 GO
 
 CREATE OR ALTER
-PROCEDURE SP_XEMCHITIETDON @ID_DON VARCHAR(8), @ID_BENHAN CHAR(8)
+PROCEDURE SP_XEMCHITIETDON @ID_DON INT, @ID_BENHAN INT
 AS
 BEGIN
-	SELECT dbo.CHITIETDON.ID_THUOC, dbo.THUOC.TENTHUOC, dbo.CHITIETDON.SOLUONG
+	SELECT dbo.CHITIETDON.ID_THUOC, dbo.THUOC.TENTHUOC, dbo.CHITIETDON.SOLUONG, dbo.CHITIETDON.GHICHU
 	FROM dbo.CHITIETDON JOIN dbo.THUOC ON THUOC.ID_THUOC = CHITIETDON.ID_THUOC
 	WHERE dbo.CHITIETDON.ID_DON = @ID_DON AND dbo.CHITIETDON.ID_BENHAN = @ID_BENHAN
 END
@@ -397,55 +387,60 @@ GO
 
 ------------------------------------------------------------------------------------------
 
-EXEC dbo.SP_ThemThuocVaoDon @ID_DON = 'DO000004',    -- varchar(8)
-                            @ID_BENHAN = 'BN000001', -- char(8)
-                            @ID_THUOC = 'TH000001',  -- varchar(8)
-                            @SoLuong = 30     -- int
-
 SELECT * FROM dbo.THUOC
 
-EXEC dbo.SP_CAPNHATTHUOC @ID_THUOC = 'TH000006',            -- varchar(8)
-                         @TENTHUOC = null,           -- nvarchar(255)
-                         @DONGIA = -1,               -- int
-                         @DONVI = N'Viên',              -- nvarchar(50)
-                         @SOLUONG = 100,              -- int
-                         @HANSUDUNG = '2023-12-22', -- date
-                         @GHICHU = N'Thuốc giảm đau'              -- nvarchar(255)
+EXEC dbo.SP_THEMTHUOC @TENTHUOC = N'TEST THÊM THUỐC',           -- nvarchar(60)
+                      @DONGIA = 10000,               -- int
+                      @DONVI = N'Viên',              -- nvarchar(30)
+                      @SOLUONG = 120,              -- int
+                      @HANSUDUNG = '2023-12-31', -- date
+                      @GHICHU = N'Test thêm thuốc'              -- nvarchar(255)
 
-SELECT CHITIETDON.ID_DON, CHITIETDON.ID_BENHAN, THUOC.ID_THUOC, TENTHUOC, CHITIETDON.SOLUONG 
-FROM dbo.CHITIETDON JOIN dbo.DONTHUOC ON DONTHUOC.ID_DON = CHITIETDON.ID_DON AND DONTHUOC.ID_BENHAN = CHITIETDON.ID_BENHAN 
-JOIN dbo.THUOC ON THUOC.ID_THUOC = CHITIETDON.ID_THUOC
 
-EXEC dbo.SP_XOATHUOC @ID_THUOC = 'TH000004' -- varchar(8)
+EXEC dbo.SP_XOATHUOC @ID_THUOC = 6 -- int
 
-SELECT * FROM dbo.DONTHUOC
+EXEC dbo.SP_CAPNHATTHUOC @ID_THUOC = 7,             -- int
+                         @TENTHUOC = N'TEST CẬP NHẬT',           -- nvarchar(60)
+                         @DONGIA = 10000,               -- int
+                         @DONVI = N'Thùng',              -- nvarchar(30)
+                         @SOLUONG = 129,              -- int
+                         @HANSUDUNG = '2023-12-31', -- date
+                         @GHICHU = N'Cập nhật'              -- nvarchar(255)
 
-EXEC dbo.SP_THEMDONTHUOC @ID_BENHAN = 'BN000002',           -- char(8)
-                         @NGAYLAPDON = '2023-12-22' -- date
+DECLARE @ID_DON INT;
+EXEC dbo.SP_THEMDONTHUOC @ID_BENHAN = 1,             -- int
+                         @NGAYLAPDON = '2023-12-31', -- date
+                         @ID_DON = @ID_DON OUTPUT    -- int
 
-EXEC dbo.SP_CAPNHATDONTHUOC @ID_DON = 'DT000005',              -- varchar(8)
-                            @ID_BENHAN = 'BN000001',           -- char(8)
-                            @NGAYLAPDON = '2023-12-22' -- date
+PRINT(@ID_DON)
+
+EXEC dbo.SP_XEMDSTHUOC
+EXEC dbo.SP_CAPNHATDONTHUOC @ID_DON = 6,               -- int
+                            @ID_BENHAN = 1,            -- int
+                            @NGAYLAPDON = '2023-12-12' -- date
+
+EXEC dbo.SP_XemDonThuocCuaBenhNhan @ID_BENHAN = 1
+
+EXEC dbo.SP_XOADONTHUOC @ID_DON = 6,   -- int
+                        @ID_BENHAN = 1 -- int
+
+EXEC dbo.SP_THEMCHITIETDON @ID_DON = 1,    -- int
+                           @ID_BENHAN = 1, -- int
+                           @ID_THUOC = 7,  -- int
+                           @SOLUONG = 50   -- int
+
+EXEC dbo.SP_XEMCHITIETDON @ID_DON = 1,   -- int
+                          @ID_BENHAN = 2 -- int
 
 SELECT * FROM dbo.CHITIETDON
-EXEC dbo.SP_THEMCHITIETDON @ID_DON = 'DT000001',    -- varchar(8)
-                           @ID_BENHAN = 'BN000002', -- char(8)
-                           @ID_THUOC = 'TH000001',  -- varchar(8)
-                           @SOLUONG = 0     -- int
 
-EXEC dbo.SP_XOACHITIETDON @ID_DON = 'DT000001',    -- varchar(8)
-                          @ID_BENHAN = 'BN000001', -- char(8)
-                          @ID_THUOC = 'TH000001'   -- varchar(8)
+EXEC dbo.SP_XOACHITIETDON @ID_DON = 1,    -- int
+                          @ID_BENHAN = 1, -- int
+                          @ID_THUOC = 7   -- int
 
-EXEC dbo.SP_XOADONTHUOC @ID_DON = 'DT000001',   -- varchar(8)
-                        @ID_BENHAN = 'BN000002' -- char(8)
-
-EXEC dbo.SP_THEMTHUOC @TENTHUOC = N'Nicotin',           -- nvarchar(255)
-                      @DONGIA = 20000,               -- int
-                      @DONVI = N'Viên',              -- nvarchar(50)
-                      @SOLUONG = 100,              -- int
-                      @HANSUDUNG = '2023-12-24', -- date
-                      @GHICHU = N'Thuốc có hại'              -- nvarchar(255)
+EXEC dbo.SP_XEMDSTHUOC
 
 
-SELECT * FROM dbo.BENHAN
+
+
+
