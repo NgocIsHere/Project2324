@@ -18,7 +18,7 @@ namespace QLPHONGKHAM.Controls
         Util util;
 
         //Shared variable
-        public static string idBenhAn { get; set; }
+        public static int idBenhAn { get; set; }
         public static string hoTen { get; set; }
         public static string ngaySinh { get; set; }
         public static string diaChi { get; set; }
@@ -26,7 +26,7 @@ namespace QLPHONGKHAM.Controls
         public static string gioiTinh { get; set; }
         public static string thongTinTongQuan { get; set; }
         public static string tinhTrangDiUng { get; set; }
-        public static string idDonThuocGlobal { get; set; }
+        public static int idDonThuocGlobal { get; set; }
         public static string ngayKeDon { get; set; }
         public DonThuoc()
         {
@@ -63,15 +63,15 @@ namespace QLPHONGKHAM.Controls
             connection.connect();
             SqlParameter[] paras =
             {
-                new SqlParameter("@ID_BENHAN", SqlDbType.Char){Value = DonThuoc.idBenhAn},
+                new SqlParameter("@ID_BENHAN", SqlDbType.Int){Value = DonThuoc.idBenhAn},
                 new SqlParameter("@NGAYLAPDON", SqlDbType.Date){Value = Convert.ToDateTime(DonThuoc.ngayKeDon)},
-                new SqlParameter("@NewIDDon", SqlDbType.VarChar, 8) { Direction = ParameterDirection.Output }
+                new SqlParameter("@ID_DON", SqlDbType.Int) { Direction = ParameterDirection.Output }
             };
 
             int status = connection.ExecuteStoredProcedureWithParams("SP_THEMDONTHUOC", paras);
             if (status == 0)
             {
-                idDonThuocGlobal = paras[2].Value.ToString();
+                idDonThuocGlobal = Convert.ToInt32(paras[2].Value);
                 MessageBox.Show("TẠO ĐƠN THÀNH CÔNG");
             }
             else
@@ -118,14 +118,14 @@ namespace QLPHONGKHAM.Controls
             this.tinhTrangDiUngBox.Text = Convert.ToString(row.Cells["TINHTRANGDIUNG"].Value);
             this.ngaySinhBox.Value = Convert.ToDateTime(row.Cells["NGAYSINH"].Value);
 
-            DonThuoc.idBenhAn = Convert.ToString(benhNhanTable.SelectedRows[0].Cells["ID"].Value);
+            DonThuoc.idBenhAn = Convert.ToInt32(benhNhanTable.SelectedRows[0].Cells["ID"].Value);
             string gioiTinh = Convert.ToString(row.Cells["GIOITINH"].Value);
-            if (gioiTinh == "Nam")
+            if (gioiTinh == "Male")
             {
                 namRadioButton.Checked = true;
                 nuRadioButton.Checked = false;
             }
-            else if (gioiTinh == "Nữ")
+            else if (gioiTinh == "Female")
             {
                 nuRadioButton.Checked = true;
                 namRadioButton.Checked = false;

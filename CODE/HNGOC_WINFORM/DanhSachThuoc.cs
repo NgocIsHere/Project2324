@@ -14,7 +14,7 @@ namespace QLPHONGKHAM
     {
         Connection connection;
         public static string tenThuocGlobal {  get; set; }
-        public static string idThuocGlobal { get; set; }
+        public static int idThuocGlobal { get; set; }
         public DanhSachThuoc()
         {
             InitializeComponent();
@@ -49,11 +49,11 @@ namespace QLPHONGKHAM
 
                 if (idThuocCell != null && idThuocCell.Value != null)
                 {
-                    idThuocGlobal = idThuocCell.Value.ToString();
+                    idThuocGlobal = Convert.ToInt32(idThuocCell.Value);
                 }
                 else
                 {
-                    idThuocGlobal = string.Empty; // Assign an empty string if null
+                    idThuocGlobal = -1; // Assign an empty string if null
                 }
 
                 this.Close();

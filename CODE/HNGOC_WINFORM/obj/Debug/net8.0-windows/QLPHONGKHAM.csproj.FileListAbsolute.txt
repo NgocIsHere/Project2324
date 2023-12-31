@@ -59,4 +59,3 @@ D:\My Folder\OneDrive - VNU-HCMUS\Documents\Desktop\BAI TAP CAC MON\AdvancedData
 D:\My Folder\OneDrive - VNU-HCMUS\Documents\Desktop\BAI TAP CAC MON\AdvancedDatabase\Project23_24\CODE\HNGOC_WINFORM\obj\Debug\net8.0-windows\QLPHONGKHAM.genruntimeconfig.cache
 D:\My Folder\OneDrive - VNU-HCMUS\Documents\Desktop\BAI TAP CAC MON\AdvancedDatabase\Project23_24\CODE\HNGOC_WINFORM\obj\Debug\net8.0-windows\ref\QLPHONGKHAM.dll
 D:\My Folder\OneDrive - VNU-HCMUS\Documents\Desktop\BAI TAP CAC MON\AdvancedDatabase\Project23_24\CODE\HNGOC_WINFORM\obj\Debug\net8.0-windows\QLPHONGKHAM.Controls.DanhSachDonThuoc.resources
-D:\My Folder\OneDrive - VNU-HCMUS\Documents\Desktop\BAI TAP CAC MON\AdvancedDatabase\Project23_24\CODE\HNGOC_WINFORM\obj\Debug\net8.0-windows\QLPHONGKHAM.ChiTietDonThuoc.resources

@@ -21,7 +21,7 @@ namespace QLPHONGKHAM.Controls
             connection.connect();
             SqlParameter[] paras =
             {
-                new SqlParameter("@ID_BENHAN", SqlDbType.Char){Value = DonThuoc.idBenhAn}
+                new SqlParameter("@ID_BENHAN", SqlDbType.Int){Value = DonThuoc.idBenhAn}
             };
             danhSachDonThuocTable.DataSource = connection.dataTableWithParams("SP_XemDonThuocCuaBenhNhan", paras);
         }
@@ -36,7 +36,7 @@ namespace QLPHONGKHAM.Controls
             DataGridViewRow row = new DataGridViewRow();
             row = danhSachDonThuocTable.Rows[e.RowIndex];
 
-            DonThuoc.idDonThuocGlobal = Convert.ToString(row.Cells["ID_DON"].Value);
+            DonThuoc.idDonThuocGlobal = Convert.ToInt32(row.Cells["ID_DON"].Value);
             TaoDonThuoc chiTietDon = new TaoDonThuoc();
             chiTietDon.FormClosed += ChiTietDon_FormClosed;
             chiTietDon.ShowDialog();
@@ -47,7 +47,7 @@ namespace QLPHONGKHAM.Controls
             connection.connect();
             SqlParameter[] paras =
             {
-                new SqlParameter("@ID_BENHAN", SqlDbType.Char){Value = DonThuoc.idBenhAn}
+                new SqlParameter("@ID_BENHAN", SqlDbType.Int){Value = DonThuoc.idBenhAn}
             };
             danhSachDonThuocTable.DataSource = connection.dataTableWithParams("SP_XemDonThuocCuaBenhNhan", paras);
         }

@@ -61,6 +61,9 @@
             buttonPanel = new Panel();
             huyButton = new Button();
             hoanThanhButton = new Button();
+            ghiChuThuocBox = new RichTextBox();
+            dateTimePicker1 = new DateTimePicker();
+            ghiChuThuoc = new Label();
             tableLayoutPanel1.SuspendLayout();
             thongTinBenhAn.SuspendLayout();
             InformationSection.SuspendLayout();
@@ -77,15 +80,17 @@
             tableLayoutPanel1.Controls.Add(donThuocControlPanel, 0, 1);
             tableLayoutPanel1.Controls.Add(chiTietDonTable, 0, 2);
             tableLayoutPanel1.Controls.Add(buttonPanel, 0, 3);
+            tableLayoutPanel1.Controls.Add(dateTimePicker1, 0, 4);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowCount = 5;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(1277, 683);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -96,7 +101,7 @@
             thongTinBenhAn.Location = new Point(0, 0);
             thongTinBenhAn.Margin = new Padding(0);
             thongTinBenhAn.Name = "thongTinBenhAn";
-            thongTinBenhAn.Size = new Size(1277, 204);
+            thongTinBenhAn.Size = new Size(1277, 198);
             thongTinBenhAn.TabIndex = 0;
             // 
             // InformationSection
@@ -123,7 +128,7 @@
             InformationSection.Location = new Point(0, 0);
             InformationSection.Margin = new Padding(0);
             InformationSection.Name = "InformationSection";
-            InformationSection.Size = new Size(1277, 204);
+            InformationSection.Size = new Size(1277, 198);
             InformationSection.TabIndex = 2;
             // 
             // ngayKeDon1
@@ -312,6 +317,8 @@
             // donThuocControlPanel
             // 
             donThuocControlPanel.BackColor = SystemColors.ActiveCaption;
+            donThuocControlPanel.Controls.Add(ghiChuThuoc);
+            donThuocControlPanel.Controls.Add(ghiChuThuocBox);
             donThuocControlPanel.Controls.Add(TenThuocComboBox);
             donThuocControlPanel.Controls.Add(xoaThuocButton);
             donThuocControlPanel.Controls.Add(themThuocButton);
@@ -321,10 +328,10 @@
             donThuocControlPanel.Controls.Add(soLuongThuoc1);
             donThuocControlPanel.Controls.Add(tenThuoc1);
             donThuocControlPanel.Dock = DockStyle.Fill;
-            donThuocControlPanel.Location = new Point(0, 204);
+            donThuocControlPanel.Location = new Point(0, 198);
             donThuocControlPanel.Margin = new Padding(0);
             donThuocControlPanel.Name = "donThuocControlPanel";
-            donThuocControlPanel.Size = new Size(1277, 136);
+            donThuocControlPanel.Size = new Size(1277, 132);
             donThuocControlPanel.TabIndex = 1;
             // 
             // TenThuocComboBox
@@ -340,7 +347,7 @@
             // xoaThuocButton
             // 
             xoaThuocButton.ForeColor = SystemColors.WindowText;
-            xoaThuocButton.Location = new Point(853, 42);
+            xoaThuocButton.Location = new Point(946, 69);
             xoaThuocButton.Name = "xoaThuocButton";
             xoaThuocButton.Size = new Size(176, 60);
             xoaThuocButton.TabIndex = 7;
@@ -351,7 +358,7 @@
             // themThuocButton
             // 
             themThuocButton.ForeColor = SystemColors.WindowText;
-            themThuocButton.Location = new Point(640, 42);
+            themThuocButton.Location = new Point(946, 3);
             themThuocButton.Name = "themThuocButton";
             themThuocButton.Size = new Size(176, 60);
             themThuocButton.TabIndex = 6;
@@ -411,13 +418,13 @@
             // 
             chiTietDonTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             chiTietDonTable.Dock = DockStyle.Fill;
-            chiTietDonTable.Location = new Point(0, 340);
+            chiTietDonTable.Location = new Point(0, 330);
             chiTietDonTable.Margin = new Padding(0);
             chiTietDonTable.Name = "chiTietDonTable";
             chiTietDonTable.ReadOnly = true;
             chiTietDonTable.RowHeadersWidth = 51;
             chiTietDonTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            chiTietDonTable.Size = new Size(1277, 273);
+            chiTietDonTable.Size = new Size(1277, 265);
             chiTietDonTable.TabIndex = 2;
             chiTietDonTable.CellContentClick += chiTietDonTable_CellContentClick;
             // 
@@ -427,10 +434,10 @@
             buttonPanel.Controls.Add(huyButton);
             buttonPanel.Controls.Add(hoanThanhButton);
             buttonPanel.Dock = DockStyle.Fill;
-            buttonPanel.Location = new Point(0, 613);
+            buttonPanel.Location = new Point(0, 595);
             buttonPanel.Margin = new Padding(0);
             buttonPanel.Name = "buttonPanel";
-            buttonPanel.Size = new Size(1277, 70);
+            buttonPanel.Size = new Size(1277, 66);
             buttonPanel.TabIndex = 3;
             // 
             // huyButton
@@ -454,6 +461,30 @@
             hoanThanhButton.Text = "Hoàn thành";
             hoanThanhButton.UseVisualStyleBackColor = true;
             hoanThanhButton.Click += hoanThanhButton_Click;
+            // 
+            // ghiChuThuocBox
+            // 
+            ghiChuThuocBox.Location = new Point(700, 26);
+            ghiChuThuocBox.Name = "ghiChuThuocBox";
+            ghiChuThuocBox.Size = new Size(218, 84);
+            ghiChuThuocBox.TabIndex = 10;
+            ghiChuThuocBox.Text = "";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(3, 664);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(250, 27);
+            dateTimePicker1.TabIndex = 4;
+            // 
+            // ghiChuThuoc
+            // 
+            ghiChuThuoc.AutoSize = true;
+            ghiChuThuoc.Location = new Point(633, 30);
+            ghiChuThuoc.Name = "ghiChuThuoc";
+            ghiChuThuoc.Size = new Size(58, 20);
+            ghiChuThuoc.TabIndex = 11;
+            ghiChuThuoc.Text = "Ghi chú";
             // 
             // TaoDonThuoc
             // 
@@ -511,5 +542,8 @@
         private Button xoaThuocButton;
         private Button themThuocButton;
         private ComboBox TenThuocComboBox;
+        private Label ghiChuThuoc;
+        private RichTextBox ghiChuThuocBox;
+        private DateTimePicker dateTimePicker1;
     }
 }

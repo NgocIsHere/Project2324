@@ -189,9 +189,10 @@
             // hanSuDungBox
             // 
             hanSuDungBox.CustomFormat = "yyyy-MM-dd";
+            hanSuDungBox.Format = DateTimePickerFormat.Custom;
             hanSuDungBox.Location = new Point(497, 25);
             hanSuDungBox.Name = "hanSuDungBox";
-            hanSuDungBox.Size = new Size(244, 27);
+            hanSuDungBox.Size = new Size(125, 27);
             hanSuDungBox.TabIndex = 8;
             hanSuDungBox.Value = new DateTime(2023, 12, 4, 0, 0, 0, 0);
             // 

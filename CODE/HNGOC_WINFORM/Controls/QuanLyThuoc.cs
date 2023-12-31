@@ -27,7 +27,7 @@ namespace QLPHONGKHAM.Controls
         void getMedicineList()
         {
             thuocTable.DefaultCellStyle.ForeColor = Color.Black;
-            thuocTable.DataSource = connection.dataTable("EXEC SP_XEMDANHSACHTHUOC");
+            thuocTable.DataSource = connection.dataTable("EXEC SP_XEMDSTHUOC");
 
             //Đổi tên column
             thuocTable.Columns["ID_THUOC"].HeaderText = "Mã Thuốc";
@@ -66,7 +66,7 @@ namespace QLPHONGKHAM.Controls
 
         private void RefreshDataGridView()
         {
-            thuocTable.DataSource = connection.dataTable("EXEC SP_XEMDANHSACHTHUOC");
+            thuocTable.DataSource = connection.dataTable("EXEC SP_XEMDSTHUOC");
             xoaButton.Enabled = false;
             capNhatButton.Enabled = false;
             util.ClearControl(this.InformationSection);
@@ -100,7 +100,7 @@ namespace QLPHONGKHAM.Controls
         {
             SqlParameter[] paras =
             {
-                new SqlParameter("@ID_THUOC", SqlDbType.VarChar){Value = thuocTable.SelectedRows[0].Cells["ID_THUOC"].Value}
+                new SqlParameter("@ID_THUOC", SqlDbType.Int){Value = thuocTable.SelectedRows[0].Cells["ID_THUOC"].Value}
             };
             int statusCode = connection.ExecuteStoredProcedureWithParams("SP_XOATHUOC", paras);
             if (statusCode == 0)
@@ -122,7 +122,7 @@ namespace QLPHONGKHAM.Controls
         {
             SqlParameter[] paras =
             {
-                new SqlParameter("@ID_THUOC", SqlDbType.VarChar){Value = thuocTable.SelectedRows[0].Cells["ID_THUOC"].Value},
+                new SqlParameter("@ID_THUOC", SqlDbType.Int){Value = thuocTable.SelectedRows[0].Cells["ID_THUOC"].Value},
                 new SqlParameter("@TENTHUOC", SqlDbType.NVarChar){Value = this.tenThuocBox.Text},
                 new SqlParameter("@DONGIA", SqlDbType.Int){Value = this.donGiaBox.Text},
                 new SqlParameter("@DONVI", SqlDbType.NVarChar){Value = this.donViBox.Text},

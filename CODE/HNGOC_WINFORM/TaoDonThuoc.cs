@@ -16,10 +16,10 @@ namespace QLPHONGKHAM
     {
         Connection connection;
         Util util;
-        public static string idThuocSelectedGlobal { get; set; }
+        public static int idThuocSelectedGlobal { get; set; }
 
         //Dictionary mapping with combo box value
-        private Dictionary<string, string> thuocDictionary = new Dictionary<string, string>();
+        private Dictionary<string, int> thuocDictionary = new Dictionary<string, int>();
 
         //DanhSachThuoc dsThuoc;
         public TaoDonThuoc()
@@ -31,7 +31,7 @@ namespace QLPHONGKHAM
         private void TaoDonThuoc_Load(object sender, EventArgs e)
         {
             loadThongTinBenhAn();
-            maDonThuocBox.Text = DonThuoc.idDonThuocGlobal;
+            maDonThuocBox.Text = DonThuoc.idDonThuocGlobal.ToString();
             xoaThuocButton.Enabled = false;
             loadChiTietDon();
         }
@@ -42,12 +42,12 @@ namespace QLPHONGKHAM
             this.sdtBox.Text = DonThuoc.sdt;
             this.ngaySinhBox.Value = Convert.ToDateTime(DonThuoc.ngaySinh);
 
-            if (DonThuoc.gioiTinh == "Nam")
+            if (DonThuoc.gioiTinh == "Male")
             {
                 this.namRadioButton.Checked = true;
                 this.nuRadioButton.Checked = false;
             }
-            else if (DonThuoc.gioiTinh == "Nữ")
+            else if (DonThuoc.gioiTinh == "Female")
             {
                 this.nuRadioButton.Checked = true;
                 this.namRadioButton.Checked = false;
@@ -63,8 +63,8 @@ namespace QLPHONGKHAM
             connection.connect();
             SqlParameter[] paras =
             {
-                new SqlParameter("@ID_DON", SqlDbType.VarChar){Value = DonThuoc.idDonThuocGlobal},
-                new SqlParameter("@ID_BENHAN", SqlDbType.Char){Value = DonThuoc.idBenhAn},
+                new SqlParameter("@ID_DON", SqlDbType.Int){Value = DonThuoc.idDonThuocGlobal},
+                new SqlParameter("@ID_BENHAN", SqlDbType.Int){Value = DonThuoc.idBenhAn},
             };
             chiTietDonTable.DataSource = connection.dataTableWithParams("SP_XEMCHITIETDON", paras);
         }
@@ -82,7 +82,7 @@ namespace QLPHONGKHAM
         void loadComboBoxData()
         {
             connection.connect();
-            DataTable dataTable = connection.dataTable("EXEC SP_XEMDANHSACHTHUOC");
+            DataTable dataTable = connection.dataTable("EXEC SP_XEMDSTHUOC");
             TenThuocComboBox.Items.Clear();
             thuocDictionary.Clear();
 
@@ -90,7 +90,7 @@ namespace QLPHONGKHAM
             {
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    string idThuoc = row["ID_THUOC"].ToString();
+                    int idThuoc = Convert.ToInt32(row["ID_THUOC"]);
                     string tenThuoc = row["TENTHUOC"].ToString();
                     string soLuong = row["SOLUONG"].ToString();
                     string donVi = row["DONVI"].ToString();
@@ -113,15 +113,16 @@ namespace QLPHONGKHAM
 
         private void themThuocButton_Click(object sender, EventArgs e)
         {
-            if (idThuocSelectedGlobal != null && soLuongThuocBox.Text != null)
+            if (idThuocSelectedGlobal != -1 && soLuongThuocBox.Text != null)
             {
                 connection.connect();
                 SqlParameter[] paras =
                 {
-                    new SqlParameter("@ID_DON", SqlDbType.VarChar){Value = DonThuoc.idDonThuocGlobal},
-                    new SqlParameter("@ID_BENHAN", SqlDbType.Char){Value = DonThuoc.idBenhAn},
-                    new SqlParameter("@ID_THUOC", SqlDbType.VarChar){Value = idThuocSelectedGlobal},
+                    new SqlParameter("@ID_DON", SqlDbType.Int){Value = DonThuoc.idDonThuocGlobal},
+                    new SqlParameter("@ID_BENHAN", SqlDbType.Int){Value = DonThuoc.idBenhAn},
+                    new SqlParameter("@ID_THUOC", SqlDbType.Int){Value = idThuocSelectedGlobal},
                     new SqlParameter("@SOLUONG", SqlDbType.Int){Value = Convert.ToInt16(soLuongThuocBox.Text)},
+                    new SqlParameter("@GHICHU", SqlDbType.NVarChar){Value = ghiChuThuocBox.Text}
                 };
 
                 int status = connection.ExecuteStoredProcedureWithParams("SP_THEMCHITIETDON", paras);
@@ -158,8 +159,9 @@ namespace QLPHONGKHAM
 
             //Binding data
             this.soLuongThuocBox.Text = Convert.ToString(row.Cells["SOLUONG"].Value);
+            this.ghiChuThuocBox.Text = row.Cells["GHICHU"].Value.ToString();
 
-            string idThuocFromGrid = row.Cells["ID_THUOC"].Value.ToString();
+            int idThuocFromGrid = Convert.ToInt32(row.Cells["ID_THUOC"].Value);
 
             loadComboBoxData();
             // Check if the ID_THUOC exists as a key in the dictionary and assign it to combo box
@@ -177,14 +179,14 @@ namespace QLPHONGKHAM
 
         private void xoaThuocButton_Click(object sender, EventArgs e)
         {
-            if (idThuocSelectedGlobal != null && soLuongThuocBox.Text != null)
+            if (idThuocSelectedGlobal != -1 && soLuongThuocBox.Text != null)
             {
                 connection.connect();
                 SqlParameter[] paras =
                 {
-                    new SqlParameter("@ID_DON", SqlDbType.VarChar){Value = DonThuoc.idDonThuocGlobal},
-                    new SqlParameter("@ID_BENHAN", SqlDbType.Char){Value = DonThuoc.idBenhAn},
-                    new SqlParameter("@ID_THUOC", SqlDbType.VarChar){Value = idThuocSelectedGlobal}
+                    new SqlParameter("@ID_DON", SqlDbType.Int){Value = DonThuoc.idDonThuocGlobal},
+                    new SqlParameter("@ID_BENHAN", SqlDbType.Int){Value = DonThuoc.idBenhAn},
+                    new SqlParameter("@ID_THUOC", SqlDbType.Int){Value = idThuocSelectedGlobal}
                 };
                 int status = connection.ExecuteStoredProcedureWithParams("SP_XOACHITIETDON", paras);
                 if (status == 0)
@@ -209,16 +211,16 @@ namespace QLPHONGKHAM
                 connection.connect();
                 SqlParameter[] paras =
                 {
-                    new SqlParameter("@ID_DON", SqlDbType.VarChar){Value = DonThuoc.idDonThuocGlobal},
-                    new SqlParameter("@ID_BENHAN", SqlDbType.Char){Value = DonThuoc.idBenhAn},
+                    new SqlParameter("@ID_DON", SqlDbType.Int){Value = DonThuoc.idDonThuocGlobal},
+                    new SqlParameter("@ID_BENHAN", SqlDbType.Int){Value = DonThuoc.idBenhAn},
                 };
 
                 int status = connection.ExecuteStoredProcedureWithParams("SP_XOADONTHUOC", paras);
                 if (status == 0)
                 {
 
-                    idThuocSelectedGlobal = null;
-                    DonThuoc.idDonThuocGlobal = null;
+                    idThuocSelectedGlobal = -1;
+                    DonThuoc.idDonThuocGlobal = -1;
                     MessageBox.Show("ĐÃ HỦY ĐƠN THUỐC DO KHÔNG CÓ THUỐC TRONG ĐƠN");
                 }
                 else
@@ -237,8 +239,8 @@ namespace QLPHONGKHAM
         {
             SqlParameter[] paras =
                 {
-                    new SqlParameter("@ID_DON", SqlDbType.VarChar){Value = DonThuoc.idDonThuocGlobal},
-                    new SqlParameter("@ID_BENHAN", SqlDbType.Char){Value = DonThuoc.idBenhAn},
+                    new SqlParameter("@ID_DON", SqlDbType.Int){Value = DonThuoc.idDonThuocGlobal},
+                    new SqlParameter("@ID_BENHAN", SqlDbType.Int){Value = DonThuoc.idBenhAn},
                 };
             int status = connection.ExecuteStoredProcedureWithParams("SP_XOADONTHUOC", paras);
             if (status == 0)
