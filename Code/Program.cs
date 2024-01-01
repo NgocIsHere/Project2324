@@ -16,7 +16,7 @@ namespace Code
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NhanVien_QTV_Xemcuochen());
+            Application.Run(new AppointmentRequest());
         }
     }
 }
