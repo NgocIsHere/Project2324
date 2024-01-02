@@ -143,6 +143,10 @@ namespace QLPHONGKHAM
                 {
                     MessageBox.Show("SỐ LƯỢNG KHÔNG HỢP LỆ");
                 }
+                else if (status == -6)
+                {
+                    MessageBox.Show("THUỐC CHỐNG CHỈ ĐỊNH CỦA BỆNH NHÂN. KHÔNG THỂ THÊM");
+                }
             }
             else
             {
