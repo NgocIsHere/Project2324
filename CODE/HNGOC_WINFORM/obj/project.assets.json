@@ -1519,19 +1519,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LTC\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My Folder\\OneDrive - VNU-HCMUS\\Documents\\Desktop\\BAI TAP CAC MON\\AdvancedDatabase\\Project23_24\\CODE\\HNGOC_WINFORM\\QLPHONGKHAM.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\OneDrive - VNU-HCMUS\\2023\\CSDLNC\\end\\Project2324\\Code\\HNGOC_WINFORM\\QLPHONGKHAM.csproj",
       "projectName": "QLPHONGKHAM",
-      "projectPath": "D:\\My Folder\\OneDrive - VNU-HCMUS\\Documents\\Desktop\\BAI TAP CAC MON\\AdvancedDatabase\\Project23_24\\CODE\\HNGOC_WINFORM\\QLPHONGKHAM.csproj",
-      "packagesPath": "C:\\Users\\LTC\\.nuget\\packages\\",
-      "outputPath": "D:\\My Folder\\OneDrive - VNU-HCMUS\\Documents\\Desktop\\BAI TAP CAC MON\\AdvancedDatabase\\Project23_24\\CODE\\HNGOC_WINFORM\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\OneDrive - VNU-HCMUS\\2023\\CSDLNC\\end\\Project2324\\Code\\HNGOC_WINFORM\\QLPHONGKHAM.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\OneDrive - VNU-HCMUS\\2023\\CSDLNC\\end\\Project2324\\Code\\HNGOC_WINFORM\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\LTC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
