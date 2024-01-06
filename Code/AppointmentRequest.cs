@@ -5,10 +5,12 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Code
@@ -136,7 +138,10 @@ namespace Code
                 using (SqlCommand command = new SqlCommand("SP_XEMYEUCAUHEN", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@NGAYHEN", dateTimePickerngay.Value.ToString("yyyy-MM-dd"));
+                    string ngayhen = dateTimePickerngay.Value.ToString("yyyy-MM-dd") == "" ? DateTime.Now.ToString("yyyy-MM-dd") :
+                         dateTimePickerngay.Value.ToString("yyyy-MM-dd");
+                    Debug.WriteLine(dateTimePickerngay.Value.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@NGAYHEN", ngayhen);
 
                     try
                     {
@@ -176,8 +181,14 @@ namespace Code
         {
             addAppointment();
             getAppointmentRequest();
+            getSTT();
             
         }
+        private void getSTT()
+        {
+
+        }
+
         private void addPatient()
         {
             using (SqlConnection connection = new SqlConnection(ConnectDB.connectionString))

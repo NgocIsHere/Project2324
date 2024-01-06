@@ -53,7 +53,7 @@
             this.textBoxGC = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxstt = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label14 = new System.Windows.Forms.Label();
@@ -283,13 +283,13 @@
             this.label13.TabIndex = 29;
             this.label13.Text = "Thứ Tự:";
             // 
-            // textBox1
+            // textBoxstt
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(699, 307);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(74, 22);
-            this.textBox1.TabIndex = 30;
+            this.textBoxstt.Enabled = false;
+            this.textBoxstt.Location = new System.Drawing.Point(699, 307);
+            this.textBoxstt.Name = "textBoxstt";
+            this.textBoxstt.Size = new System.Drawing.Size(74, 22);
+            this.textBoxstt.TabIndex = 30;
             // 
             // dataGridView1
             // 
@@ -392,7 +392,7 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxstt);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBoxGC);
             this.Controls.Add(this.label9);
@@ -455,7 +455,7 @@
         private System.Windows.Forms.TextBox textBoxGC;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxstt;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label14;

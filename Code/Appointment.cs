@@ -41,7 +41,7 @@ namespace Code
 
 
             getAppointment();
-            loadDentistNameID();
+            //loadDentistNameID();
             loadLocCombobox();
             loadtrangthaiComboBox();
             loadPhongCombobox();
@@ -72,12 +72,14 @@ namespace Code
 
         private void loadDentistNameID()
         {
+            comboBoxNS.Items.Clear();
             using (SqlConnection connection = new SqlConnection(ConnectDB.connectionString))
             {
                 using (SqlCommand command = new SqlCommand("SP_LAYTENVAIDNHASI", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-
+                    command.Parameters.AddWithValue("@NGAYHEN", dateTimePickerngay.Value.ToString("yyyy-MM-dd"));
+                    Debug.WriteLine(dateTimePickerngay.Value.ToString("yyyy-MM-dd"));
                     try
                     {
                         connection.Open();
@@ -86,7 +88,7 @@ namespace Code
                         {
                             while (reader.Read())
                             {
-                                comboBoxNS.Items.Add(reader.GetString(0)+" - "+ reader.GetString(1));
+                                comboBoxNS.Items.Add(reader.GetString(0) + " - " + reader.GetString(1));
                             }
                         }
                     }
@@ -179,13 +181,12 @@ namespace Code
                         }
                         else if (comboBoxLoc.SelectedItem.ToString() == "Nha Sĩ")
                         {
-                            command.Parameters.AddWithValue("@ID", textBoxLoc.Text);
+                            command.Parameters.AddWithValue("@TENNHASI", textBoxLoc.Text);
                         }
                         else
                         {
                             command.Parameters.AddWithValue("@PHONG", int.Parse(textBoxLoc.Text));
                         }
-                        command.Parameters.AddWithValue("@NGAYHEN", (DateTime.Now).ToString("yyyy-MM-dd"));
                         try
                         {
                             connection.Open();
@@ -317,6 +318,14 @@ namespace Code
             form.ShowDialog();
         }
 
-       
+        private void textBoxLoc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePickerngay_ValueChanged(object sender, EventArgs e)
+        {
+            loadDentistNameID();
+        }
     }
 }

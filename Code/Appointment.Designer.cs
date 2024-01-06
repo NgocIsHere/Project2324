@@ -147,6 +147,7 @@
             this.dateTimePickerngay.Name = "dateTimePickerngay";
             this.dateTimePickerngay.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerngay.TabIndex = 12;
+            this.dateTimePickerngay.ValueChanged += new System.EventHandler(this.dateTimePickerngay_ValueChanged);
             // 
             // dateTimePickergio
             // 
@@ -189,6 +190,7 @@
             this.textBoxLoc.Size = new System.Drawing.Size(120, 22);
             this.textBoxLoc.TabIndex = 17;
             this.textBoxLoc.Visible = false;
+            this.textBoxLoc.TextChanged += new System.EventHandler(this.textBoxLoc_TextChanged);
             // 
             // buttonsearch
             // 
