@@ -29,8 +29,14 @@ namespace Code
             dataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
             loadPhongCombobox();
-            loadDentistNameID();
+            //loadDentistNameID();
             loadtrangthaiComboBox();
+            loadDateTimePickerNgay();
+        }
+
+        private void loadDateTimePickerNgay()
+        {
+            dateTimePickerngay.Value = DateTime.Now;
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
@@ -86,12 +92,14 @@ namespace Code
         }
         private void loadDentistNameID()
         {
+            comboBoxNS.Items.Clear();
             using (SqlConnection connection = new SqlConnection(ConnectDB.connectionString))
             {
                 using (SqlCommand command = new SqlCommand("SP_LAYTENVAIDNHASI", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-
+                    command.Parameters.AddWithValue("@NGAYHEN", dateTimePickerngay.Value.ToString("yyyy-MM-dd"));
+                    Debug.WriteLine(dateTimePickerngay.Value.ToString("yyyy-MM-dd"));
                     try
                     {
                         connection.Open();
@@ -154,6 +162,7 @@ namespace Code
         private void dateTimePickerngay_ValueChanged(object sender, EventArgs e)
         {
             getAppointmentRequest();
+            loadDentistNameID();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -206,9 +215,10 @@ namespace Code
             {
                 using (SqlCommand command = new SqlCommand("SP_THEMCUOCHEN", connection))
                 {
+                    Debug.WriteLine(dateTimePickergiohen.Value.ToString("HH:mm::ss"));
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add(new SqlParameter("@NGAYHEN", dateTimePickerngay.Value.ToString("yyyy-MM-dd")));
-                    command.Parameters.Add(new SqlParameter("@GIOHEN", DateTime.Now.ToString("HH:mm:ss")));
+                    command.Parameters.Add(new SqlParameter("@GIOHEN", dateTimePickergiohen.Value.ToString("HH:mm:ss")));
                     command.Parameters.Add(new SqlParameter("@NHASI", comboBoxNS.SelectedItem.ToString().Substring(comboBoxNS.SelectedItem.ToString().Length - 8)));
                     command.Parameters.Add(new SqlParameter("@BENHNHAN", textBoxBN.Text));
                     command.Parameters.Add(new SqlParameter("@GHICHU", textBoxGC.Text));
@@ -233,8 +243,23 @@ namespace Code
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(newPatient)
+            if (newPatient)
+            {
                 addPatient();
+                MessageBox.Show("Thêm Bệnh Nhân Thành Công");
+                textBoxName.Enabled = !textBoxName.Enabled;
+                textBoxNumber.Enabled = !textBoxNumber.Enabled;
+                textBoxAddress.Enabled = !textBoxAddress.Enabled;
+                textBoxMail.Enabled = !textBoxMail.Enabled;
+                dateTimePickerBirth.Enabled = !dateTimePickerBirth.Enabled;
+                newPatient = !newPatient;
+
+                textBoxName.Clear();
+                textBoxNumber.Clear();
+                textBoxAddress.Clear();
+                textBoxMail.Clear();
+
+            }
         }
 
         private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
@@ -286,6 +311,7 @@ namespace Code
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add(new SqlParameter("@BENHNHAN", textBoxBN.Text));
+
                         try
                         {
                             connection.Open();
@@ -293,15 +319,16 @@ namespace Code
                             {
                                 if (reader.Read())
                                 {
-                                    foreach (var item in comboBoxNS.Items)
+                                    foreach (string item in comboBoxNS.Items)
                                     {
                                         if (item.ToString().EndsWith(reader[0].ToString()))
                                         {
                                             comboBoxNS.SelectedItem = item;
+                                            Debug.WriteLine(item);
+                                            set_ngayhen_default(item.Substring(item.Length-8)); ;
                                             break;
                                         }
                                     }
-
                                 }
                             }
                         }
@@ -313,10 +340,73 @@ namespace Code
                 }
             }
         }
+        private void set_ngayhen_default(string id_dentist)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectDB.connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("SP_TIMLICHLAMVIECGANNHATCUANHASI", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@NHASI", id_dentist));
+
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                if (!reader.IsDBNull(0))
+                                {
+                                    dateTimePickerngay.Value = ((DateTime)reader.GetDateTime(0));
+                                    Debug.WriteLine(reader.ToString());
+                                }
+                            }
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show(ex.Message, "SQL Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
 
         private void textBoxBN_TextChanged(object sender, EventArgs e)
         {
             autoUpdateNhasi();
+            load_taikham();
         }
+        private void load_taikham()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectDB.connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("SP_XEMTAIKHAM", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@BENHNHAN", textBoxBN.Text);
+
+                    try
+                    {
+                        connection.Open();
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+                            dataGridView2.DataSource = dataTable;
+
+                            // Use the DataTable as the data source for the DataGridView
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show(ex.Message, "SQL Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+
     }
 }

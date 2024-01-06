@@ -61,6 +61,8 @@
             this.buttonSubmit = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dateTimePickergiohen = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -190,7 +192,7 @@
             // comboBoxphong
             // 
             this.comboBoxphong.FormattingEnabled = true;
-            this.comboBoxphong.Location = new System.Drawing.Point(699, 213);
+            this.comboBoxphong.Location = new System.Drawing.Point(700, 260);
             this.comboBoxphong.Name = "comboBoxphong";
             this.comboBoxphong.Size = new System.Drawing.Size(78, 24);
             this.comboBoxphong.TabIndex = 26;
@@ -206,7 +208,7 @@
             // comboBoxTrangThai
             // 
             this.comboBoxTrangThai.FormattingEnabled = true;
-            this.comboBoxTrangThai.Location = new System.Drawing.Point(699, 311);
+            this.comboBoxTrangThai.Location = new System.Drawing.Point(700, 353);
             this.comboBoxTrangThai.Name = "comboBoxTrangThai";
             this.comboBoxTrangThai.Size = new System.Drawing.Size(121, 24);
             this.comboBoxTrangThai.TabIndex = 22;
@@ -214,7 +216,7 @@
             // comboBoxNS
             // 
             this.comboBoxNS.FormattingEnabled = true;
-            this.comboBoxNS.Location = new System.Drawing.Point(699, 106);
+            this.comboBoxNS.Location = new System.Drawing.Point(699, 163);
             this.comboBoxNS.Name = "comboBoxNS";
             this.comboBoxNS.Size = new System.Drawing.Size(180, 24);
             this.comboBoxNS.TabIndex = 21;
@@ -223,7 +225,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(627, 216);
+            this.label7.Location = new System.Drawing.Point(616, 263);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 16);
             this.label7.TabIndex = 20;
@@ -232,7 +234,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(609, 311);
+            this.label8.Location = new System.Drawing.Point(605, 356);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 16);
             this.label8.TabIndex = 19;
@@ -241,7 +243,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(624, 109);
+            this.label10.Location = new System.Drawing.Point(624, 166);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 16);
             this.label10.TabIndex = 17;
@@ -258,7 +260,7 @@
             // 
             // textBoxGC
             // 
-            this.textBoxGC.Location = new System.Drawing.Point(699, 163);
+            this.textBoxGC.Location = new System.Drawing.Point(699, 219);
             this.textBoxGC.Name = "textBoxGC";
             this.textBoxGC.Size = new System.Drawing.Size(199, 22);
             this.textBoxGC.TabIndex = 28;
@@ -266,7 +268,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(623, 166);
+            this.label9.Location = new System.Drawing.Point(616, 222);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 16);
             this.label9.TabIndex = 27;
@@ -275,7 +277,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(623, 269);
+            this.label13.Location = new System.Drawing.Point(613, 311);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(52, 16);
             this.label13.TabIndex = 29;
@@ -284,7 +286,7 @@
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(700, 269);
+            this.textBox1.Location = new System.Drawing.Point(699, 307);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(74, 22);
             this.textBox1.TabIndex = 30;
@@ -359,11 +361,30 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(624, 109);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 16);
+            this.label11.TabIndex = 38;
+            this.label11.Text = "Giờ hẹn";
+            // 
+            // dateTimePickergiohen
+            // 
+            this.dateTimePickergiohen.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickergiohen.Location = new System.Drawing.Point(700, 106);
+            this.dateTimePickergiohen.Name = "dateTimePickergiohen";
+            this.dateTimePickergiohen.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickergiohen.TabIndex = 39;
+            // 
             // AppointmentRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 844);
+            this.Controls.Add(this.dateTimePickergiohen);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSubmit);
@@ -442,5 +463,7 @@
         private System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker dateTimePickergiohen;
     }
 }

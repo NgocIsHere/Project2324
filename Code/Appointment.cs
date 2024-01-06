@@ -106,7 +106,7 @@ namespace Code
                 using (SqlCommand command = new SqlCommand("SP_XEMDANHSACHCUOCHEN", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@NGAYHEN", datenow);
+                    //command.Parameters.AddWithValue("@NGAYHEN", datenow);
 
                     try
                     {
