@@ -35,8 +35,6 @@
             gioLamViecBox = new DateTimePicker();
             gioLamViec = new Label();
             themButton = new Button();
-            hoVaTenBox = new RichTextBox();
-            hoVaTen = new Label();
             ngayLamViec = new Label();
             ngayLamViecBox = new DateTimePicker();
             iDNhaSi = new Label();
@@ -98,8 +96,6 @@
             InformationSection.Controls.Add(gioLamViecBox);
             InformationSection.Controls.Add(gioLamViec);
             InformationSection.Controls.Add(themButton);
-            InformationSection.Controls.Add(hoVaTenBox);
-            InformationSection.Controls.Add(hoVaTen);
             InformationSection.Controls.Add(ngayLamViec);
             InformationSection.Controls.Add(ngayLamViecBox);
             InformationSection.Controls.Add(iDNhaSi);
@@ -149,27 +145,6 @@
             themButton.Text = "THÊM";
             themButton.UseVisualStyleBackColor = false;
             themButton.Click += themButton_Click;
-            // 
-            // hoVaTenBox
-            // 
-            hoVaTenBox.Location = new Point(134, 70);
-            hoVaTenBox.Name = "hoVaTenBox";
-            hoVaTenBox.Size = new Size(223, 24);
-            hoVaTenBox.TabIndex = 12;
-            hoVaTenBox.Text = "";
-            hoVaTenBox.TextChanged += hoVaTenBox_TextChanged;
-            // 
-            // hoVaTen
-            // 
-            hoVaTen.AutoSize = true;
-            hoVaTen.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            hoVaTen.ForeColor = SystemColors.WindowText;
-            hoVaTen.Location = new Point(16, 74);
-            hoVaTen.Margin = new Padding(0);
-            hoVaTen.Name = "hoVaTen";
-            hoVaTen.Size = new Size(75, 20);
-            hoVaTen.TabIndex = 11;
-            hoVaTen.Text = "Họ và tên";
             // 
             // ngayLamViec
             // 
@@ -236,8 +211,6 @@
         private Button capNhatButton;
         private Button xoaButton;
         private Button themButton;
-        private RichTextBox hoVaTenBox;
-        private Label hoVaTen;
         private Label ngayLamViec;
         private DateTimePicker ngayLamViecBox;
         private Label iDNhaSi;

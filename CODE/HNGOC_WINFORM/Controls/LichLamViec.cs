@@ -46,7 +46,7 @@ namespace QLPHONGKHAM.Controls
             //Đổi tên column
             lichLamViecTable.Columns["NHASI"].HeaderText = "ID Nha Sĩ";
             lichLamViecTable.Columns["HOTEN"].HeaderText = "Họ và tên";
-            lichLamViecTable.Columns["TUAN"].HeaderText = "Tuần";
+            lichLamViecTable.Columns["THANG"].HeaderText = "Tháng";
             lichLamViecTable.Columns["NGAYLAMVIEC"].HeaderText = "Ngày làm việc";
         }
 
