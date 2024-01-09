@@ -32,7 +32,7 @@ namespace QLPHONGKHAM.Controls
 
         private void RefreshDataGridView()
         {
-            lichLamViecTable.DataSource = connection.dataTable("EXEC XEMLICHLAMVIEC");
+            lichLamViecTable.DataSource = connection.dataTable("EXEC SP_XEMLICHLAMVIEC");
             xoaButton.Enabled = false;
             capNhatButton.Enabled = false;
             util.ClearControl(this.InformationSection);
@@ -41,7 +41,7 @@ namespace QLPHONGKHAM.Controls
         void getLichLamViecList()
         {
             lichLamViecTable.DefaultCellStyle.ForeColor = Color.Black;
-            lichLamViecTable.DataSource = connection.dataTable("EXEC XEMLICHLAMVIEC");
+            lichLamViecTable.DataSource = connection.dataTable("EXEC SP_XEMLICHLAMVIEC");
 
             //Đổi tên column
             lichLamViecTable.Columns["NHASI"].HeaderText = "ID Nha Sĩ";

@@ -63,12 +63,12 @@ namespace QLPHONGKHAM.Controls
             this.ngaySinhBox.Value = Convert.ToDateTime(row.Cells["NGAYSINH"].Value);
 
             string gioiTinh = Convert.ToString(row.Cells["GIOITINH"].Value);
-            if (gioiTinh == "Nam")
+            if (gioiTinh == "Male")
             {
                 namRadioButton.Checked = true;
                 nuRadioButton.Checked = false;
             }
-            else if (gioiTinh == "Nữ")
+            else if (gioiTinh == "Female")
             {
                 nuRadioButton.Checked = true;
                 namRadioButton.Checked = false;
@@ -91,7 +91,7 @@ namespace QLPHONGKHAM.Controls
         private void themButton_Click(object sender, EventArgs e)
         {
             connection.connect();
-            string gioiTinh = namRadioButton.Checked ? "Nam" : "Nữ";
+            string gioiTinh = namRadioButton.Checked ? "Male" : "Female";
             SqlParameter[] paras =
             {
                

@@ -120,31 +120,16 @@ namespace QLPHONGKHAM.Controls
 
             DonThuoc.idBenhAn = Convert.ToString(benhNhanTable.SelectedRows[0].Cells["ID"].Value);
             string gioiTinh = Convert.ToString(row.Cells["GIOITINH"].Value);
-            if (gioiTinh == "Nam")
+            if (gioiTinh == "Male")
             {
                 namRadioButton.Checked = true;
                 nuRadioButton.Checked = false;
             }
-            else if (gioiTinh == "Nữ")
+            else if (gioiTinh == "Female")
             {
                 nuRadioButton.Checked = true;
                 namRadioButton.Checked = false;
             }
-        }
-
-        private void Label_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void InformationSection_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -84,7 +84,6 @@
             Label.TabIndex = 0;
             Label.Text = "QUẢN LÝ THUỐC";
             Label.TextAlign = ContentAlignment.MiddleLeft;
-            Label.Click += Label_Click;
             // 
             // InformationSection
             // 
@@ -110,7 +109,6 @@
             InformationSection.Name = "InformationSection";
             InformationSection.Size = new Size(1079, 241);
             InformationSection.TabIndex = 1;
-            InformationSection.Paint += InformationSection_Paint;
             // 
             // capNhatButton
             // 
@@ -162,7 +160,6 @@
             ghiChuBox.Size = new Size(244, 127);
             ghiChuBox.TabIndex = 12;
             ghiChuBox.Text = "";
-            ghiChuBox.TextChanged += ghiChuBox_TextChanged;
             // 
             // ghiChu
             // 
