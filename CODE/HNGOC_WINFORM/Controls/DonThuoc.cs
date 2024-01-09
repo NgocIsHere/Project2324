@@ -65,7 +65,7 @@ namespace QLPHONGKHAM.Controls
             {
                 new SqlParameter("@ID_BENHAN", SqlDbType.Char){Value = DonThuoc.idBenhAn},
                 new SqlParameter("@NGAYLAPDON", SqlDbType.Date){Value = Convert.ToDateTime(DonThuoc.ngayKeDon)},
-                new SqlParameter("@NewIDDon", SqlDbType.VarChar, 8) { Direction = ParameterDirection.Output }
+                new SqlParameter("@ID_DON", SqlDbType.VarChar, 8) { Direction = ParameterDirection.Output }
             };
 
             int status = connection.ExecuteStoredProcedureWithParams("SP_THEMDONTHUOC", paras);

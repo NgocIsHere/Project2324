@@ -17,10 +17,6 @@ namespace QLPHONGKHAM
         Connection connection;
         Util util;
         public static string idThuocSelectedGlobal { get; set; }
-
-        //Dictionary mapping with combo box value
-        private Dictionary<string, string> thuocDictionary = new Dictionary<string, string>();
-
         //DanhSachThuoc dsThuoc;
         public TaoDonThuoc()
         {
@@ -34,8 +30,9 @@ namespace QLPHONGKHAM
             maDonThuocBox.Text = DonThuoc.idDonThuocGlobal;
             xoaThuocButton.Enabled = false;
             loadChiTietDon();
+            loadDanhSachThuoc();
         }
-       
+
         void loadThongTinBenhAn()
         {
             this.tenBenhNhanBox.Text = DonThuoc.hoTen;
@@ -58,6 +55,12 @@ namespace QLPHONGKHAM
             this.diaChiBox.Text = DonThuoc.diaChi;
             this.ngayKeDonBox.Value = Convert.ToDateTime(DonThuoc.ngayKeDon);
         }
+
+        void loadDanhSachThuoc()
+        {
+            connection.connect();
+            searchThuocTable.DataSource = connection.dataTable("EXEC SP_XEMDSTHUOC");
+        }
         void loadChiTietDon()
         {
             connection.connect();
@@ -68,49 +71,6 @@ namespace QLPHONGKHAM
             };
             chiTietDonTable.DataSource = connection.dataTableWithParams("SP_XEMCHITIETDON", paras);
         }
-
-        private void TenThuocComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selected = TenThuocComboBox.SelectedItem.ToString();
-            if (thuocDictionary.ContainsKey(selected))
-            {
-                idThuocSelectedGlobal = thuocDictionary[selected];
-                //MessageBox.Show(idThuocSelectedGlobal);
-            }
-        }
-
-        void loadComboBoxData()
-        {
-            connection.connect();
-            DataTable dataTable = connection.dataTable("EXEC SP_XEMDANHSACHTHUOC");
-            TenThuocComboBox.Items.Clear();
-            thuocDictionary.Clear();
-
-            if (dataTable != null && dataTable.Rows.Count > 0)
-            {
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    string idThuoc = row["ID_THUOC"].ToString();
-                    string tenThuoc = row["TENTHUOC"].ToString();
-                    string soLuong = row["SOLUONG"].ToString();
-                    string donVi = row["DONVI"].ToString();
-
-                    string formattedString = $"{tenThuoc} - Kho: {soLuong} ({donVi})";
-                    TenThuocComboBox.Items.Add(formattedString);
-                    thuocDictionary.Add(formattedString, idThuoc);
-                }
-            }
-            else
-            {
-                // Handle case when no data is retrieved
-                TenThuocComboBox.Items.Add("Không có thuốc");
-            }
-        }
-        private void TenThuocComboBox_Click(object sender, EventArgs e)
-        {
-            loadComboBoxData();
-        }
-
         private void themThuocButton_Click(object sender, EventArgs e)
         {
             if (idThuocSelectedGlobal != null && soLuongThuocBox.Text != null)
@@ -122,6 +82,7 @@ namespace QLPHONGKHAM
                     new SqlParameter("@ID_BENHAN", SqlDbType.Char){Value = DonThuoc.idBenhAn},
                     new SqlParameter("@ID_THUOC", SqlDbType.VarChar){Value = idThuocSelectedGlobal},
                     new SqlParameter("@SOLUONG", SqlDbType.Int){Value = Convert.ToInt16(soLuongThuocBox.Text)},
+                    new SqlParameter("@GHICHU", SqlDbType.NVarChar){Value = this.ghiChuThuocBox.Text},
                 };
 
                 int status = connection.ExecuteStoredProcedureWithParams("SP_THEMCHITIETDON", paras);
@@ -158,21 +119,9 @@ namespace QLPHONGKHAM
 
             //Binding data
             this.soLuongThuocBox.Text = Convert.ToString(row.Cells["SOLUONG"].Value);
-
-            string idThuocFromGrid = row.Cells["ID_THUOC"].Value.ToString();
-
-            loadComboBoxData();
-            // Check if the ID_THUOC exists as a key in the dictionary and assign it to combo box
-            if (thuocDictionary.ContainsValue(idThuocFromGrid))
-            {
-                var selectedItem = thuocDictionary.FirstOrDefault(x => x.Value == idThuocFromGrid);
-                if (!string.IsNullOrEmpty(selectedItem.Key))
-                {
-                    TenThuocComboBox.SelectedItem = selectedItem.Key;
-                    idThuocSelectedGlobal = selectedItem.Value;
-                    //MessageBox.Show(idThuocSelectedGlobal);
-                }
-            }
+            this.tenThuocBox.Text = row.Cells["TENTHUOC"].Value.ToString();
+            this.ghiChuThuocBox.Text = row.Cells["GHICHU"].Value.ToString();
+            idThuocSelectedGlobal = row.Cells["ID_THUOC"].Value.ToString();
         }
 
         private void xoaThuocButton_Click(object sender, EventArgs e)
@@ -246,10 +195,37 @@ namespace QLPHONGKHAM
                 MessageBox.Show("ĐÃ XÓA ĐƠN THUỐC");
                 this.Close();
             }
-            else 
+            else
             {
                 MessageBox.Show("LỖI XÓA ĐƠN THUỐC");
             }
+        }
+
+        private void soLuongThuoc1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchThuocButton_Click(object sender, EventArgs e)
+        {
+            if (this.searchThuocBox.Text != null && this.searchThuocBox.Text != "")
+            {
+                connection.connect();
+                SqlParameter[] paras = {
+                    new SqlParameter("@TENTHUOC", SqlDbType.NVarChar) { Value = this.searchThuocBox.Text }
+                };
+                this.searchThuocTable.DataSource = connection.dataTableWithParams("SP_TIMTHUOCTHEOTEN", paras);
+            }
+        }
+
+        private void searchThuocTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = new DataGridViewRow();
+            row = searchThuocTable.Rows[e.RowIndex];
+
+            idThuocSelectedGlobal = row.Cells["ID_THUOC"].Value.ToString();
+            tenThuocBox.Text = row.Cells["TENTHUOC"].Value.ToString();
+            soLuongThuocBox.Text = null;
         }
     }
 }
