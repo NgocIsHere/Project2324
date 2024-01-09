@@ -31,6 +31,7 @@ namespace QLPHONGKHAM.Controls
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
+            Label = new Label();
             InformationSection = new Panel();
             gioiTinh = new Label();
             nuRadioButton = new RadioButton();
@@ -50,7 +51,6 @@ namespace QLPHONGKHAM.Controls
             matKhauBox = new TextBox();
             iDNhanVien = new Label();
             iDNhaSiBox = new TextBox();
-            Label = new Label();
             nhanVienTable = new DataGridView();
             tableLayoutPanel1.SuspendLayout();
             InformationSection.SuspendLayout();
@@ -75,6 +75,22 @@ namespace QLPHONGKHAM.Controls
             tableLayoutPanel1.Size = new Size(1150, 642);
             tableLayoutPanel1.TabIndex = 2;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
+            // 
+            // Label
+            // 
+            Label.AutoSize = true;
+            Label.BackColor = Color.Teal;
+            Label.Dock = DockStyle.Fill;
+            Label.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Label.ForeColor = Color.GhostWhite;
+            Label.Location = new Point(0, 0);
+            Label.Margin = new Padding(0);
+            Label.Name = "Label";
+            Label.Size = new Size(1150, 38);
+            Label.TabIndex = 0;
+            Label.Text = "NHÂN VIÊN";
+            Label.TextAlign = ContentAlignment.MiddleLeft;
+            Label.Click += Label_Click;
             // 
             // InformationSection
             // 
@@ -300,22 +316,6 @@ namespace QLPHONGKHAM.Controls
             iDNhaSiBox.Name = "iDNhaSiBox";
             iDNhaSiBox.Size = new Size(224, 27);
             iDNhaSiBox.TabIndex = 0;
-            // 
-            // Label
-            // 
-            Label.AutoSize = true;
-            Label.BackColor = Color.Teal;
-            Label.Dock = DockStyle.Fill;
-            Label.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Label.ForeColor = Color.GhostWhite;
-            Label.Location = new Point(0, 0);
-            Label.Margin = new Padding(0);
-            Label.Name = "Label";
-            Label.Size = new Size(1150, 38);
-            Label.TabIndex = 0;
-            Label.Text = "NHÂN VIÊN";
-            Label.TextAlign = ContentAlignment.MiddleLeft;
-            Label.Click += Label_Click;
             // 
             // nhanVienTable
             // 

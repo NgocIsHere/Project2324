@@ -30,6 +30,11 @@ namespace QLPHONGKHAM.Controls
             lichLamViecTable.ClearSelection();
         }
 
+<<<<<<< HEAD
+        void getLichLamViecList()
+        {
+            
+=======
         private void RefreshDataGridView()
         {
             lichLamViecTable.DataSource = connection.dataTable("EXEC SP_XEMLICHLAMVIEC");
@@ -48,6 +53,7 @@ namespace QLPHONGKHAM.Controls
             lichLamViecTable.Columns["HOTEN"].HeaderText = "Họ và tên";
             lichLamViecTable.Columns["THANG"].HeaderText = "Tháng";
             lichLamViecTable.Columns["NGAYLAMVIEC"].HeaderText = "Ngày làm việc";
+>>>>>>> cdd43a3a0d780ec49c7279ff634fe6290272bd0a
         }
 
         private void lichLamViecTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -80,9 +86,66 @@ namespace QLPHONGKHAM.Controls
                 MessageBox.Show("LỊCH LÀM VIỆC NÀY ĐÃ TỒN TẠI");
             }
             getLichLamViecList();
-            lichLamViecTable.ClearSelection();
-            //RefreshDataGridView();
+            lichLamViecTable.ClearSelection();          
         }
+
+        private void locButton_Click(object sender, EventArgs e)
+        {
+            locLichLamViec();
+        }
+
+        void locLichLamViec()
+        {
+            connection.connect();
+            string procName = "";
+            SqlParameter[] paras = null;
+
+            lichLamViecTable.DefaultCellStyle.ForeColor = Color.Black;
+            if (ngayradioButton.Checked)
+            {
+                procName = "XEMLICHLAMVIECNGAY";
+                paras = new SqlParameter[] {
+        new SqlParameter("@SelectedDate", SqlDbType.Date) { Value = this.ngayBatDauTimePicker.Value }
+        };
+            }
+            else if (tuanradioButton.Checked)
+            {
+                procName = "XEMLICHLAMVIECTUAN";
+                // Tính ngày đầu tuần và cuối tuần từ ngày được chọn
+                DateTime selectedDate = this.ngayBatDauTimePicker.Value;
+                DateTime startOfWeek = selectedDate.AddDays((int)DayOfWeek.Monday - (int)selectedDate.DayOfWeek);
+                DateTime endOfWeek = startOfWeek.AddDays(6);
+
+                paras = new SqlParameter[] {
+        new SqlParameter("@StartDate", SqlDbType.Date) { Value = startOfWeek },
+        new SqlParameter("@EndDate", SqlDbType.Date) { Value = this.NgayKetThucTimePicker.Value }
+        };
+            }
+            else if (thangradioButton.Checked)
+            {
+                procName = "XEMLICHLAMVIECTHANG";
+                // Lấy ngày đầu tháng và cuối tháng từ ngày được chọn
+                DateTime selectedDate = this.ngayBatDauTimePicker.Value;
+                DateTime startOfMonth = new DateTime(selectedDate.Year, selectedDate.Month, 1);
+                DateTime endOfMonth = startOfMonth.AddMonths(1).AddDays(-1);
+
+                paras = new SqlParameter[] {
+            new SqlParameter("@StartDate", SqlDbType.Date) { Value = startOfMonth },
+            new SqlParameter("@EndDate", SqlDbType.Date) { Value = this.NgayKetThucTimePicker.Value }
+        };
+            }
+
+            if (!string.IsNullOrEmpty(procName) && paras != null)
+            {
+                DataTable resultTable = connection.dataTableWithParams(procName, paras);
+                lichLamViecTable.DataSource = resultTable;
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn loại lịch làm việc cần xem.");
+            }
+        }
+
 
 
         private void InformationSection_Paint(object sender, PaintEventArgs e)
