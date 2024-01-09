@@ -191,40 +191,139 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE XEMLICHLAMVIEC
+CREATE OR ALTER PROCEDURE XEMLICHLAMVIECTHANG
+    @StartDate DATE,
+    @EndDate DATE
 AS
 BEGIN
-    DECLARE @result TABLE (NHASI CHAR(8), HOTEN NVARCHAR(50), THANG NVARCHAR(MAX), NGAYLAMVIEC NVARCHAR(MAX));
-    DECLARE @NHASI CHAR(8), @HOTEN NVARCHAR(50), @THANG NVARCHAR(MAX), @NGAYLAMVIEC NVARCHAR(MAX);
+    -- Tạo bảng tạm thời
+    CREATE TABLE #temp (NHASI CHAR(8), HOTEN NVARCHAR(50), THANG NVARCHAR(MAX), NGAYLAMVIEC NVARCHAR(MAX));
 
-    DECLARE cur CURSOR FOR
-    SELECT a.NHASI, b.HOTEN,
-           CONVERT(NVARCHAR, DATEPART(mm, a.NGAY)) + '/' + CONVERT(NVARCHAR, DATEPART(yyyy, a.NGAY)) AS THANG,
-           STUFF((SELECT DISTINCT ', ' + CONVERT(NVARCHAR, DATEPART(dd, b.NGAY))
+    -- Khởi tạo ngày hiện tại
+    DECLARE @CurrentDate DATE = @StartDate;
+
+    -- Lặp qua từng tháng
+    WHILE @CurrentDate <= @EndDate
+    BEGIN
+        -- Tính ngày đầu tiên và cuối cùng của tháng hiện tại
+        DECLARE @FirstDayOfMonth DATE = DATEFROMPARTS(YEAR(@CurrentDate), MONTH(@CurrentDate), 1);
+        DECLARE @LastDayOfMonth DATE = EOMONTH(@CurrentDate);
+
+        -- Thực hiện truy vấn cho tháng hiện tại và lưu kết quả vào bảng tạm thời
+        INSERT INTO #temp
+        SELECT a.NHASI, b.HOTEN,
+            CONVERT(NVARCHAR, DATEPART(mm, a.NGAY)) + '/' + CONVERT(NVARCHAR, DATEPART(yyyy, a.NGAY)) AS THANG,
+            STUFF((SELECT DISTINCT ', ' + CONVERT(NVARCHAR, DATEPART(dd, b.NGAY))
                FROM LICHLAMVIEC b
-               WHERE a.NHASI = b.NHASI AND DATEPART(mm, a.NGAY) = DATEPART(mm, b.NGAY)
+               WHERE a.NHASI = b.NHASI AND DATEPART(mm, a.NGAY) = DATEPART(mm, b.NGAY) AND DATEPART(yyyy, a.NGAY) = DATEPART(yyyy, b.NGAY)
+               AND b.NGAY BETWEEN @FirstDayOfMonth AND @LastDayOfMonth
                GROUP BY DATEPART(dd, b.NGAY)
                FOR XML PATH('')), 1, 2, '') AS NGAYLAMVIEC
-    FROM LICHLAMVIEC a
-    JOIN NHASI b ON a.NHASI = b.ID
-    GROUP BY a.NHASI, b.HOTEN, DATEPART(mm, a.NGAY), DATEPART(yyyy, a.NGAY);
+        FROM LICHLAMVIEC a
+        JOIN NHASI b ON a.NHASI = b.ID
+        WHERE a.NGAY BETWEEN @FirstDayOfMonth AND @LastDayOfMonth
+        GROUP BY a.NHASI, b.HOTEN, DATEPART(mm, a.NGAY), DATEPART(yyyy, a.NGAY);
 
-    OPEN cur;
+        -- Chuyển sang tháng tiếp theo
+        SET @CurrentDate = DATEADD(month, 1, @CurrentDate);
+    END
 
-    FETCH NEXT FROM cur INTO @NHASI, @HOTEN, @THANG, @NGAYLAMVIEC;
-    WHILE @@FETCH_STATUS = 0
-    BEGIN
-        INSERT INTO @result (NHASI, HOTEN, THANG, NGAYLAMVIEC) VALUES (@NHASI, @HOTEN, @THANG, @NGAYLAMVIEC);
-        FETCH NEXT FROM cur INTO @NHASI, @HOTEN, @THANG, @NGAYLAMVIEC;
-    END;
+    -- Trả về kết quả từ bảng tạm thời
+    SELECT * FROM #temp ORDER BY NHASI, THANG;
 
-    CLOSE cur;
-    DEALLOCATE cur;
-
-    SELECT * FROM @result ORDER BY NHASI, THANG;
+    -- Xóa bảng tạm thời
+    DROP TABLE #temp;
 END;
 GO
 
+
+CREATE OR ALTER PROCEDURE XEMLICHLAMVIECTUAN
+    @StartDate DATE,
+    @EndDate DATE
+AS
+BEGIN
+    SELECT a.NHASI, b.HOTEN,
+           CONVERT(NVARCHAR, DATEADD(dd, -(DATEPART(dw, MIN(a.NGAY))%7), MIN(a.NGAY)), 103) 
+           + ' - ' + 
+           CONVERT(NVARCHAR, DATEADD(dd, 6-(DATEPART(dw, MAX(a.NGAY))%7), MAX(a.NGAY)), 103) AS TUAN,
+           STUFF((
+               SELECT DISTINCT ', ' + CASE DATEPART(dw, c.NGAY)
+                                      WHEN 1 THEN N'Chủ Nhật'
+                                      WHEN 2 THEN N'Thứ Hai'
+                                      WHEN 3 THEN N'Thứ Ba'
+                                      WHEN 4 THEN N'Thứ Tư'
+                                      WHEN 5 THEN N'Thứ Năm'
+                                      WHEN 6 THEN N'Thứ Sáu'
+                                      WHEN 7 THEN N'Thứ Bảy'
+                                  END
+               FROM LICHLAMVIEC c
+               WHERE c.NHASI = a.NHASI 
+                   AND DATEPART(wk, c.NGAY) = DATEPART(wk, a.NGAY)
+                   AND c.NGAY BETWEEN @StartDate AND @EndDate
+               FOR XML PATH('')), 1, 2, '') AS NGAYLAMVIEC
+    FROM LICHLAMVIEC a
+    JOIN NHASI b ON a.NHASI = b.ID
+    WHERE a.NGAY BETWEEN @StartDate AND @EndDate
+    GROUP BY a.NHASI, b.HOTEN, DATEPART(wk, a.NGAY)
+    ORDER BY a.NHASI, DATEPART(wk, a.NGAY);
+END;
+GO
+
+CREATE OR ALTER PROCEDURE XEMLICHLAMVIECTUAN
+    @StartDate DATE,
+    @EndDate DATE
+AS
+BEGIN
+    -- Tạo bảng tạm thời
+    CREATE TABLE #temp (NHASI CHAR(8), HOTEN NVARCHAR(50), TUAN NVARCHAR(MAX), NGAYLAMVIEC NVARCHAR(MAX));
+
+    -- Khởi tạo ngày hiện tại
+    DECLARE @CurrentDate DATE = @StartDate;
+
+    -- Lặp qua từng tuần
+    WHILE @CurrentDate <= @EndDate
+    BEGIN
+        -- Tính ngày đầu tiên và cuối cùng của tuần hiện tại
+        DECLARE @FirstDayOfWeek DATE = DATEADD(wk, DATEDIFF(wk, 0, @CurrentDate), 0);
+        DECLARE @LastDayOfWeek DATE = DATEADD(wk, DATEDIFF(wk, 0, @CurrentDate) + 1, -1);
+
+        -- Thực hiện truy vấn cho tuần hiện tại và lưu kết quả vào bảng tạm thời
+        INSERT INTO #temp
+        SELECT a.NHASI, b.HOTEN,
+               CONVERT(NVARCHAR, @FirstDayOfWeek, 103) 
+               + ' - ' + 
+               CONVERT(NVARCHAR, @LastDayOfWeek, 103) AS TUAN,
+               STUFF((
+                   SELECT DISTINCT ', ' + CASE DATEPART(dw, c.NGAY)
+                                          WHEN 1 THEN N'Chủ Nhật'
+                                          WHEN 2 THEN N'Thứ Hai'
+                                          WHEN 3 THEN N'Thứ Ba'
+                                          WHEN 4 THEN N'Thứ Tư'
+                                          WHEN 5 THEN N'Thứ Năm'
+                                          WHEN 6 THEN N'Thứ Sáu'
+                                          WHEN 7 THEN N'Thứ Bảy'
+                                      END
+                   FROM LICHLAMVIEC c
+                   WHERE c.NHASI = a.NHASI 
+                       AND DATEPART(wk, c.NGAY) = DATEPART(wk, a.NGAY)
+                       AND c.NGAY BETWEEN @FirstDayOfWeek AND @LastDayOfWeek
+                   FOR XML PATH('')), 1, 2, '') AS NGAYLAMVIEC
+        FROM LICHLAMVIEC a
+        JOIN NHASI b ON a.NHASI = b.ID
+        WHERE a.NGAY BETWEEN @FirstDayOfWeek AND @LastDayOfWeek
+        GROUP BY a.NHASI, b.HOTEN, DATEPART(wk, a.NGAY);
+
+        -- Chuyển sang tuần tiếp theo
+        SET @CurrentDate = DATEADD(wk, 1, @CurrentDate);
+    END
+
+    -- Trả về kết quả từ bảng tạm thời
+    SELECT * FROM #temp ORDER BY NHASI, TUAN;
+
+    -- Xóa bảng tạm thời
+    DROP TABLE #temp;
+END;
+GO
 
 CREATE PROCEDURE THEMLICHLAMVIEC
     @NHASI CHAR(8),

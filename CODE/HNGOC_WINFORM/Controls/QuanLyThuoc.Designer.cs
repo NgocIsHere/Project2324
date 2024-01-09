@@ -291,6 +291,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
+            ForeColor = SystemColors.WindowFrame;
             Name = "QuanLyThuoc";
             Size = new Size(1079, 736);
             Load += QuanLyThuoc_Load;

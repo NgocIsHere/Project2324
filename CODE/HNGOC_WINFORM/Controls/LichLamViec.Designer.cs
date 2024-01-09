@@ -32,6 +32,13 @@
             lichLamViecTable = new DataGridView();
             Label = new Label();
             InformationSection = new Panel();
+            locButton = new Button();
+            ngayradioButton = new RadioButton();
+            tuanradioButton = new RadioButton();
+            thangradioButton = new RadioButton();
+            NgayKetThucTimePicker = new DateTimePicker();
+            ngayBatDauTimePicker = new DateTimePicker();
+            locLabel = new Label();
             gioLamViecBox = new DateTimePicker();
             gioLamViec = new Label();
             themButton = new Button();
@@ -39,6 +46,8 @@
             ngayLamViecBox = new DateTimePicker();
             iDNhaSi = new Label();
             iDNhaSiBox = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)lichLamViecTable).BeginInit();
             InformationSection.SuspendLayout();
@@ -93,6 +102,15 @@
             // InformationSection
             // 
             InformationSection.BackColor = SystemColors.Control;
+            InformationSection.Controls.Add(label2);
+            InformationSection.Controls.Add(label1);
+            InformationSection.Controls.Add(locButton);
+            InformationSection.Controls.Add(ngayradioButton);
+            InformationSection.Controls.Add(tuanradioButton);
+            InformationSection.Controls.Add(thangradioButton);
+            InformationSection.Controls.Add(NgayKetThucTimePicker);
+            InformationSection.Controls.Add(ngayBatDauTimePicker);
+            InformationSection.Controls.Add(locLabel);
             InformationSection.Controls.Add(gioLamViecBox);
             InformationSection.Controls.Add(gioLamViec);
             InformationSection.Controls.Add(themButton);
@@ -107,6 +125,84 @@
             InformationSection.Size = new Size(1036, 202);
             InformationSection.TabIndex = 1;
             InformationSection.Paint += InformationSection_Paint;
+            // 
+            // locButton
+            // 
+            locButton.BackColor = Color.Chocolate;
+            locButton.FlatStyle = FlatStyle.System;
+            locButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            locButton.ForeColor = SystemColors.ButtonHighlight;
+            locButton.Location = new Point(841, 153);
+            locButton.Margin = new Padding(0);
+            locButton.Name = "locButton";
+            locButton.Size = new Size(177, 37);
+            locButton.TabIndex = 22;
+            locButton.Text = "LỌC";
+            locButton.UseVisualStyleBackColor = false;
+            locButton.Click += locButton_Click;
+            // 
+            // ngayradioButton
+            // 
+            ngayradioButton.AutoSize = true;
+            ngayradioButton.BackColor = SystemColors.Control;
+            ngayradioButton.ForeColor = SystemColors.WindowText;
+            ngayradioButton.Location = new Point(643, 166);
+            ngayradioButton.Name = "ngayradioButton";
+            ngayradioButton.Size = new Size(65, 24);
+            ngayradioButton.TabIndex = 21;
+            ngayradioButton.TabStop = true;
+            ngayradioButton.Text = "Ngày";
+            ngayradioButton.UseVisualStyleBackColor = false;
+            // 
+            // tuanradioButton
+            // 
+            tuanradioButton.AutoSize = true;
+            tuanradioButton.ForeColor = SystemColors.WindowText;
+            tuanradioButton.Location = new Point(575, 166);
+            tuanradioButton.Name = "tuanradioButton";
+            tuanradioButton.Size = new Size(62, 24);
+            tuanradioButton.TabIndex = 20;
+            tuanradioButton.TabStop = true;
+            tuanradioButton.Text = "Tuần";
+            tuanradioButton.UseVisualStyleBackColor = true;
+            // 
+            // thangradioButton
+            // 
+            thangradioButton.AutoSize = true;
+            thangradioButton.ForeColor = SystemColors.WindowText;
+            thangradioButton.Location = new Point(498, 166);
+            thangradioButton.Name = "thangradioButton";
+            thangradioButton.Size = new Size(71, 24);
+            thangradioButton.TabIndex = 19;
+            thangradioButton.TabStop = true;
+            thangradioButton.Text = "Tháng";
+            thangradioButton.UseVisualStyleBackColor = true;
+            // 
+            // NgayKetThucTimePicker
+            // 
+            NgayKetThucTimePicker.Location = new Point(310, 165);
+            NgayKetThucTimePicker.Name = "NgayKetThucTimePicker";
+            NgayKetThucTimePicker.Size = new Size(148, 27);
+            NgayKetThucTimePicker.TabIndex = 18;
+            // 
+            // ngayBatDauTimePicker
+            // 
+            ngayBatDauTimePicker.Location = new Point(84, 165);
+            ngayBatDauTimePicker.Name = "ngayBatDauTimePicker";
+            ngayBatDauTimePicker.Size = new Size(145, 27);
+            ngayBatDauTimePicker.TabIndex = 17;
+            // 
+            // locLabel
+            // 
+            locLabel.AutoSize = true;
+            locLabel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            locLabel.ForeColor = SystemColors.WindowText;
+            locLabel.Location = new Point(16, 128);
+            locLabel.Margin = new Padding(0);
+            locLabel.Name = "locLabel";
+            locLabel.Size = new Size(73, 20);
+            locLabel.TabIndex = 16;
+            locLabel.Text = "Chọn lịch";
             // 
             // gioLamViecBox
             // 
@@ -187,6 +283,24 @@
             iDNhaSiBox.Size = new Size(224, 27);
             iDNhaSiBox.TabIndex = 0;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(235, 170);
+            label1.Name = "label1";
+            label1.Size = new Size(70, 20);
+            label1.TabIndex = 23;
+            label1.Text = "đến ngày";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(16, 170);
+            label2.Name = "label2";
+            label2.Size = new Size(62, 20);
+            label2.TabIndex = 24;
+            label2.Text = "Từ ngày";
+            // 
             // LichLamViec
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -218,5 +332,14 @@
         private DataGridView lichLamViecTable;
         private DateTimePicker gioLamViecBox;
         private Label gioLamViec;
+        private DateTimePicker NgayKetThucTimePicker;
+        private DateTimePicker ngayBatDauTimePicker;
+        private Label locLabel;
+        private RadioButton ngayradioButton;
+        private RadioButton tuanradioButton;
+        private RadioButton thangradioButton;
+        private Button locButton;
+        private Label label2;
+        private Label label1;
     }
 }
