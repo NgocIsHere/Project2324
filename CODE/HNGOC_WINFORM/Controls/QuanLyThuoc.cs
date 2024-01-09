@@ -16,7 +16,6 @@ namespace QLPHONGKHAM.Controls
     {
         Connection connection;
         Util util;
-        //DataSetTableAdapters.THUOCTableAdapter thuoc = new DataSetTableAdapters.THUOCTableAdapter();
         public QuanLyThuoc()
         {
             InitializeComponent();
@@ -153,6 +152,18 @@ namespace QLPHONGKHAM.Controls
                 MessageBox.Show("TRÙNG TÊN THUỐC ĐÃ CÓ");
             }
             RefreshDataGridView();
+        }
+
+        private void searchThuocButton_Click(object sender, EventArgs e)
+        {
+            if (this.searchThuocBox.Text != null && this.searchThuocBox.Text != "")
+            {
+                connection.connect();
+                SqlParameter[] paras = {
+                    new SqlParameter("@TENTHUOC", SqlDbType.NVarChar) { Value = this.searchThuocBox.Text }
+                };
+                this.thuocTable.DataSource = connection.dataTableWithParams("SP_TIMTHUOCTHEOTEN", paras);
+            }
         }
     }
 }

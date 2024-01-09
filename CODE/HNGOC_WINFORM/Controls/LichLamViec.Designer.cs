@@ -32,6 +32,8 @@
             lichLamViecTable = new DataGridView();
             Label = new Label();
             InformationSection = new Panel();
+            label2 = new Label();
+            label1 = new Label();
             locButton = new Button();
             ngayradioButton = new RadioButton();
             tuanradioButton = new RadioButton();
@@ -46,8 +48,6 @@
             ngayLamViecBox = new DateTimePicker();
             iDNhaSi = new Label();
             iDNhaSiBox = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)lichLamViecTable).BeginInit();
             InformationSection.SuspendLayout();
@@ -82,7 +82,6 @@
             lichLamViecTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             lichLamViecTable.Size = new Size(1030, 372);
             lichLamViecTable.TabIndex = 2;
-            lichLamViecTable.CellContentClick += lichLamViecTable_CellContentClick;
             // 
             // Label
             // 
@@ -124,18 +123,37 @@
             InformationSection.Name = "InformationSection";
             InformationSection.Size = new Size(1036, 202);
             InformationSection.TabIndex = 1;
-            InformationSection.Paint += InformationSection_Paint;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = SystemColors.WindowText;
+            label2.Location = new Point(16, 170);
+            label2.Name = "label2";
+            label2.Size = new Size(62, 20);
+            label2.TabIndex = 24;
+            label2.Text = "Từ ngày";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = SystemColors.WindowText;
+            label1.Location = new Point(235, 170);
+            label1.Name = "label1";
+            label1.Size = new Size(70, 20);
+            label1.TabIndex = 23;
+            label1.Text = "đến ngày";
             // 
             // locButton
             // 
-            locButton.BackColor = Color.Chocolate;
-            locButton.FlatStyle = FlatStyle.System;
-            locButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            locButton.ForeColor = SystemColors.ButtonHighlight;
-            locButton.Location = new Point(841, 153);
+            locButton.BackColor = Color.Teal;
+            locButton.FlatStyle = FlatStyle.Popup;
+            locButton.Font = new Font("Yu Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            locButton.ForeColor = SystemColors.Window;
+            locButton.Location = new Point(734, 162);
             locButton.Margin = new Padding(0);
             locButton.Name = "locButton";
-            locButton.Size = new Size(177, 37);
+            locButton.Size = new Size(76, 32);
             locButton.TabIndex = 22;
             locButton.Text = "LỌC";
             locButton.UseVisualStyleBackColor = false;
@@ -180,6 +198,8 @@
             // 
             // NgayKetThucTimePicker
             // 
+            NgayKetThucTimePicker.CustomFormat = "dd/MM/yyyy";
+            NgayKetThucTimePicker.Format = DateTimePickerFormat.Custom;
             NgayKetThucTimePicker.Location = new Point(310, 165);
             NgayKetThucTimePicker.Name = "NgayKetThucTimePicker";
             NgayKetThucTimePicker.Size = new Size(148, 27);
@@ -187,6 +207,8 @@
             // 
             // ngayBatDauTimePicker
             // 
+            ngayBatDauTimePicker.CustomFormat = "dd/MM/yyyy";
+            ngayBatDauTimePicker.Format = DateTimePickerFormat.Custom;
             ngayBatDauTimePicker.Location = new Point(84, 165);
             ngayBatDauTimePicker.Name = "ngayBatDauTimePicker";
             ngayBatDauTimePicker.Size = new Size(145, 27);
@@ -213,7 +235,6 @@
             gioLamViecBox.Size = new Size(154, 27);
             gioLamViecBox.TabIndex = 15;
             gioLamViecBox.Value = new DateTime(2024, 1, 2, 17, 17, 0, 0);
-            gioLamViecBox.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // gioLamViec
             // 
@@ -259,10 +280,9 @@
             ngayLamViecBox.CustomFormat = "yyyy-MM-dd";
             ngayLamViecBox.Location = new Point(565, 17);
             ngayLamViecBox.Name = "ngayLamViecBox";
-            ngayLamViecBox.Size = new Size(224, 27);
+            ngayLamViecBox.Size = new Size(245, 27);
             ngayLamViecBox.TabIndex = 8;
             ngayLamViecBox.Value = new DateTime(2023, 12, 4, 0, 0, 0, 0);
-            ngayLamViecBox.ValueChanged += ngaySinhBox_ValueChanged;
             // 
             // iDNhaSi
             // 
@@ -282,24 +302,6 @@
             iDNhaSiBox.Name = "iDNhaSiBox";
             iDNhaSiBox.Size = new Size(224, 27);
             iDNhaSiBox.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(235, 170);
-            label1.Name = "label1";
-            label1.Size = new Size(70, 20);
-            label1.TabIndex = 23;
-            label1.Text = "đến ngày";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(16, 170);
-            label2.Name = "label2";
-            label2.Size = new Size(62, 20);
-            label2.TabIndex = 24;
-            label2.Text = "Từ ngày";
             // 
             // LichLamViec
             // 

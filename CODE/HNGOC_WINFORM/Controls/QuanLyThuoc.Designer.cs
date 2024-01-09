@@ -47,6 +47,9 @@
             tenThuoc = new Label();
             tenThuocBox = new TextBox();
             thuocTable = new DataGridView();
+            searchThuocButton = new Button();
+            searchThuocBox = new TextBox();
+            searchThuocLabel = new Label();
             tableLayoutPanel1.SuspendLayout();
             InformationSection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)thuocTable).BeginInit();
@@ -65,8 +68,8 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 32.8804359F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 61.141304F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 54F));
             tableLayoutPanel1.Size = new Size(1079, 736);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -88,6 +91,9 @@
             // InformationSection
             // 
             InformationSection.BackColor = SystemColors.Control;
+            InformationSection.Controls.Add(searchThuocButton);
+            InformationSection.Controls.Add(searchThuocBox);
+            InformationSection.Controls.Add(searchThuocLabel);
             InformationSection.Controls.Add(capNhatButton);
             InformationSection.Controls.Add(xoaButton);
             InformationSection.Controls.Add(themButton);
@@ -107,7 +113,7 @@
             InformationSection.Location = new Point(0, 44);
             InformationSection.Margin = new Padding(0);
             InformationSection.Name = "InformationSection";
-            InformationSection.Size = new Size(1079, 241);
+            InformationSection.Size = new Size(1079, 294);
             InformationSection.TabIndex = 1;
             // 
             // capNhatButton
@@ -274,14 +280,44 @@
             // 
             thuocTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             thuocTable.Dock = DockStyle.Fill;
-            thuocTable.Location = new Point(3, 288);
+            thuocTable.Location = new Point(3, 341);
             thuocTable.Name = "thuocTable";
             thuocTable.ReadOnly = true;
             thuocTable.RowHeadersWidth = 51;
             thuocTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            thuocTable.Size = new Size(1073, 445);
+            thuocTable.Size = new Size(1073, 392);
             thuocTable.TabIndex = 2;
             thuocTable.CellContentClick += thuocTable_CellContentClick;
+            // 
+            // searchThuocButton
+            // 
+            searchThuocButton.BackColor = SystemColors.MenuHighlight;
+            searchThuocButton.FlatStyle = FlatStyle.Popup;
+            searchThuocButton.ForeColor = SystemColors.ButtonHighlight;
+            searchThuocButton.Location = new Point(327, 253);
+            searchThuocButton.Name = "searchThuocButton";
+            searchThuocButton.Size = new Size(87, 29);
+            searchThuocButton.TabIndex = 18;
+            searchThuocButton.Text = "Tìm";
+            searchThuocButton.UseVisualStyleBackColor = false;
+            searchThuocButton.Click += searchThuocButton_Click;
+            // 
+            // searchThuocBox
+            // 
+            searchThuocBox.Location = new Point(99, 253);
+            searchThuocBox.Name = "searchThuocBox";
+            searchThuocBox.Size = new Size(206, 27);
+            searchThuocBox.TabIndex = 17;
+            // 
+            // searchThuocLabel
+            // 
+            searchThuocLabel.AutoSize = true;
+            searchThuocLabel.ForeColor = SystemColors.WindowText;
+            searchThuocLabel.Location = new Point(16, 256);
+            searchThuocLabel.Name = "searchThuocLabel";
+            searchThuocLabel.Size = new Size(78, 20);
+            searchThuocLabel.TabIndex = 16;
+            searchThuocLabel.Text = "Tìm thuốc:";
             // 
             // QuanLyThuoc
             // 
@@ -321,5 +357,8 @@
         private Button xoaButton;
         private Button themButton;
         private DataGridView thuocTable;
+        private Button searchThuocButton;
+        private TextBox searchThuocBox;
+        private Label searchThuocLabel;
     }
 }
