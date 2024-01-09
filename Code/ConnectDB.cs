@@ -8,6 +8,6 @@ namespace Code
 {
     public class ConnectDB
     {
-        public static string connectionString = @"Data Source=DESKTOP-3TQQ5PF\MSSQLSERVER01;Initial Catalog=PHONGKHAM_DB2;Integrated Security=True";
+        public static string connectionString = "Data Source=DESKTOP-TTVSONC\\SQLEXPRESS;Initial Catalog=PHONGKHAM_DB2;Integrated Security=True";
     }
 }
