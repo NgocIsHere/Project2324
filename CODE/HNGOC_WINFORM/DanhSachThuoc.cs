@@ -20,7 +20,7 @@ namespace QLPHONGKHAM
             InitializeComponent();
             connection = new Connection();
             connection.connect();
-            danhSachThuocTable.DataSource = connection.dataTable("EXEC SP_XEMDANHSACHTHUOC");
+            danhSachThuocTable.DataSource = connection.dataTable("EXEC SP_XEMDSTHUOC");
         }
 
         private void DanhSachThuoc_Load(object sender, EventArgs e)

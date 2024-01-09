@@ -27,7 +27,7 @@ namespace QLPHONGKHAM.Controls
         void getMedicineList()
         {
             thuocTable.DefaultCellStyle.ForeColor = Color.Black;
-            thuocTable.DataSource = connection.dataTable("EXEC SP_XEMDANHSACHTHUOC");
+            thuocTable.DataSource = connection.dataTable("EXEC SP_XEMDSTHUOC");
 
             //Đổi tên column
             thuocTable.Columns["ID_THUOC"].HeaderText = "Mã Thuốc";
@@ -66,7 +66,7 @@ namespace QLPHONGKHAM.Controls
 
         private void RefreshDataGridView()
         {
-            thuocTable.DataSource = connection.dataTable("EXEC SP_XEMDANHSACHTHUOC");
+            thuocTable.DataSource = connection.dataTable("EXEC SP_XEMDSTHUOC");
             xoaButton.Enabled = false;
             capNhatButton.Enabled = false;
             util.ClearControl(this.InformationSection);
@@ -153,21 +153,6 @@ namespace QLPHONGKHAM.Controls
                 MessageBox.Show("TRÙNG TÊN THUỐC ĐÃ CÓ");
             }
             RefreshDataGridView();
-        }
-
-        private void Label_Click(object sender, EventArgs e)
-        {
-
-        }
-        
-        private void ghiChuBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void InformationSection_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

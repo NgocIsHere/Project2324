@@ -166,7 +166,6 @@
             Label.TabIndex = 0;
             Label.Text = "ĐƠN THUỐC";
             Label.TextAlign = ContentAlignment.MiddleLeft;
-            Label.Click += Label_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -185,7 +184,6 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 61.141304F));
             tableLayoutPanel1.Size = new Size(1173, 756);
             tableLayoutPanel1.TabIndex = 1;
-            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // InformationSection
             // 
@@ -215,7 +213,6 @@
             InformationSection.Name = "InformationSection";
             InformationSection.Size = new Size(1173, 248);
             InformationSection.TabIndex = 1;
-            InformationSection.Paint += InformationSection_Paint;
             // 
             // ngayKeDon1
             // 

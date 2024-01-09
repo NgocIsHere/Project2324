@@ -30,9 +30,30 @@ namespace QLPHONGKHAM.Controls
             lichLamViecTable.ClearSelection();
         }
 
+<<<<<<< HEAD
         void getLichLamViecList()
         {
             
+=======
+        private void RefreshDataGridView()
+        {
+            lichLamViecTable.DataSource = connection.dataTable("EXEC SP_XEMLICHLAMVIEC");
+            xoaButton.Enabled = false;
+            capNhatButton.Enabled = false;
+            util.ClearControl(this.InformationSection);
+        }
+
+        void getLichLamViecList()
+        {
+            lichLamViecTable.DefaultCellStyle.ForeColor = Color.Black;
+            lichLamViecTable.DataSource = connection.dataTable("EXEC SP_XEMLICHLAMVIEC");
+
+            //Đổi tên column
+            lichLamViecTable.Columns["NHASI"].HeaderText = "ID Nha Sĩ";
+            lichLamViecTable.Columns["HOTEN"].HeaderText = "Họ và tên";
+            lichLamViecTable.Columns["THANG"].HeaderText = "Tháng";
+            lichLamViecTable.Columns["NGAYLAMVIEC"].HeaderText = "Ngày làm việc";
+>>>>>>> cdd43a3a0d780ec49c7279ff634fe6290272bd0a
         }
 
         private void lichLamViecTable_CellContentClick(object sender, DataGridViewCellEventArgs e)

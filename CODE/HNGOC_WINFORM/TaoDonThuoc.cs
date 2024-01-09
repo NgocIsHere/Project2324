@@ -42,12 +42,12 @@ namespace QLPHONGKHAM
             this.sdtBox.Text = DonThuoc.sdt;
             this.ngaySinhBox.Value = Convert.ToDateTime(DonThuoc.ngaySinh);
 
-            if (DonThuoc.gioiTinh == "Nam")
+            if (DonThuoc.gioiTinh == "Male")
             {
                 this.namRadioButton.Checked = true;
                 this.nuRadioButton.Checked = false;
             }
-            else if (DonThuoc.gioiTinh == "Nữ")
+            else if (DonThuoc.gioiTinh == "Female")
             {
                 this.nuRadioButton.Checked = true;
                 this.namRadioButton.Checked = false;

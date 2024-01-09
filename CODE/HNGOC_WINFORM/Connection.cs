@@ -18,7 +18,7 @@ namespace QLPHONGKHAM
 
         public void connect()
         {
-            string connectionStr = "Data Source=NHOXIU21\\SQLEXPRESS;Initial Catalog=PHONGKHAM_DB;Integrated Security=True";
+            string connectionStr = "Data Source=DESKTOP-TTVSONC\\SQLEXPRESS;Initial Catalog=PHONGKHAM_DB2;Integrated Security=True";
             try
             {
                 connection = new SqlConnection(connectionStr);
