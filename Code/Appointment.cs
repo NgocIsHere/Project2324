@@ -177,14 +177,17 @@ namespace Code
                     {
                         if (comboBoxLoc.SelectedItem.ToString() == "Bệnh Nhân")
                         {
+                            command.Parameters.AddWithValue("@NGAY", filterDatePickerBox.Value);
                             command.Parameters.AddWithValue("@TENBENHNHAN", textBoxLoc.Text);
                         }
                         else if (comboBoxLoc.SelectedItem.ToString() == "Nha Sĩ")
                         {
+                            command.Parameters.AddWithValue("@NGAY", filterDatePickerBox.Value);
                             command.Parameters.AddWithValue("@TENNHASI", textBoxLoc.Text);
                         }
                         else
                         {
+                            command.Parameters.AddWithValue("@NGAY", filterDatePickerBox.Value);
                             command.Parameters.AddWithValue("@PHONG", int.Parse(textBoxLoc.Text));
                         }
                         try

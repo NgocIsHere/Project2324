@@ -50,6 +50,8 @@
             this.buttonupdate = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.filterDatePickerBox = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -175,16 +177,16 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 317);
+            this.label8.Location = new System.Drawing.Point(285, 318);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 16);
+            this.label8.Size = new System.Drawing.Size(61, 16);
             this.label8.TabIndex = 15;
-            this.label8.Text = "Lọc";
+            this.label8.Text = "Lọc theo:";
             // 
             // comboBoxLoc
             // 
             this.comboBoxLoc.FormattingEnabled = true;
-            this.comboBoxLoc.Location = new System.Drawing.Point(52, 311);
+            this.comboBoxLoc.Location = new System.Drawing.Point(352, 315);
             this.comboBoxLoc.Name = "comboBoxLoc";
             this.comboBoxLoc.Size = new System.Drawing.Size(121, 24);
             this.comboBoxLoc.TabIndex = 16;
@@ -192,7 +194,7 @@
             // 
             // textBoxLoc
             // 
-            this.textBoxLoc.Location = new System.Drawing.Point(179, 313);
+            this.textBoxLoc.Location = new System.Drawing.Point(479, 317);
             this.textBoxLoc.Name = "textBoxLoc";
             this.textBoxLoc.Size = new System.Drawing.Size(120, 22);
             this.textBoxLoc.TabIndex = 17;
@@ -201,7 +203,7 @@
             // 
             // buttonsearch
             // 
-            this.buttonsearch.Location = new System.Drawing.Point(305, 313);
+            this.buttonsearch.Location = new System.Drawing.Point(605, 317);
             this.buttonsearch.Name = "buttonsearch";
             this.buttonsearch.Size = new System.Drawing.Size(75, 23);
             this.buttonsearch.TabIndex = 18;
@@ -251,6 +253,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.filterDatePickerBox);
             this.panel1.Controls.Add(this.textBoxBN);
             this.panel1.Controls.Add(this.buttonAdd);
             this.panel1.Controls.Add(this.label1);
@@ -273,10 +277,28 @@
             this.panel1.Controls.Add(this.dateTimePickergio);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1199, 358);
             this.panel1.TabIndex = 23;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(29, 318);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(71, 16);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Chọn ngày";
+            // 
+            // filterDatePickerBox
+            // 
+            this.filterDatePickerBox.CustomFormat = "dd/MM/yyyy";
+            this.filterDatePickerBox.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.filterDatePickerBox.Location = new System.Drawing.Point(116, 315);
+            this.filterDatePickerBox.Name = "filterDatePickerBox";
+            this.filterDatePickerBox.Size = new System.Drawing.Size(147, 22);
+            this.filterDatePickerBox.TabIndex = 24;
             // 
             // tableLayoutPanel1
             // 
@@ -286,7 +308,7 @@
             this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -336,5 +358,7 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker filterDatePickerBox;
     }
 }
