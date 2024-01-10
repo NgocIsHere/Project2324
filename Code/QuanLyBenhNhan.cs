@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLPHONGKHAM;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -10,23 +11,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Code
+namespace QLPHONGKHAM
 {
     public partial class QuanLyBenhNhan : Form
     {
-        public SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["PHONGKHAM_DBConnectionString"].ConnectionString);
-
-        public QuanLyBenhNhan()
+        public string backup;
+        public SqlConnection con = new SqlConnection("Data Source=MSI;Initial Catalog=PHONGKHAM_DB;Integrated Security=True");
+        public QuanLyBenhNhan(string role)
         {
             InitializeComponent();
+            backup = role;
         }
 
         private void QuanLyBenhNhan_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'pHONGKHAM_DBDataSet.BENHAN' table. You can move, or remove it, as needed.
-            this.bENHANTableAdapter.Fill(this.pHONGKHAM_DBDataSet.BENHAN);
-            // TODO: This line of code loads data into the 'pHONGKHAM_DBDataSet.BENHAN' table. You can move, or remove it, as needed.
-            this.bENHANTableAdapter.Fill(this.pHONGKHAM_DBDataSet.BENHAN);
 
         }
 
@@ -38,20 +36,24 @@ namespace Code
         private void button1_Click(object sender, EventArgs e)
         {
             con.Open();
-            string number = "select count(*) from NHASI";
-            string sql = "insert into [BENHAN] values (@ID, @HOTEN, @NGAYSINH, @DIACHI, @SDT, @GIOITINH, @THONGTINTONGQUAN, @TINHTRANGDIUNG);";
-            SqlCommand commandCount = new SqlCommand(number, con);
-            int count = (int)commandCount.ExecuteScalar() + 1;
+            string sql = "insert into BENHAN(HOTEN,NGAYSINH,DIACHI,SDT,GIOITINH) values (@HOTEN, @NGAYSINH, @DIACHI, @SDT, @GIOITINH);";
+            string gender;
+            if(listBoxGender.SelectedItem.ToString() == "Nam")
+            {
+                gender = "Male";
+            }
+            else
+            {
+                gender = "Female";
+            }
             using (var cmd = new SqlCommand(sql, con))
             {
-                cmd.Parameters.AddWithValue("@ID", "BN"+ count.ToString("D6"));
+
                 cmd.Parameters.AddWithValue("@HOTEN", textBox2.Text.ToString());
                 cmd.Parameters.AddWithValue("@NGAYSINH", dateTimePicker1.Value.ToString("MM/dd/yyyy"));
                 cmd.Parameters.AddWithValue("@DIACHI", textBox3.Text.ToString());
                 cmd.Parameters.AddWithValue("@SDT", textBox4.Text.ToString());
-                cmd.Parameters.AddWithValue("@GIOITINH", listBoxGender.SelectedItem.ToString());
-                cmd.Parameters.AddWithValue("@THONGTINTONGQUAN", " ");
-                cmd.Parameters.AddWithValue("@TINHTRANGDIUNG", " ");
+                cmd.Parameters.AddWithValue("@GIOITINH", gender);
                 cmd.ExecuteNonQuery();
             }
             MessageBox.Show("Đã thêm bệnh nhân!");
@@ -97,13 +99,13 @@ namespace Code
             if (textBox5.Text.ToString()!=null)
             {
                 con.Open();
-                string query = "SELECT ID, HOTEN, NGAYSINH, DIACHI, SDT, GIOITINH FROM BENHAN BN WHERE BN.ID = '" + textBox5.Text.ToString() + "';";
+                string query = "SELECT ID FROM BENHAN BN WHERE BN.ID = " + textBox5.Text.ToString() + ";";
                 SqlCommand command = new SqlCommand(query, con);
                 object data = command.ExecuteScalar();
                 if (data != null)
                 {
                     this.Hide();
-                    BenhNhan newinterf = new BenhNhan(textBox5.Text.ToString());
+                    ChiTietBN newinterf = new ChiTietBN(textBox5.Text.ToString(), backup);
                     newinterf.Show();
                 }
                 else
@@ -114,6 +116,14 @@ namespace Code
             }
             
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Home hm = new Home(backup);
+            this.Hide();
+            hm.Show();
+            
         }
     }
 }

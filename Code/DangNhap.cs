@@ -10,8 +10,9 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using QLPHONGKHAM;
 
-namespace Code
+namespace QLPHONGKHAM
 {
     public partial class DangNhap : Form
     {
@@ -38,66 +39,35 @@ namespace Code
 
         private void button1_Click(object sender, EventArgs e)
         {
-            con.Open();
-            string sqlQuery = null;
-            string home = null;
-            if (userId.Text.ToString()[1] == 'V')
-            {
-                sqlQuery = "select MATKHAU from NHANVIEN NV where NV.ID = '" + userId.Text + "'";
-                home = "NV";
-            }
-            else if (userId.Text.ToString()[1] == 'S')
-            {
-                sqlQuery = "select MATKHAU from NHASI NS where NS.ID = '" + userId.Text + "'";
-                home = "NS";
-            }
-            else if (userId.Text.ToString()[1] == 'T')
-            {
-                sqlQuery = "select MATKHAU from QTV where QTV.ID = '" + userId.Text + "'";
-                home = "QTV";
-            }
-            else
-            {
-                MessageBox.Show("Sai định dạng Tên đăng nhập");
-            }
-            if (sqlQuery != null)
-            {
-                SqlCommand cmd = new SqlCommand(sqlQuery, con);
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr != null)
-                {
-                    while (dr.Read())
-                    {
-                        if (password.Text.ToString() == dr["MATKHAU"].ToString())
-                        {
-                            MessageBox.Show("Đăng nhập thành công", dr["MATKHAU"].ToString());
-                            this.Hide();
-                            con.Close();
-                            if (home == "NV")
-                            {
-                                HomeNV  interf = new HomeNV();
-                                interf.Show();
-                            }
-                            else if(home == "NS")
-                            {
-                                HomeNS interf = new HomeNS();
-                                interf.Show();
-                            }
-                            else
-                            {
-                                HomeQTV interf = new HomeQTV();
-                                interf.Show();
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Mật khẩu không chính xác vui lòng nhập lại" + dr["MATKHAU"].ToString() + "." + password.Text.ToString());
-                        }
 
+            using (SqlCommand cmd = new SqlCommand("SP_DangNhap", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                if (userId.Text.ToString() != null && password.Text.ToString() != null)
+                {
+                    cmd.Parameters.AddWithValue("@ID", userId.Text.ToString());
+                    cmd.Parameters.AddWithValue("@Password", password.Text.ToString());
+                    cmd.Parameters.Add("@Home", SqlDbType.NChar, 3).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Message", SqlDbType.NVarChar, 255).Direction = ParameterDirection.Output;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    string home = cmd.Parameters["@Home"].Value.ToString();
+                    string message = cmd.Parameters["@Message"].Value.ToString();
+                    con.Close();
+                    MessageBox.Show(message);
+                    MessageBox.Show(home);
+                    if (home.ToLower() == "nv "|| home.ToLower() == "ns "||  home.ToLower() == "qtv")
+                    {
+                        Home hm = new Home(home.ToLower());
+                        this.Hide();
+                        hm.Show();
                     }
                     
                 }
-          
+                else
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin");
+                }
             }
 
         }

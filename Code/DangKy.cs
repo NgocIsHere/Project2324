@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
 
-namespace Code
+namespace QLPHONGKHAM
 {
     public partial class DangKy : Form
     {
@@ -32,9 +32,6 @@ namespace Code
         private void DangKy_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'pHONGKHAM_DBDataSet.NHASI' table. You can move, or remove it, as needed.
-            this.nHASITableAdapter.Fill(this.pHONGKHAM_DBDataSet.NHASI);
-            // TODO: This line of code loads data into the 'pHONGKHAM_DBDataSet.NHANVIEN' table. You can move, or remove it, as needed.
-            this.nHANVIENTableAdapter.Fill(this.pHONGKHAM_DBDataSet.NHANVIEN);
 
         }
 

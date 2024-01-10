@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Code
+namespace QLPHONGKHAM
 {
     internal static class Program
     {
@@ -14,10 +14,9 @@ namespace Code
         [STAThread]
         static void Main()
         {
-            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QuanLyBenhNhan());
+            Application.Run(new DangNhap());
         }
     }
 }
