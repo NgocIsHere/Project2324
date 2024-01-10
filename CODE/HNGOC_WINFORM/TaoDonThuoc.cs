@@ -59,6 +59,9 @@ namespace QLPHONGKHAM
         void loadDanhSachThuoc()
         {
             connection.connect();
+            searchThuocTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            searchThuocTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
             searchThuocTable.DataSource = connection.dataTable("EXEC SP_XEMDSTHUOC");
         }
         void loadChiTietDon()
@@ -69,6 +72,9 @@ namespace QLPHONGKHAM
                 new SqlParameter("@ID_DON", SqlDbType.VarChar){Value = DonThuoc.idDonThuocGlobal},
                 new SqlParameter("@ID_BENHAN", SqlDbType.Char){Value = DonThuoc.idBenhAn},
             };
+            chiTietDonTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            chiTietDonTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
             chiTietDonTable.DataSource = connection.dataTableWithParams("SP_XEMCHITIETDON", paras);
         }
         private void themThuocButton_Click(object sender, EventArgs e)

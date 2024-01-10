@@ -27,6 +27,8 @@ namespace QLPHONGKHAM.Controls
         void getNhanVienList()
         {
             nhanVienTable.DefaultCellStyle.ForeColor = Color.Black;
+            nhanVienTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            nhanVienTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             nhanVienTable.DataSource = connection.dataTable("EXEC SP_XEMDANHSACHNHANVIEN");
 
             //Đổi tên column

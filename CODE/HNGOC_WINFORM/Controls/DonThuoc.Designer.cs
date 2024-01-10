@@ -76,6 +76,7 @@
             // 
             diaChiBox.Location = new Point(640, 177);
             diaChiBox.Name = "diaChiBox";
+            diaChiBox.ReadOnly = true;
             diaChiBox.Size = new Size(284, 53);
             diaChiBox.TabIndex = 12;
             diaChiBox.Text = "";
@@ -107,6 +108,7 @@
             // ngaySinhBox
             // 
             ngaySinhBox.CustomFormat = "yyyy-MM-dd";
+            ngaySinhBox.Enabled = false;
             ngaySinhBox.Format = DateTimePickerFormat.Custom;
             ngaySinhBox.Location = new Point(130, 128);
             ngaySinhBox.Name = "ngaySinhBox";
@@ -130,6 +132,7 @@
             // 
             sdtBox.Location = new Point(130, 72);
             sdtBox.Name = "sdtBox";
+            sdtBox.ReadOnly = true;
             sdtBox.Size = new Size(224, 27);
             sdtBox.TabIndex = 2;
             // 
@@ -149,6 +152,7 @@
             // 
             tenBenhNhanBox.Location = new Point(130, 25);
             tenBenhNhanBox.Name = "tenBenhNhanBox";
+            tenBenhNhanBox.ReadOnly = true;
             tenBenhNhanBox.Size = new Size(224, 27);
             tenBenhNhanBox.TabIndex = 0;
             // 
@@ -262,6 +266,7 @@
             // nuRadioButton
             // 
             nuRadioButton.AutoSize = true;
+            nuRadioButton.Enabled = false;
             nuRadioButton.ForeColor = SystemColors.WindowText;
             nuRadioButton.Location = new Point(198, 193);
             nuRadioButton.Name = "nuRadioButton";
@@ -274,6 +279,7 @@
             // namRadioButton
             // 
             namRadioButton.AutoSize = true;
+            namRadioButton.Enabled = false;
             namRadioButton.ForeColor = SystemColors.WindowText;
             namRadioButton.Location = new Point(130, 192);
             namRadioButton.Name = "namRadioButton";
@@ -287,6 +293,7 @@
             // 
             tinhTrangDiUngBox.Location = new Point(640, 28);
             tinhTrangDiUngBox.Name = "tinhTrangDiUngBox";
+            tinhTrangDiUngBox.ReadOnly = true;
             tinhTrangDiUngBox.Size = new Size(284, 53);
             tinhTrangDiUngBox.TabIndex = 19;
             tinhTrangDiUngBox.Text = "";
@@ -307,6 +314,7 @@
             // 
             thongTinTongQuanBox.Location = new Point(640, 102);
             thongTinTongQuanBox.Name = "thongTinTongQuanBox";
+            thongTinTongQuanBox.ReadOnly = true;
             thongTinTongQuanBox.Size = new Size(284, 53);
             thongTinTongQuanBox.TabIndex = 17;
             thongTinTongQuanBox.Text = "";

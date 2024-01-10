@@ -25,6 +25,9 @@ namespace QLPHONGKHAM.Controls
 
         void getMedicineList()
         {
+            thuocTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            thuocTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
             thuocTable.DefaultCellStyle.ForeColor = Color.Black;
             thuocTable.DataSource = connection.dataTable("EXEC SP_XEMDSTHUOC");
 

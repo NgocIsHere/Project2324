@@ -20,6 +20,8 @@ namespace QLPHONGKHAM
             InitializeComponent();
             connection = new Connection();
             connection.connect();
+            danhSachThuocTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            danhSachThuocTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             danhSachThuocTable.DataSource = connection.dataTable("EXEC SP_XEMDSTHUOC");
         }
 

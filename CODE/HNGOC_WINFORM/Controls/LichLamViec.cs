@@ -36,7 +36,8 @@ namespace QLPHONGKHAM.Controls
             {
                 new SqlParameter("@NHASI", SqlDbType.Char){Value = this.iDNhaSiBox.Text},
                 new SqlParameter("@NGAY", SqlDbType.Date){Value = this.ngayLamViecBox.Value},
-                new SqlParameter("@THOIGIAN", SqlDbType.Time){Value = this.gioLamViecBox.Value.TimeOfDay}
+                new SqlParameter("@THOIGIANBATDAU", SqlDbType.Time){Value = this.gioBatDauBox.Value.TimeOfDay},
+                new SqlParameter("@THOIGIANKETTHUC", SqlDbType.Time){Value = this.gioKetThucBox.Value.TimeOfDay}
             };
             int statusCode = connection.ExecuteStoredProcedureWithParams("SP_THEMLICHLAMVIEC", paras);
 
@@ -48,7 +49,11 @@ namespace QLPHONGKHAM.Controls
             {
                 MessageBox.Show("LỊCH LÀM VIỆC NÀY ĐÃ TỒN TẠI");
             }
-            lichLamViecTable.ClearSelection();          
+            else if (statusCode == -2)
+            {
+                MessageBox.Show("THỜI GIAN BẮT ĐẦU KHÔNG ĐƯỢC LỚN HƠN THỜI GIAN KẾT THÚC");
+            }
+            lichLamViecTable.ClearSelection();
         }
 
         private void locButton_Click(object sender, EventArgs e)
@@ -63,50 +68,98 @@ namespace QLPHONGKHAM.Controls
             SqlParameter[] paras = null;
 
             lichLamViecTable.DefaultCellStyle.ForeColor = Color.Black;
-            if (ngayradioButton.Checked)
+            
+            //Nếu có id thì lọc theo id
+            if (this.idNhaSiSearchBox.Text.Length > 0)
             {
-                procName = "SP_XEMLICHLAMVIECNGAY";
-                paras = new SqlParameter[] {
-                    new SqlParameter("@StartDate", SqlDbType.Date) { Value = this.ngayBatDauTimePicker.Value },
-                    new SqlParameter("@EndDate", SqlDbType.Date) { Value = this.NgayKetThucTimePicker.Value }
-                };
+                if (ngayradioButton.Checked)
+                {
+                    procName = "SP_LICHLAMVIECNGAYCUANHASI";
+                    paras = new SqlParameter[] {
+                        new SqlParameter("@ID_NHASI", SqlDbType.Char) { Value = this.idNhaSiSearchBox.Text},
+                        new SqlParameter("@StartDate", SqlDbType.Date) { Value = this.ngayBatDauTimePicker.Value },
+                        new SqlParameter("@EndDate", SqlDbType.Date) { Value = this.NgayKetThucTimePicker.Value }
+                    };
+                }
+                else if (tuanradioButton.Checked)
+                {
+                    procName = "SP_LICHLAMVIECTUANCUANHASI";
+                    // Tính ngày đầu tuần và cuối tuần từ ngày được chọn
+                    DateTime selectedDate = this.ngayBatDauTimePicker.Value;
+                    DateTime startOfWeek = selectedDate.AddDays((int)DayOfWeek.Monday - (int)selectedDate.DayOfWeek);
+                    DateTime endOfWeek = startOfWeek.AddDays(6);
+
+                    paras = new SqlParameter[] {
+                        new SqlParameter("@ID_NHASI", SqlDbType.Char) { Value = this.idNhaSiSearchBox.Text},
+                        new SqlParameter("@StartDate", SqlDbType.Date) { Value = startOfWeek },
+                        new SqlParameter("@EndDate", SqlDbType.Date) { Value = this.NgayKetThucTimePicker.Value }
+                    };
+                }
+                else if (thangradioButton.Checked)
+                {
+                    procName = "SP_LICHLAMVIECTHANGCUANHASI";
+                    // Lấy ngày đầu tháng và cuối tháng từ ngày được chọn
+                    DateTime selectedDate = this.ngayBatDauTimePicker.Value;
+                    DateTime startOfMonth = new DateTime(selectedDate.Year, selectedDate.Month, 1);
+                    DateTime endOfMonth = startOfMonth.AddMonths(1).AddDays(-1);
+
+                    paras = new SqlParameter[] {
+                        new SqlParameter("@ID_NHASI", SqlDbType.Char) { Value = this.idNhaSiSearchBox.Text},
+                        new SqlParameter("@StartDate", SqlDbType.Date) { Value = startOfMonth },
+                        new SqlParameter("@EndDate", SqlDbType.Date) { Value = this.NgayKetThucTimePicker.Value }
+                    };
+                }
             }
-            else if (tuanradioButton.Checked)
+            else
             {
-                procName = "SP_XEMLICHLAMVIECTUAN";
-                // Tính ngày đầu tuần và cuối tuần từ ngày được chọn
-                DateTime selectedDate = this.ngayBatDauTimePicker.Value;
-                DateTime startOfWeek = selectedDate.AddDays((int)DayOfWeek.Monday - (int)selectedDate.DayOfWeek);
-                DateTime endOfWeek = startOfWeek.AddDays(6);
+                if (ngayradioButton.Checked)
+                {
+                    procName = "SP_XEMLICHLAMVIECNGAY";
+                    paras = new SqlParameter[] {
+                        new SqlParameter("@StartDate", SqlDbType.Date) { Value = this.ngayBatDauTimePicker.Value },
+                        new SqlParameter("@EndDate", SqlDbType.Date) { Value = this.NgayKetThucTimePicker.Value }
+                    };
+                }
+                else if (tuanradioButton.Checked)
+                {
+                    procName = "SP_XEMLICHLAMVIECTUAN";
+                    // Tính ngày đầu tuần và cuối tuần từ ngày được chọn
+                    DateTime selectedDate = this.ngayBatDauTimePicker.Value;
+                    DateTime startOfWeek = selectedDate.AddDays((int)DayOfWeek.Monday - (int)selectedDate.DayOfWeek);
+                    DateTime endOfWeek = startOfWeek.AddDays(6);
 
-                paras = new SqlParameter[] {
-                    new SqlParameter("@StartDate", SqlDbType.Date) { Value = startOfWeek },
-                    new SqlParameter("@EndDate", SqlDbType.Date) { Value = this.NgayKetThucTimePicker.Value }
-                };
+                    paras = new SqlParameter[] {
+                        new SqlParameter("@StartDate", SqlDbType.Date) { Value = startOfWeek },
+                        new SqlParameter("@EndDate", SqlDbType.Date) { Value = this.NgayKetThucTimePicker.Value }
+                    };
+                }
+                else if (thangradioButton.Checked)
+                {
+                    procName = "SP_XEMLICHLAMVIECTHANG";
+                    // Lấy ngày đầu tháng và cuối tháng từ ngày được chọn
+                    DateTime selectedDate = this.ngayBatDauTimePicker.Value;
+                    DateTime startOfMonth = new DateTime(selectedDate.Year, selectedDate.Month, 1);
+                    DateTime endOfMonth = startOfMonth.AddMonths(1).AddDays(-1);
+
+                    paras = new SqlParameter[] {
+                        new SqlParameter("@StartDate", SqlDbType.Date) { Value = startOfMonth },
+                        new SqlParameter("@EndDate", SqlDbType.Date) { Value = this.NgayKetThucTimePicker.Value }
+                    };
+                }
             }
-            else if (thangradioButton.Checked)
-            {
-                procName = "SP_XEMLICHLAMVIECTHANG";
-                // Lấy ngày đầu tháng và cuối tháng từ ngày được chọn
-                DateTime selectedDate = this.ngayBatDauTimePicker.Value;
-                DateTime startOfMonth = new DateTime(selectedDate.Year, selectedDate.Month, 1);
-                DateTime endOfMonth = startOfMonth.AddMonths(1).AddDays(-1);
-
-                paras = new SqlParameter[] {
-                    new SqlParameter("@StartDate", SqlDbType.Date) { Value = startOfMonth },
-                    new SqlParameter("@EndDate", SqlDbType.Date) { Value = this.NgayKetThucTimePicker.Value }
-                };
-            }
-
             if (!string.IsNullOrEmpty(procName) && paras != null)
             {
                 DataTable resultTable = connection.dataTableWithParams(procName, paras);
+                lichLamViecTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                lichLamViecTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
                 lichLamViecTable.DataSource = resultTable;
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn loại lịch làm việc cần xem.");
+                MessageBox.Show("Chọn loại lịch làm việc trước");
             }
+
         }
     }
 }

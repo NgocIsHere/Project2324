@@ -27,6 +27,8 @@ namespace QLPHONGKHAM.Controls
         void getNhaSiList()
         {
             nhaSiTable.DefaultCellStyle.ForeColor = Color.Black;
+            nhaSiTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            nhaSiTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             nhaSiTable.DataSource = connection.dataTable("EXEC SP_XEMDANHSACHNHASI");
 
             //Đổi tên column

@@ -23,6 +23,8 @@ namespace QLPHONGKHAM.Controls
             {
                 new SqlParameter("@ID_BENHAN", SqlDbType.Char){Value = DonThuoc.idBenhAn}
             };
+            danhSachDonThuocTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            danhSachDonThuocTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             danhSachDonThuocTable.DataSource = connection.dataTableWithParams("SP_XemDonThuocCuaBenhNhan", paras);
         }
 
@@ -49,6 +51,8 @@ namespace QLPHONGKHAM.Controls
             {
                 new SqlParameter("@ID_BENHAN", SqlDbType.Char){Value = DonThuoc.idBenhAn}
             };
+            danhSachDonThuocTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            danhSachDonThuocTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             danhSachDonThuocTable.DataSource = connection.dataTableWithParams("SP_XemDonThuocCuaBenhNhan", paras);
         }
     }

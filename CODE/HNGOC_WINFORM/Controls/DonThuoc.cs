@@ -36,7 +36,10 @@ namespace QLPHONGKHAM.Controls
         }
         void getBenhAn()
         {
+
             benhNhanTable.DefaultCellStyle.ForeColor = Color.Black;
+            benhNhanTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            benhNhanTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             benhNhanTable.DataSource = connection.dataTable("EXEC SP_XEMDANHSACHBENHAN");
 
             //Change column name
