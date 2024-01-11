@@ -24,6 +24,7 @@ namespace QLPHONGKHAM
         {
             InitializeComponent();
             this.role = role;
+            Debug.WriteLine(this.role);
 
         }
 
@@ -32,7 +33,7 @@ namespace QLPHONGKHAM
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
-            if (UserID.Substring(0,2) == "NS")
+            if (role == "ns")
             {
                 dateTimePickergio.Enabled = false;
                 dateTimePickerngay.Enabled = false;
@@ -299,7 +300,7 @@ namespace QLPHONGKHAM
                     command.Parameters.Add(new SqlParameter("@ID", textBoxmach.Text));
                     command.Parameters.Add(new SqlParameter("@NGAYHEN", dateTimePickerngay.Value.ToString("yyyy-MM-dd")));
                     command.Parameters.Add(new SqlParameter("@GIOHEN", dateTimePickergio.Value.ToString("HH:mm:ss")));
-                    command.Parameters.Add(new SqlParameter("@NHASI", comboBoxNS.SelectedItem.ToString().Substring(comboBoxNS.SelectedItem.ToString().Length - 8)));
+                        command.Parameters.Add(new SqlParameter("@NHASI", comboBoxNS.SelectedItem.ToString().Substring(comboBoxNS.SelectedItem.ToString().Length - 8)));
                     command.Parameters.Add(new SqlParameter("@PHONG", comboBoxphong.SelectedItem));
 
                     try 

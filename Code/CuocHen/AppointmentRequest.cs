@@ -238,6 +238,7 @@ namespace QLPHONGKHAM
                     command.Parameters.Add(new SqlParameter("@GHICHU", textBoxGC.Text));
                     command.Parameters.Add(new SqlParameter("@TRANGTHAI", comboBoxTrangThai.SelectedIndex));
                     command.Parameters.Add(new SqlParameter("@PHONG", comboBoxphong.SelectedItem.ToString()));
+                    command.Parameters.Add(new SqlParameter("@NGAYGUIYEUCAU", DateTime.Now.ToString("yyyy-MM-dd")));
 
 
 

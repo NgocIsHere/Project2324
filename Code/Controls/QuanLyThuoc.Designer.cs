@@ -32,312 +32,319 @@ namespace QLPHONGKHAM
         /// </summary>
         private void InitializeComponent()
         {
-            tableLayoutPanel1 = new TableLayoutPanel();
-            Label = new Label();
-            InformationSection = new Panel();
-            capNhatButton = new Button();
-            xoaButton = new Button();
-            themButton = new Button();
-            ghiChuBox = new RichTextBox();
-            ghiChu = new Label();
-            hanSuDung = new Label();
-            hanSuDungBox = new DateTimePicker();
-            soLuong = new Label();
-            soLuongBox = new TextBox();
-            donVi = new Label();
-            donViBox = new TextBox();
-            donGia = new Label();
-            donGiaBox = new TextBox();
-            tenThuoc = new Label();
-            tenThuocBox = new TextBox();
-            thuocTable = new DataGridView();
-            searchThuocButton = new Button();
-            searchThuocBox = new TextBox();
-            searchThuocLabel = new Label();
-            tableLayoutPanel1.SuspendLayout();
-            InformationSection.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)thuocTable).BeginInit();
-            SuspendLayout();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.Label = new System.Windows.Forms.Label();
+            this.InformationSection = new System.Windows.Forms.Panel();
+            this.searchThuocButton = new System.Windows.Forms.Button();
+            this.searchThuocBox = new System.Windows.Forms.TextBox();
+            this.searchThuocLabel = new System.Windows.Forms.Label();
+            this.capNhatButton = new System.Windows.Forms.Button();
+            this.xoaButton = new System.Windows.Forms.Button();
+            this.themButton = new System.Windows.Forms.Button();
+            this.ghiChuBox = new System.Windows.Forms.RichTextBox();
+            this.ghiChu = new System.Windows.Forms.Label();
+            this.hanSuDung = new System.Windows.Forms.Label();
+            this.hanSuDungBox = new System.Windows.Forms.DateTimePicker();
+            this.soLuong = new System.Windows.Forms.Label();
+            this.soLuongBox = new System.Windows.Forms.TextBox();
+            this.donVi = new System.Windows.Forms.Label();
+            this.donViBox = new System.Windows.Forms.TextBox();
+            this.donGia = new System.Windows.Forms.Label();
+            this.donGiaBox = new System.Windows.Forms.TextBox();
+            this.tenThuoc = new System.Windows.Forms.Label();
+            this.tenThuocBox = new System.Windows.Forms.TextBox();
+            this.thuocTable = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.InformationSection.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.thuocTable)).BeginInit();
+            this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(Label, 0, 0);
-            tableLayoutPanel1.Controls.Add(InformationSection, 0, 1);
-            tableLayoutPanel1.Controls.Add(thuocTable, 0, 2);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Margin = new Padding(0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 54F));
-            tableLayoutPanel1.Size = new Size(1079, 736);
-            tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.Label, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.InformationSection, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.thuocTable, 0, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1079, 589);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // Label
             // 
-            Label.AutoSize = true;
-            Label.BackColor = Color.Teal;
-            Label.Dock = DockStyle.Fill;
-            Label.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Label.ForeColor = Color.GhostWhite;
-            Label.Location = new Point(0, 0);
-            Label.Margin = new Padding(0);
-            Label.Name = "Label";
-            Label.Size = new Size(1079, 44);
-            Label.TabIndex = 0;
-            Label.Text = "QUẢN LÝ THUỐC";
-            Label.TextAlign = ContentAlignment.MiddleLeft;
+            this.Label.AutoSize = true;
+            this.Label.BackColor = System.Drawing.Color.Teal;
+            this.Label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Label.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label.ForeColor = System.Drawing.Color.GhostWhite;
+            this.Label.Location = new System.Drawing.Point(0, 0);
+            this.Label.Margin = new System.Windows.Forms.Padding(0);
+            this.Label.Name = "Label";
+            this.Label.Size = new System.Drawing.Size(1079, 35);
+            this.Label.TabIndex = 0;
+            this.Label.Text = "QUẢN LÝ THUỐC";
+            this.Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // InformationSection
             // 
-            InformationSection.BackColor = SystemColors.Control;
-            InformationSection.Controls.Add(searchThuocButton);
-            InformationSection.Controls.Add(searchThuocBox);
-            InformationSection.Controls.Add(searchThuocLabel);
-            InformationSection.Controls.Add(capNhatButton);
-            InformationSection.Controls.Add(xoaButton);
-            InformationSection.Controls.Add(themButton);
-            InformationSection.Controls.Add(ghiChuBox);
-            InformationSection.Controls.Add(ghiChu);
-            InformationSection.Controls.Add(hanSuDung);
-            InformationSection.Controls.Add(hanSuDungBox);
-            InformationSection.Controls.Add(soLuong);
-            InformationSection.Controls.Add(soLuongBox);
-            InformationSection.Controls.Add(donVi);
-            InformationSection.Controls.Add(donViBox);
-            InformationSection.Controls.Add(donGia);
-            InformationSection.Controls.Add(donGiaBox);
-            InformationSection.Controls.Add(tenThuoc);
-            InformationSection.Controls.Add(tenThuocBox);
-            InformationSection.Dock = DockStyle.Fill;
-            InformationSection.Location = new Point(0, 44);
-            InformationSection.Margin = new Padding(0);
-            InformationSection.Name = "InformationSection";
-            InformationSection.Size = new Size(1079, 294);
-            InformationSection.TabIndex = 1;
-            // 
-            // capNhatButton
-            // 
-            capNhatButton.BackColor = Color.DarkTurquoise;
-            capNhatButton.FlatStyle = FlatStyle.System;
-            capNhatButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            capNhatButton.ForeColor = SystemColors.ActiveCaptionText;
-            capNhatButton.Location = new Point(838, 161);
-            capNhatButton.Name = "capNhatButton";
-            capNhatButton.Size = new Size(177, 37);
-            capNhatButton.TabIndex = 15;
-            capNhatButton.Text = "CẬP NHẬT";
-            capNhatButton.UseVisualStyleBackColor = false;
-            capNhatButton.Click += capNhatButton_Click;
-            // 
-            // xoaButton
-            // 
-            xoaButton.BackColor = Color.LightCoral;
-            xoaButton.FlatStyle = FlatStyle.System;
-            xoaButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            xoaButton.ForeColor = SystemColors.ControlLightLight;
-            xoaButton.Location = new Point(838, 93);
-            xoaButton.Name = "xoaButton";
-            xoaButton.Size = new Size(177, 37);
-            xoaButton.TabIndex = 14;
-            xoaButton.Text = "XÓA";
-            xoaButton.UseVisualStyleBackColor = false;
-            xoaButton.Click += xoaButton_Click;
-            // 
-            // themButton
-            // 
-            themButton.BackColor = Color.Chocolate;
-            themButton.FlatStyle = FlatStyle.System;
-            themButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            themButton.ForeColor = SystemColors.ButtonHighlight;
-            themButton.Location = new Point(838, 27);
-            themButton.Margin = new Padding(0);
-            themButton.Name = "themButton";
-            themButton.Size = new Size(177, 37);
-            themButton.TabIndex = 13;
-            themButton.Text = "THÊM";
-            themButton.UseVisualStyleBackColor = false;
-            themButton.Click += themButton_Click;
-            // 
-            // ghiChuBox
-            // 
-            ghiChuBox.Location = new Point(497, 75);
-            ghiChuBox.Name = "ghiChuBox";
-            ghiChuBox.Size = new Size(244, 127);
-            ghiChuBox.TabIndex = 12;
-            ghiChuBox.Text = "";
-            // 
-            // ghiChu
-            // 
-            ghiChu.AutoSize = true;
-            ghiChu.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ghiChu.ForeColor = SystemColors.WindowText;
-            ghiChu.Location = new Point(424, 75);
-            ghiChu.Margin = new Padding(0);
-            ghiChu.Name = "ghiChu";
-            ghiChu.Size = new Size(61, 20);
-            ghiChu.TabIndex = 11;
-            ghiChu.Text = "Ghi chú";
-            // 
-            // hanSuDung
-            // 
-            hanSuDung.AutoSize = true;
-            hanSuDung.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            hanSuDung.ForeColor = SystemColors.WindowText;
-            hanSuDung.Location = new Point(398, 28);
-            hanSuDung.Margin = new Padding(0);
-            hanSuDung.Name = "hanSuDung";
-            hanSuDung.Size = new Size(96, 20);
-            hanSuDung.TabIndex = 9;
-            hanSuDung.Text = "Hạn sử dụng";
-            // 
-            // hanSuDungBox
-            // 
-            hanSuDungBox.CustomFormat = "yyyy-MM-dd";
-            hanSuDungBox.Location = new Point(497, 25);
-            hanSuDungBox.Name = "hanSuDungBox";
-            hanSuDungBox.Size = new Size(244, 27);
-            hanSuDungBox.TabIndex = 8;
-            hanSuDungBox.Value = new DateTime(2023, 12, 4, 0, 0, 0, 0);
-            // 
-            // soLuong
-            // 
-            soLuong.AutoSize = true;
-            soLuong.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            soLuong.ForeColor = SystemColors.WindowText;
-            soLuong.Location = new Point(16, 178);
-            soLuong.Margin = new Padding(0);
-            soLuong.Name = "soLuong";
-            soLuong.Size = new Size(70, 20);
-            soLuong.TabIndex = 7;
-            soLuong.Text = "Số lượng";
-            // 
-            // soLuongBox
-            // 
-            soLuongBox.Location = new Point(95, 175);
-            soLuongBox.Name = "soLuongBox";
-            soLuongBox.Size = new Size(224, 27);
-            soLuongBox.TabIndex = 6;
-            // 
-            // donVi
-            // 
-            donVi.AutoSize = true;
-            donVi.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            donVi.ForeColor = SystemColors.WindowText;
-            donVi.Location = new Point(16, 126);
-            donVi.Margin = new Padding(0);
-            donVi.Name = "donVi";
-            donVi.Size = new Size(54, 20);
-            donVi.TabIndex = 5;
-            donVi.Text = "Đơn vị";
-            // 
-            // donViBox
-            // 
-            donViBox.Location = new Point(95, 123);
-            donViBox.Name = "donViBox";
-            donViBox.Size = new Size(224, 27);
-            donViBox.TabIndex = 4;
-            // 
-            // donGia
-            // 
-            donGia.AutoSize = true;
-            donGia.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            donGia.ForeColor = SystemColors.WindowText;
-            donGia.Location = new Point(16, 75);
-            donGia.Margin = new Padding(0);
-            donGia.Name = "donGia";
-            donGia.Size = new Size(63, 20);
-            donGia.TabIndex = 3;
-            donGia.Text = "Đơn giá";
-            // 
-            // donGiaBox
-            // 
-            donGiaBox.Location = new Point(95, 72);
-            donGiaBox.Name = "donGiaBox";
-            donGiaBox.Size = new Size(224, 27);
-            donGiaBox.TabIndex = 2;
-            // 
-            // tenThuoc
-            // 
-            tenThuoc.AutoSize = true;
-            tenThuoc.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tenThuoc.ForeColor = SystemColors.WindowText;
-            tenThuoc.Location = new Point(16, 28);
-            tenThuoc.Margin = new Padding(0);
-            tenThuoc.Name = "tenThuoc";
-            tenThuoc.Size = new Size(76, 20);
-            tenThuoc.TabIndex = 1;
-            tenThuoc.Text = "Tên thuốc";
-            // 
-            // tenThuocBox
-            // 
-            tenThuocBox.Location = new Point(95, 25);
-            tenThuocBox.Name = "tenThuocBox";
-            tenThuocBox.Size = new Size(224, 27);
-            tenThuocBox.TabIndex = 0;
-            // 
-            // thuocTable
-            // 
-            thuocTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            thuocTable.Dock = DockStyle.Fill;
-            thuocTable.Location = new Point(3, 341);
-            thuocTable.Name = "thuocTable";
-            thuocTable.ReadOnly = true;
-            thuocTable.RowHeadersWidth = 51;
-            thuocTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            thuocTable.Size = new Size(1073, 392);
-            thuocTable.TabIndex = 2;
-            thuocTable.CellContentClick += thuocTable_CellContentClick;
+            this.InformationSection.BackColor = System.Drawing.SystemColors.Control;
+            this.InformationSection.Controls.Add(this.searchThuocButton);
+            this.InformationSection.Controls.Add(this.searchThuocBox);
+            this.InformationSection.Controls.Add(this.searchThuocLabel);
+            this.InformationSection.Controls.Add(this.capNhatButton);
+            this.InformationSection.Controls.Add(this.xoaButton);
+            this.InformationSection.Controls.Add(this.themButton);
+            this.InformationSection.Controls.Add(this.ghiChuBox);
+            this.InformationSection.Controls.Add(this.ghiChu);
+            this.InformationSection.Controls.Add(this.hanSuDung);
+            this.InformationSection.Controls.Add(this.hanSuDungBox);
+            this.InformationSection.Controls.Add(this.soLuong);
+            this.InformationSection.Controls.Add(this.soLuongBox);
+            this.InformationSection.Controls.Add(this.donVi);
+            this.InformationSection.Controls.Add(this.donViBox);
+            this.InformationSection.Controls.Add(this.donGia);
+            this.InformationSection.Controls.Add(this.donGiaBox);
+            this.InformationSection.Controls.Add(this.tenThuoc);
+            this.InformationSection.Controls.Add(this.tenThuocBox);
+            this.InformationSection.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InformationSection.Location = new System.Drawing.Point(0, 35);
+            this.InformationSection.Margin = new System.Windows.Forms.Padding(0);
+            this.InformationSection.Name = "InformationSection";
+            this.InformationSection.Size = new System.Drawing.Size(1079, 235);
+            this.InformationSection.TabIndex = 1;
             // 
             // searchThuocButton
             // 
-            searchThuocButton.BackColor = SystemColors.MenuHighlight;
-            searchThuocButton.FlatStyle = FlatStyle.Popup;
-            searchThuocButton.ForeColor = SystemColors.ButtonHighlight;
-            searchThuocButton.Location = new Point(327, 253);
-            searchThuocButton.Name = "searchThuocButton";
-            searchThuocButton.Size = new Size(87, 29);
-            searchThuocButton.TabIndex = 18;
-            searchThuocButton.Text = "Tìm";
-            searchThuocButton.UseVisualStyleBackColor = false;
-            searchThuocButton.Click += searchThuocButton_Click;
+            this.searchThuocButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.searchThuocButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.searchThuocButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.searchThuocButton.Location = new System.Drawing.Point(327, 202);
+            this.searchThuocButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.searchThuocButton.Name = "searchThuocButton";
+            this.searchThuocButton.Size = new System.Drawing.Size(87, 23);
+            this.searchThuocButton.TabIndex = 18;
+            this.searchThuocButton.Text = "Tìm";
+            this.searchThuocButton.UseVisualStyleBackColor = false;
             // 
             // searchThuocBox
             // 
-            searchThuocBox.Location = new Point(99, 253);
-            searchThuocBox.Name = "searchThuocBox";
-            searchThuocBox.Size = new Size(206, 27);
-            searchThuocBox.TabIndex = 17;
+            this.searchThuocBox.Location = new System.Drawing.Point(99, 202);
+            this.searchThuocBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.searchThuocBox.Name = "searchThuocBox";
+            this.searchThuocBox.Size = new System.Drawing.Size(206, 22);
+            this.searchThuocBox.TabIndex = 17;
             // 
             // searchThuocLabel
             // 
-            searchThuocLabel.AutoSize = true;
-            searchThuocLabel.ForeColor = SystemColors.WindowText;
-            searchThuocLabel.Location = new Point(16, 256);
-            searchThuocLabel.Name = "searchThuocLabel";
-            searchThuocLabel.Size = new Size(78, 20);
-            searchThuocLabel.TabIndex = 16;
-            searchThuocLabel.Text = "Tìm thuốc:";
+            this.searchThuocLabel.AutoSize = true;
+            this.searchThuocLabel.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.searchThuocLabel.Location = new System.Drawing.Point(16, 205);
+            this.searchThuocLabel.Name = "searchThuocLabel";
+            this.searchThuocLabel.Size = new System.Drawing.Size(68, 16);
+            this.searchThuocLabel.TabIndex = 16;
+            this.searchThuocLabel.Text = "Tìm thuốc:";
+            // 
+            // capNhatButton
+            // 
+            this.capNhatButton.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.capNhatButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.capNhatButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.capNhatButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.capNhatButton.Location = new System.Drawing.Point(838, 129);
+            this.capNhatButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.capNhatButton.Name = "capNhatButton";
+            this.capNhatButton.Size = new System.Drawing.Size(177, 30);
+            this.capNhatButton.TabIndex = 15;
+            this.capNhatButton.Text = "CẬP NHẬT";
+            this.capNhatButton.UseVisualStyleBackColor = false;
+            // 
+            // xoaButton
+            // 
+            this.xoaButton.BackColor = System.Drawing.Color.LightCoral;
+            this.xoaButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.xoaButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xoaButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.xoaButton.Location = new System.Drawing.Point(838, 74);
+            this.xoaButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.xoaButton.Name = "xoaButton";
+            this.xoaButton.Size = new System.Drawing.Size(177, 30);
+            this.xoaButton.TabIndex = 14;
+            this.xoaButton.Text = "XÓA";
+            this.xoaButton.UseVisualStyleBackColor = false;
+            // 
+            // themButton
+            // 
+            this.themButton.BackColor = System.Drawing.Color.Chocolate;
+            this.themButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.themButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.themButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.themButton.Location = new System.Drawing.Point(838, 22);
+            this.themButton.Margin = new System.Windows.Forms.Padding(0);
+            this.themButton.Name = "themButton";
+            this.themButton.Size = new System.Drawing.Size(177, 30);
+            this.themButton.TabIndex = 13;
+            this.themButton.Text = "THÊM";
+            this.themButton.UseVisualStyleBackColor = false;
+            // 
+            // ghiChuBox
+            // 
+            this.ghiChuBox.Location = new System.Drawing.Point(497, 60);
+            this.ghiChuBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ghiChuBox.Name = "ghiChuBox";
+            this.ghiChuBox.Size = new System.Drawing.Size(244, 102);
+            this.ghiChuBox.TabIndex = 12;
+            this.ghiChuBox.Text = "";
+            // 
+            // ghiChu
+            // 
+            this.ghiChu.AutoSize = true;
+            this.ghiChu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ghiChu.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.ghiChu.Location = new System.Drawing.Point(424, 60);
+            this.ghiChu.Margin = new System.Windows.Forms.Padding(0);
+            this.ghiChu.Name = "ghiChu";
+            this.ghiChu.Size = new System.Drawing.Size(61, 20);
+            this.ghiChu.TabIndex = 11;
+            this.ghiChu.Text = "Ghi chú";
+            // 
+            // hanSuDung
+            // 
+            this.hanSuDung.AutoSize = true;
+            this.hanSuDung.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hanSuDung.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.hanSuDung.Location = new System.Drawing.Point(398, 22);
+            this.hanSuDung.Margin = new System.Windows.Forms.Padding(0);
+            this.hanSuDung.Name = "hanSuDung";
+            this.hanSuDung.Size = new System.Drawing.Size(96, 20);
+            this.hanSuDung.TabIndex = 9;
+            this.hanSuDung.Text = "Hạn sử dụng";
+            // 
+            // hanSuDungBox
+            // 
+            this.hanSuDungBox.CustomFormat = "yyyy-MM-dd";
+            this.hanSuDungBox.Location = new System.Drawing.Point(497, 20);
+            this.hanSuDungBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.hanSuDungBox.Name = "hanSuDungBox";
+            this.hanSuDungBox.Size = new System.Drawing.Size(244, 22);
+            this.hanSuDungBox.TabIndex = 8;
+            this.hanSuDungBox.Value = new System.DateTime(2023, 12, 4, 0, 0, 0, 0);
+            // 
+            // soLuong
+            // 
+            this.soLuong.AutoSize = true;
+            this.soLuong.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.soLuong.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.soLuong.Location = new System.Drawing.Point(16, 142);
+            this.soLuong.Margin = new System.Windows.Forms.Padding(0);
+            this.soLuong.Name = "soLuong";
+            this.soLuong.Size = new System.Drawing.Size(70, 20);
+            this.soLuong.TabIndex = 7;
+            this.soLuong.Text = "Số lượng";
+            // 
+            // soLuongBox
+            // 
+            this.soLuongBox.Location = new System.Drawing.Point(95, 140);
+            this.soLuongBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.soLuongBox.Name = "soLuongBox";
+            this.soLuongBox.Size = new System.Drawing.Size(224, 22);
+            this.soLuongBox.TabIndex = 6;
+            // 
+            // donVi
+            // 
+            this.donVi.AutoSize = true;
+            this.donVi.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.donVi.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.donVi.Location = new System.Drawing.Point(16, 101);
+            this.donVi.Margin = new System.Windows.Forms.Padding(0);
+            this.donVi.Name = "donVi";
+            this.donVi.Size = new System.Drawing.Size(54, 20);
+            this.donVi.TabIndex = 5;
+            this.donVi.Text = "Đơn vị";
+            // 
+            // donViBox
+            // 
+            this.donViBox.Location = new System.Drawing.Point(95, 98);
+            this.donViBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.donViBox.Name = "donViBox";
+            this.donViBox.Size = new System.Drawing.Size(224, 22);
+            this.donViBox.TabIndex = 4;
+            // 
+            // donGia
+            // 
+            this.donGia.AutoSize = true;
+            this.donGia.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.donGia.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.donGia.Location = new System.Drawing.Point(16, 60);
+            this.donGia.Margin = new System.Windows.Forms.Padding(0);
+            this.donGia.Name = "donGia";
+            this.donGia.Size = new System.Drawing.Size(63, 20);
+            this.donGia.TabIndex = 3;
+            this.donGia.Text = "Đơn giá";
+            // 
+            // donGiaBox
+            // 
+            this.donGiaBox.Location = new System.Drawing.Point(95, 58);
+            this.donGiaBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.donGiaBox.Name = "donGiaBox";
+            this.donGiaBox.Size = new System.Drawing.Size(224, 22);
+            this.donGiaBox.TabIndex = 2;
+            // 
+            // tenThuoc
+            // 
+            this.tenThuoc.AutoSize = true;
+            this.tenThuoc.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tenThuoc.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.tenThuoc.Location = new System.Drawing.Point(16, 22);
+            this.tenThuoc.Margin = new System.Windows.Forms.Padding(0);
+            this.tenThuoc.Name = "tenThuoc";
+            this.tenThuoc.Size = new System.Drawing.Size(76, 20);
+            this.tenThuoc.TabIndex = 1;
+            this.tenThuoc.Text = "Tên thuốc";
+            // 
+            // tenThuocBox
+            // 
+            this.tenThuocBox.Location = new System.Drawing.Point(95, 20);
+            this.tenThuocBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tenThuocBox.Name = "tenThuocBox";
+            this.tenThuocBox.Size = new System.Drawing.Size(224, 22);
+            this.tenThuocBox.TabIndex = 0;
+            // 
+            // thuocTable
+            // 
+            this.thuocTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.thuocTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.thuocTable.Location = new System.Drawing.Point(3, 272);
+            this.thuocTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.thuocTable.Name = "thuocTable";
+            this.thuocTable.ReadOnly = true;
+            this.thuocTable.RowHeadersWidth = 51;
+            this.thuocTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.thuocTable.Size = new System.Drawing.Size(1073, 315);
+            this.thuocTable.TabIndex = 2;
             // 
             // QuanLyThuoc
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(tableLayoutPanel1);
-            ForeColor = SystemColors.WindowFrame;
-            Name = "QuanLyThuoc";
-            Size = new Size(1079, 736);
-            Load += QuanLyThuoc_Load;
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
-            InformationSection.ResumeLayout(false);
-            InformationSection.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)thuocTable).EndInit();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "QuanLyThuoc";
+            this.Size = new System.Drawing.Size(1079, 589);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.InformationSection.ResumeLayout(false);
+            this.InformationSection.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.thuocTable)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
