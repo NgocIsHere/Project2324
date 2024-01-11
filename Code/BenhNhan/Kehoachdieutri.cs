@@ -155,5 +155,31 @@ namespace QLPHONGKHAM
             groupBox1.Hide();
             groupBox2.Show();
         }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            using (SqlCommand cmd = new SqlCommand("SP_HUYKHDIEUTRI", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ID", Convert.ToInt32(textBox1.Text));
+                MessageBox.Show(" ĐÃ HỦY!");
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            using (SqlCommand cmd = new SqlCommand("SP_CAPNHATKHDIEUTRI", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ID", Convert.ToInt32(textBox1.Text));
+                MessageBox.Show(" ĐÃ HOÀN THÀNH!");
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
     }
 }

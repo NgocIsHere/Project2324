@@ -29,17 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dSRANGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dIEUTRIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kHDIEUTRIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkedListBoxTeethSide8 = new System.Windows.Forms.CheckedListBox();
             this.checkedListBoxTeethSide7 = new System.Windows.Forms.CheckedListBox();
@@ -72,11 +67,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kHDIEUTRIBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -120,83 +116,29 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dSRANGDataGridViewTextBoxColumn,
-            this.dIEUTRIDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.kHDIEUTRIBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(44, 44);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.RowHeadersWidth = 62;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(811, 164);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "BENHNHAN";
-            this.dataGridViewTextBoxColumn2.HeaderText = "BENHNHAN";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "TRANGTHAI";
-            this.dataGridViewTextBoxColumn3.HeaderText = "TRANGTHAI";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // dSRANGDataGridViewTextBoxColumn
-            // 
-            this.dSRANGDataGridViewTextBoxColumn.DataPropertyName = "DSRANG";
-            this.dSRANGDataGridViewTextBoxColumn.HeaderText = "DSRANG";
-            this.dSRANGDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dSRANGDataGridViewTextBoxColumn.Name = "dSRANGDataGridViewTextBoxColumn";
-            this.dSRANGDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dSRANGDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // dIEUTRIDataGridViewTextBoxColumn
-            // 
-            this.dIEUTRIDataGridViewTextBoxColumn.DataPropertyName = "DIEUTRI";
-            this.dIEUTRIDataGridViewTextBoxColumn.HeaderText = "DIEUTRI";
-            this.dIEUTRIDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dIEUTRIDataGridViewTextBoxColumn.Name = "dIEUTRIDataGridViewTextBoxColumn";
-            this.dIEUTRIDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dIEUTRIDataGridViewTextBoxColumn.Width = 150;
-            // 
             // kHDIEUTRIBindingSource
             // 
             this.kHDIEUTRIBindingSource.DataMember = "KHDIEUTRI";
-            // 
-            // pHONGKHAM_DBDataSet1
-            // 
             // 
             // checkedListBoxTeethSide8
             // 
@@ -576,9 +518,6 @@
             this.label5.TabIndex = 77;
             this.label5.Text = "Mặt răng";
             // 
-            // kHDIEUTRITableAdapter1
-            // 
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button5);
@@ -621,8 +560,20 @@
             this.groupBox1.Text = "Thêm kế hoạch điều trị";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button5.Location = new System.Drawing.Point(98, 643);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(103, 50);
+            this.button5.TabIndex = 78;
+            this.button5.Text = "Hủy";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button6);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.button3);
@@ -636,6 +587,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Các kế hoạch điều trị";
             this.groupBox2.Visible = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Gold;
+            this.button4.Location = new System.Drawing.Point(182, 418);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(103, 49);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "Hủy";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // label6
             // 
@@ -657,26 +619,16 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // button6
             // 
-            this.button4.BackColor = System.Drawing.Color.IndianRed;
-            this.button4.Location = new System.Drawing.Point(182, 418);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(103, 49);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Hủy";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button5.Location = new System.Drawing.Point(98, 643);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(103, 50);
-            this.button5.TabIndex = 78;
-            this.button5.Text = "Hủy";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button6.BackColor = System.Drawing.Color.LimeGreen;
+            this.button6.Location = new System.Drawing.Point(327, 418);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(103, 49);
+            this.button6.TabIndex = 8;
+            this.button6.Text = "Hoàn thành";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Kehoachdieutri
             // 
@@ -755,5 +707,6 @@
         private System.Windows.Forms.Button button4;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
