@@ -32,9 +32,9 @@ namespace QLPHONGKHAM
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
-            if (role.Contains( "ns"))
+            if (role.Contains("ns"))
             {
-                Debug.WriteLine("xemcuochen"+ role);
+                Debug.WriteLine("xemcuochen" + role);
 
                 dateTimePickergio.Enabled = false;
                 dateTimePickerngay.Enabled = false;
@@ -108,7 +108,7 @@ namespace QLPHONGKHAM
 
         private void getAppointment()
         {
-            string datenow = (DateTime.Now).ToString("yyyy-MM-dd");
+            /*string datenow = (DateTime.Now).ToString("yyyy-MM-dd");
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["PHONGKHAM_DBConnectionString"].ConnectionString))
             {
                 using (SqlCommand command = new SqlCommand("SP_XEMDANHSACHCUOCHEN", connection))
@@ -134,7 +134,7 @@ namespace QLPHONGKHAM
                         MessageBox.Show(ex.Message, "SQL Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
+            }*/
         }
 
         private void comboBoxLoc_SelectedIndexChanged(object sender, EventArgs e)
@@ -151,15 +151,15 @@ namespace QLPHONGKHAM
                 buttonsearch.Visible = false;
                 textBoxLoc.Visible = false;
                 getAppointment();
-            } 
-                
+            }
+
         }
 
         private void buttonsearch_Click(object sender, EventArgs e)
         {
 
             string proc = "";
-            
+
             if (comboBoxLoc.SelectedItem.ToString() == "Bệnh Nhân")
             {
                 proc = "SP_LOCUOCHENTHEOBENHNHAN";
@@ -167,12 +167,12 @@ namespace QLPHONGKHAM
             else if (comboBoxLoc.SelectedItem.ToString() == "Nha Sĩ")
             {
                 proc = "SP_LOCCUOCHENTHEONHASI";
-            }    
+            }
             else if (comboBoxLoc.SelectedItem.ToString() == "Phòng")
             {
                 proc = "SP_LOCUOCHENTHEOPHONGKHAM";
             }
-  
+
 
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["PHONGKHAM_DBConnectionString"].ConnectionString))
             {
@@ -214,13 +214,13 @@ namespace QLPHONGKHAM
                             MessageBox.Show(ex.Message, "SQL Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    catch(Exception)
+                    catch (Exception)
                     {
                         MessageBox.Show("Vui Lòng Nhập đúng dạng dữ liệu");
                     }
 
-                    
-                   
+
+
                 }
             }
         }
@@ -249,7 +249,7 @@ namespace QLPHONGKHAM
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
-             {
+            {
                 if (e.RowIndex >= 0 && (e.RowIndex < dataGridView1.Rows.Count) && updatemode)
                 {
                     DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
@@ -267,15 +267,15 @@ namespace QLPHONGKHAM
 
                     textBoxmach.Text = IDcuochen;
                     textBoxBN.Text = tenBenhNhan;
-                    comboBoxphong.SelectedItem = int.Parse(phong) ;
+                    comboBoxphong.SelectedItem = int.Parse(phong);
                     dateTimePickergio.Text = Giohen;
                     dateTimePickerngay.Text = Ngayhen;
                     foreach (var item in comboBoxNS.Items)
                     {
-                        if(item.ToString().StartsWith(TENVAIDNhaSi))
+                        if (item.ToString().StartsWith(TENVAIDNhaSi))
                         {
                             comboBoxNS.SelectedItem = item;
-                            break; 
+                            break;
                         }
                     }
 
@@ -283,8 +283,8 @@ namespace QLPHONGKHAM
 
                 }
             }
-             catch (Exception )
-             {
+            catch (Exception)
+            {
                 Debug.WriteLine(e.RowIndex + " " + dataGridView1.Rows.Count);
                 MessageBox.Show("no value found");
             }
@@ -301,15 +301,15 @@ namespace QLPHONGKHAM
                     command.Parameters.Add(new SqlParameter("@ID", textBoxmach.Text));
                     command.Parameters.Add(new SqlParameter("@NGAYHEN", dateTimePickerngay.Value.ToString("yyyy-MM-dd")));
                     command.Parameters.Add(new SqlParameter("@GIOHEN", dateTimePickergio.Value.ToString("HH:mm:ss")));
-                        command.Parameters.Add(new SqlParameter("@NHASI", comboBoxNS.SelectedItem.ToString().Substring(comboBoxNS.SelectedItem.ToString().Length - 8)));
+                    command.Parameters.Add(new SqlParameter("@NHASI", comboBoxNS.SelectedItem.ToString().Substring(comboBoxNS.SelectedItem.ToString().Length - 8)));
                     command.Parameters.Add(new SqlParameter("@PHONG", comboBoxphong.SelectedItem));
 
-                    try 
-                    { 
+                    try
+                    {
                         connection.Open();
                         command.ExecuteNonQuery();
                         getAppointment();
-                    } 
+                    }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "SQL Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -342,6 +342,11 @@ namespace QLPHONGKHAM
             Home hm = new Home(role);
             this.Hide();
             hm.Show();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

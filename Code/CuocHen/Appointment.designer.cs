@@ -296,6 +296,7 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(1199, 447);
             panel1.TabIndex = 23;
+            panel1.Paint += panel1_Paint;
             // 
             // button1
             // 
