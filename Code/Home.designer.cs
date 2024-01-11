@@ -32,6 +32,7 @@ namespace QLPHONGKHAM
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            button4 = new Button();
             button3 = new Button();
             button2 = new Button();
             exitButton = new Button();
@@ -47,6 +48,7 @@ namespace QLPHONGKHAM
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(35, 40, 45);
+            panel1.Controls.Add(button4);
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(exitButton);
@@ -58,8 +60,24 @@ namespace QLPHONGKHAM
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(243, 764);
+            panel1.Size = new Size(243, 862);
             panel1.TabIndex = 0;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.Teal;
+            button4.FlatStyle = FlatStyle.Popup;
+            button4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            button4.ForeColor = SystemColors.HighlightText;
+            button4.ImageAlign = ContentAlignment.MiddleLeft;
+            button4.Location = new Point(2, 767);
+            button4.Name = "button4";
+            button4.Size = new Size(240, 89);
+            button4.TabIndex = 9;
+            button4.Text = "Thống Kê";
+            button4.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -196,7 +214,7 @@ namespace QLPHONGKHAM
             content.ForeColor = Color.White;
             content.Location = new Point(243, 0);
             content.Name = "content";
-            content.Size = new Size(1018, 764);
+            content.Size = new Size(1018, 862);
             content.TabIndex = 1;
             // 
             // Home
@@ -204,7 +222,7 @@ namespace QLPHONGKHAM
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1261, 764);
+            ClientSize = new Size(1261, 862);
             Controls.Add(content);
             Controls.Add(panel1);
             Name = "Home";
@@ -226,5 +244,6 @@ namespace QLPHONGKHAM
         private Button exitButton;
         private Button button2;
         private Button button3;
+        private Button button4;
     }
 }

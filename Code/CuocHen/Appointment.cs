@@ -17,7 +17,6 @@ namespace QLPHONGKHAM
 {
     public partial class Appointment : Form
     {
-        private string UserID = "NV000001";
         private bool updatemode = true;
         public string role;
         public Appointment(string role)
@@ -33,8 +32,10 @@ namespace QLPHONGKHAM
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
-            if (role == "ns")
+            if (role.Contains( "ns"))
             {
+                Debug.WriteLine("xemcuochen"+ role);
+
                 dateTimePickergio.Enabled = false;
                 dateTimePickerngay.Enabled = false;
                 textBoxBN.Enabled = false;

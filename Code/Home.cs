@@ -70,6 +70,7 @@ namespace QLPHONGKHAM
         private void button2_Click(object sender, EventArgs e)
         {
             Appointment appointment = new Appointment(role);
+            this.Hide();
             appointment.Show();
         }
 
@@ -79,5 +80,12 @@ namespace QLPHONGKHAM
             donThuoc.role = role;
             donThuoc.Show();
         }
-    } 
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ThongKe thongKe = new ThongKe(this.role);
+            this.Hide();
+            thongKe.Show();
+        }
+    }
 }

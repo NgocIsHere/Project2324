@@ -40,16 +40,6 @@
     <Compile Update="BenhNhan\thanhtoan.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="PHONGKHAM_DBDataSet.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>PHONGKHAM_DBDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Update="Properties\Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
@@ -65,16 +55,6 @@
     <Compile Remove="HoSoBenhNhan.cs" />
     <Compile Remove="HoSoBenhNhan.Designer.cs" />
     <EmbeddedResource Remove="HoSoBenhNhan.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="PHONGKHAM_DBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PHONGKHAM_DBDataSet.Designer.cs</LastGenOutput>
-    </None>
-    <None Update="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <PropertyGroup>
     <PreBuildEvent>if exist "$(TargetPath).locked" del "$(TargetPath).locked"
