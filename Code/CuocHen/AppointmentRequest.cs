@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,6 +38,10 @@ namespace QLPHONGKHAM
             //loadDentistNameID();
             loadtrangthaiComboBox();
             loadDateTimePickerNgay();
+            listBoxGender.Items.Add("Nam");
+            listBoxGender.Items.Add("Nữ");
+            listBoxGender.SelectedIndex = 0;
+
         }
 
         private void loadDateTimePickerNgay()
@@ -198,12 +203,24 @@ namespace QLPHONGKHAM
             {
                 using (SqlCommand command = new SqlCommand("SP_THEMBENHNHAN", connection))
                 {
+                    string gender;
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add(new SqlParameter("@HOTEN", textBoxName.Text));
                     command.Parameters.Add(new SqlParameter("@NGAYSINH", dateTimePickerBirth.Value.ToString("yyyy-MM-dd")));
                     command.Parameters.Add(new SqlParameter("@DIACHI", textBoxAddress.Text));
                     command.Parameters.Add(new SqlParameter("@EMAIL", textBoxMail.Text));
                     command.Parameters.Add(new SqlParameter("@SDT", textBoxNumber.Text));
+                    if (listBoxGender.SelectedItem.ToString() == "Nam")
+                    {
+                        gender = "Male";
+                    }
+                    else
+                    {
+                        gender = "Female";
+                    }
+
+                    command.Parameters.Add(new SqlParameter("@GIOITINH", gender));
+
 
                     try
                     {

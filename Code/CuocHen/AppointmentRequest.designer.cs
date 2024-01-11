@@ -28,516 +28,525 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxBN = new System.Windows.Forms.TextBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.textBoxNumber = new System.Windows.Forms.TextBox();
-            this.textBoxAddress = new System.Windows.Forms.TextBox();
-            this.textBoxMail = new System.Windows.Forms.TextBox();
-            this.dateTimePickerBirth = new System.Windows.Forms.DateTimePicker();
-            this.buttonCreate = new System.Windows.Forms.Button();
-            this.comboBoxphong = new System.Windows.Forms.ComboBox();
-            this.dateTimePickerngay = new System.Windows.Forms.DateTimePicker();
-            this.comboBoxTrangThai = new System.Windows.Forms.ComboBox();
-            this.comboBoxNS = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBoxGC = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBoxstt = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.buttonSubmit = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.dateTimePickergiohen = new System.Windows.Forms.DateTimePicker();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
+            textBoxBN = new System.Windows.Forms.TextBox();
+            buttonSearch = new System.Windows.Forms.Button();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            textBoxName = new System.Windows.Forms.TextBox();
+            textBoxNumber = new System.Windows.Forms.TextBox();
+            textBoxAddress = new System.Windows.Forms.TextBox();
+            textBoxMail = new System.Windows.Forms.TextBox();
+            dateTimePickerBirth = new System.Windows.Forms.DateTimePicker();
+            buttonCreate = new System.Windows.Forms.Button();
+            comboBoxphong = new System.Windows.Forms.ComboBox();
+            dateTimePickerngay = new System.Windows.Forms.DateTimePicker();
+            comboBoxTrangThai = new System.Windows.Forms.ComboBox();
+            comboBoxNS = new System.Windows.Forms.ComboBox();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
+            textBoxGC = new System.Windows.Forms.TextBox();
+            label9 = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
+            textBoxstt = new System.Windows.Forms.TextBox();
+            dataGridView1 = new System.Windows.Forms.DataGridView();
+            dataGridView2 = new System.Windows.Forms.DataGridView();
+            label14 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
+            buttonSubmit = new System.Windows.Forms.Button();
+            buttonCancel = new System.Windows.Forms.Button();
+            button1 = new System.Windows.Forms.Button();
+            label11 = new System.Windows.Forms.Label();
+            dateTimePickergiohen = new System.Windows.Forms.DateTimePicker();
+            panel1 = new System.Windows.Forms.Panel();
+            button2 = new System.Windows.Forms.Button();
+            tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            panel2 = new System.Windows.Forms.Panel();
+            tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            listBoxGender = new System.Windows.Forms.ListBox();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            panel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            panel2.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(212, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mã Bệnh Nhân";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(188, 66);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(106, 20);
+            label1.TabIndex = 0;
+            label1.Text = "Mã Bệnh Nhân";
             // 
             // textBoxBN
             // 
-            this.textBoxBN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxBN.Location = new System.Drawing.Point(332, 59);
-            this.textBoxBN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxBN.Name = "textBoxBN";
-            this.textBoxBN.Size = new System.Drawing.Size(132, 26);
-            this.textBoxBN.TabIndex = 1;
-            this.textBoxBN.TextChanged += new System.EventHandler(this.textBoxBN_TextChanged);
+            textBoxBN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            textBoxBN.Location = new System.Drawing.Point(295, 59);
+            textBoxBN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            textBoxBN.Name = "textBoxBN";
+            textBoxBN.Size = new System.Drawing.Size(118, 27);
+            textBoxBN.TabIndex = 1;
+            textBoxBN.TextChanged += textBoxBN_TextChanged;
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(471, 59);
-            this.buttonSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(84, 29);
-            this.buttonSearch.TabIndex = 2;
-            this.buttonSearch.Text = "Tìm Kiếm";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            buttonSearch.Location = new System.Drawing.Point(419, 59);
+            buttonSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            buttonSearch.Name = "buttonSearch";
+            buttonSearch.Size = new System.Drawing.Size(75, 29);
+            buttonSearch.TabIndex = 2;
+            buttonSearch.Text = "Tìm Kiếm";
+            buttonSearch.UseVisualStyleBackColor = true;
+            buttonSearch.Click += buttonSearch_Click;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(256, 122);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Họ Tên";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(228, 122);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(56, 20);
+            label2.TabIndex = 3;
+            label2.Text = "Họ Tên";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(212, 179);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Số Điện Thoại";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(188, 179);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(102, 20);
+            label3.TabIndex = 4;
+            label3.Text = "Số Điện Thoại";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(256, 242);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 20);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Địa Chỉ";
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(228, 242);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(57, 20);
+            label4.TabIndex = 5;
+            label4.Text = "Địa Chỉ";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(266, 311);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 20);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Email";
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(236, 311);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(46, 20);
+            label5.TabIndex = 6;
+            label5.Text = "Email";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(241, 378);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 20);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Ngày Sinh";
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(214, 378);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(76, 20);
+            label6.TabIndex = 7;
+            label6.Text = "Ngày Sinh";
             // 
             // textBoxName
             // 
-            this.textBoxName.Enabled = false;
-            this.textBoxName.Location = new System.Drawing.Point(332, 119);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(327, 26);
-            this.textBoxName.TabIndex = 8;
+            textBoxName.Enabled = false;
+            textBoxName.Location = new System.Drawing.Point(295, 119);
+            textBoxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            textBoxName.Name = "textBoxName";
+            textBoxName.Size = new System.Drawing.Size(291, 27);
+            textBoxName.TabIndex = 8;
             // 
             // textBoxNumber
             // 
-            this.textBoxNumber.Enabled = false;
-            this.textBoxNumber.Location = new System.Drawing.Point(332, 175);
-            this.textBoxNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxNumber.Name = "textBoxNumber";
-            this.textBoxNumber.Size = new System.Drawing.Size(327, 26);
-            this.textBoxNumber.TabIndex = 9;
+            textBoxNumber.Enabled = false;
+            textBoxNumber.Location = new System.Drawing.Point(295, 175);
+            textBoxNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            textBoxNumber.Name = "textBoxNumber";
+            textBoxNumber.Size = new System.Drawing.Size(291, 27);
+            textBoxNumber.TabIndex = 9;
             // 
             // textBoxAddress
             // 
-            this.textBoxAddress.Enabled = false;
-            this.textBoxAddress.Location = new System.Drawing.Point(332, 239);
-            this.textBoxAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxAddress.Name = "textBoxAddress";
-            this.textBoxAddress.Size = new System.Drawing.Size(327, 26);
-            this.textBoxAddress.TabIndex = 10;
+            textBoxAddress.Enabled = false;
+            textBoxAddress.Location = new System.Drawing.Point(295, 239);
+            textBoxAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            textBoxAddress.Name = "textBoxAddress";
+            textBoxAddress.Size = new System.Drawing.Size(291, 27);
+            textBoxAddress.TabIndex = 10;
             // 
             // textBoxMail
             // 
-            this.textBoxMail.Enabled = false;
-            this.textBoxMail.Location = new System.Drawing.Point(332, 308);
-            this.textBoxMail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxMail.Name = "textBoxMail";
-            this.textBoxMail.Size = new System.Drawing.Size(327, 26);
-            this.textBoxMail.TabIndex = 11;
+            textBoxMail.Enabled = false;
+            textBoxMail.Location = new System.Drawing.Point(295, 308);
+            textBoxMail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            textBoxMail.Name = "textBoxMail";
+            textBoxMail.Size = new System.Drawing.Size(291, 27);
+            textBoxMail.TabIndex = 11;
             // 
             // dateTimePickerBirth
             // 
-            this.dateTimePickerBirth.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePickerBirth.Enabled = false;
-            this.dateTimePickerBirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerBirth.Location = new System.Drawing.Point(331, 371);
-            this.dateTimePickerBirth.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePickerBirth.Name = "dateTimePickerBirth";
-            this.dateTimePickerBirth.Size = new System.Drawing.Size(144, 26);
-            this.dateTimePickerBirth.TabIndex = 12;
+            dateTimePickerBirth.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerBirth.Enabled = false;
+            dateTimePickerBirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            dateTimePickerBirth.Location = new System.Drawing.Point(294, 371);
+            dateTimePickerBirth.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            dateTimePickerBirth.Name = "dateTimePickerBirth";
+            dateTimePickerBirth.Size = new System.Drawing.Size(128, 27);
+            dateTimePickerBirth.TabIndex = 12;
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(562, 59);
-            this.buttonCreate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(97, 29);
-            this.buttonCreate.TabIndex = 13;
-            this.buttonCreate.Text = "Tạo Mới";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            buttonCreate.Location = new System.Drawing.Point(500, 59);
+            buttonCreate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            buttonCreate.Name = "buttonCreate";
+            buttonCreate.Size = new System.Drawing.Size(86, 29);
+            buttonCreate.TabIndex = 13;
+            buttonCreate.Text = "Tạo Mới";
+            buttonCreate.UseVisualStyleBackColor = true;
+            buttonCreate.Click += buttonCreate_Click;
             // 
             // comboBoxphong
             // 
-            this.comboBoxphong.FormattingEnabled = true;
-            this.comboBoxphong.Location = new System.Drawing.Point(856, 315);
-            this.comboBoxphong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBoxphong.Name = "comboBoxphong";
-            this.comboBoxphong.Size = new System.Drawing.Size(87, 28);
-            this.comboBoxphong.TabIndex = 26;
+            comboBoxphong.FormattingEnabled = true;
+            comboBoxphong.Location = new System.Drawing.Point(761, 315);
+            comboBoxphong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            comboBoxphong.Name = "comboBoxphong";
+            comboBoxphong.Size = new System.Drawing.Size(78, 28);
+            comboBoxphong.TabIndex = 26;
             // 
             // dateTimePickerngay
             // 
-            this.dateTimePickerngay.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePickerngay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerngay.Location = new System.Drawing.Point(856, 60);
-            this.dateTimePickerngay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePickerngay.Name = "dateTimePickerngay";
-            this.dateTimePickerngay.Size = new System.Drawing.Size(224, 26);
-            this.dateTimePickerngay.TabIndex = 24;
-            this.dateTimePickerngay.ValueChanged += new System.EventHandler(this.dateTimePickerngay_ValueChanged);
+            dateTimePickerngay.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerngay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            dateTimePickerngay.Location = new System.Drawing.Point(761, 60);
+            dateTimePickerngay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            dateTimePickerngay.Name = "dateTimePickerngay";
+            dateTimePickerngay.Size = new System.Drawing.Size(200, 27);
+            dateTimePickerngay.TabIndex = 24;
+            dateTimePickerngay.ValueChanged += dateTimePickerngay_ValueChanged;
             // 
             // comboBoxTrangThai
             // 
-            this.comboBoxTrangThai.FormattingEnabled = true;
-            this.comboBoxTrangThai.Location = new System.Drawing.Point(856, 431);
-            this.comboBoxTrangThai.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBoxTrangThai.Name = "comboBoxTrangThai";
-            this.comboBoxTrangThai.Size = new System.Drawing.Size(136, 28);
-            this.comboBoxTrangThai.TabIndex = 22;
+            comboBoxTrangThai.FormattingEnabled = true;
+            comboBoxTrangThai.Location = new System.Drawing.Point(761, 431);
+            comboBoxTrangThai.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            comboBoxTrangThai.Name = "comboBoxTrangThai";
+            comboBoxTrangThai.Size = new System.Drawing.Size(121, 28);
+            comboBoxTrangThai.TabIndex = 22;
             // 
             // comboBoxNS
             // 
-            this.comboBoxNS.FormattingEnabled = true;
-            this.comboBoxNS.Location = new System.Drawing.Point(855, 194);
-            this.comboBoxNS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBoxNS.Name = "comboBoxNS";
-            this.comboBoxNS.Size = new System.Drawing.Size(270, 28);
-            this.comboBoxNS.TabIndex = 21;
-            this.comboBoxNS.SelectedIndexChanged += new System.EventHandler(this.comboBoxNS_SelectedIndexChanged);
+            comboBoxNS.FormattingEnabled = true;
+            comboBoxNS.Location = new System.Drawing.Point(760, 194);
+            comboBoxNS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            comboBoxNS.Name = "comboBoxNS";
+            comboBoxNS.Size = new System.Drawing.Size(240, 28);
+            comboBoxNS.TabIndex = 21;
+            comboBoxNS.SelectedIndexChanged += comboBoxNS_SelectedIndexChanged;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(785, 319);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 20);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Phòng:";
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(698, 319);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(54, 20);
+            label7.TabIndex = 20;
+            label7.Text = "Phòng:";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(766, 435);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 20);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Trạng thái:";
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(681, 435);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(78, 20);
+            label8.TabIndex = 19;
+            label8.Text = "Trạng thái:";
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(785, 198);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(60, 20);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "Nha Sĩ:";
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(698, 198);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(55, 20);
+            label10.TabIndex = 17;
+            label10.Text = "Nha Sĩ:";
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(764, 60);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(83, 20);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "Ngày Hẹn:";
+            label12.AutoSize = true;
+            label12.Location = new System.Drawing.Point(679, 60);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(78, 20);
+            label12.TabIndex = 15;
+            label12.Text = "Ngày Hẹn:";
             // 
             // textBoxGC
             // 
-            this.textBoxGC.Location = new System.Drawing.Point(855, 264);
-            this.textBoxGC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxGC.Name = "textBoxGC";
-            this.textBoxGC.Size = new System.Drawing.Size(270, 26);
-            this.textBoxGC.TabIndex = 28;
+            textBoxGC.Location = new System.Drawing.Point(760, 264);
+            textBoxGC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            textBoxGC.Name = "textBoxGC";
+            textBoxGC.Size = new System.Drawing.Size(240, 27);
+            textBoxGC.TabIndex = 28;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(781, 268);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 20);
-            this.label9.TabIndex = 27;
-            this.label9.Text = "Ghi Chú:";
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(694, 268);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(63, 20);
+            label9.TabIndex = 27;
+            label9.Text = "Ghi Chú:";
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(786, 378);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(62, 20);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "Thứ Tự:";
+            label13.AutoSize = true;
+            label13.Location = new System.Drawing.Point(699, 378);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(58, 20);
+            label13.TabIndex = 29;
+            label13.Text = "Thứ Tự:";
             // 
             // textBoxstt
             // 
-            this.textBoxstt.Enabled = false;
-            this.textBoxstt.Location = new System.Drawing.Point(855, 374);
-            this.textBoxstt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxstt.Name = "textBoxstt";
-            this.textBoxstt.Size = new System.Drawing.Size(83, 26);
-            this.textBoxstt.TabIndex = 30;
+            textBoxstt.Enabled = false;
+            textBoxstt.Location = new System.Drawing.Point(760, 374);
+            textBoxstt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            textBoxstt.Name = "textBoxstt";
+            textBoxstt.Size = new System.Drawing.Size(74, 27);
+            textBoxstt.TabIndex = 30;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(669, 384);
-            this.dataGridView1.TabIndex = 31;
-            this.dataGridView1.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow);
+            dataGridView1.AllowUserToOrderColumns = true;
+            dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            dataGridView1.Location = new System.Drawing.Point(0, 28);
+            dataGridView1.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Height = 24;
+            dataGridView1.Size = new System.Drawing.Size(594, 384);
+            dataGridView1.TabIndex = 31;
+            dataGridView1.UserDeletingRow += dataGridView1_UserDeletingRow;
             // 
             // dataGridView2
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(675, 28);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(669, 384);
-            this.dataGridView2.TabIndex = 32;
+            dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            dataGridView2.Location = new System.Drawing.Point(600, 28);
+            dataGridView2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridView2.RowTemplate.Height = 24;
+            dataGridView2.Size = new System.Drawing.Size(594, 384);
+            dataGridView2.TabIndex = 32;
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label14.Location = new System.Drawing.Point(0, 0);
-            this.label14.Margin = new System.Windows.Forms.Padding(0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(672, 28);
-            this.label14.TabIndex = 33;
-            this.label14.Text = "Yêu Cầu Hẹn";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label14.AutoSize = true;
+            label14.Dock = System.Windows.Forms.DockStyle.Fill;
+            label14.Location = new System.Drawing.Point(0, 0);
+            label14.Margin = new System.Windows.Forms.Padding(0);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(597, 28);
+            label14.TabIndex = 33;
+            label14.Text = "Yêu Cầu Hẹn";
+            label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label15
             // 
-            this.label15.AutoSize = true;
-            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label15.Location = new System.Drawing.Point(672, 0);
-            this.label15.Margin = new System.Windows.Forms.Padding(0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(672, 28);
-            this.label15.TabIndex = 34;
-            this.label15.Text = "Tái Khám";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label15.AutoSize = true;
+            label15.Dock = System.Windows.Forms.DockStyle.Fill;
+            label15.Location = new System.Drawing.Point(597, 0);
+            label15.Margin = new System.Windows.Forms.Padding(0);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(597, 28);
+            label15.TabIndex = 34;
+            label15.Text = "Tái Khám";
+            label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonSubmit
             // 
-            this.buttonSubmit.Location = new System.Drawing.Point(675, 26);
-            this.buttonSubmit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonSubmit.Name = "buttonSubmit";
-            this.buttonSubmit.Size = new System.Drawing.Size(143, 55);
-            this.buttonSubmit.TabIndex = 35;
-            this.buttonSubmit.Text = "Hoàn Tất";
-            this.buttonSubmit.UseVisualStyleBackColor = true;
-            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
+            buttonSubmit.Location = new System.Drawing.Point(600, 26);
+            buttonSubmit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            buttonSubmit.Name = "buttonSubmit";
+            buttonSubmit.Size = new System.Drawing.Size(127, 55);
+            buttonSubmit.TabIndex = 35;
+            buttonSubmit.Text = "Hoàn Tất";
+            buttonSubmit.UseVisualStyleBackColor = true;
+            buttonSubmit.Click += buttonSubmit_Click;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(525, 26);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(143, 55);
-            this.buttonCancel.TabIndex = 36;
-            this.buttonCancel.Text = "Hủy";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            buttonCancel.Location = new System.Drawing.Point(467, 26);
+            buttonCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.Size = new System.Drawing.Size(127, 55);
+            buttonCancel.TabIndex = 36;
+            buttonCancel.Text = "Hủy";
+            buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.Click += buttonCancel_Click;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(244, 435);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 44);
-            this.button1.TabIndex = 37;
-            this.button1.Text = "thêm bệnh nhân";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Location = new System.Drawing.Point(217, 435);
+            button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(132, 44);
+            button1.TabIndex = 37;
+            button1.Text = "thêm bệnh nhân";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(784, 126);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 20);
-            this.label11.TabIndex = 38;
-            this.label11.Text = "Giờ hẹn";
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(697, 126);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(60, 20);
+            label11.TabIndex = 38;
+            label11.Text = "Giờ hẹn";
             // 
             // dateTimePickergiohen
             // 
-            this.dateTimePickergiohen.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickergiohen.Location = new System.Drawing.Point(856, 122);
-            this.dateTimePickergiohen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePickergiohen.Name = "dateTimePickergiohen";
-            this.dateTimePickergiohen.Size = new System.Drawing.Size(224, 26);
-            this.dateTimePickergiohen.TabIndex = 39;
+            dateTimePickergiohen.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            dateTimePickergiohen.Location = new System.Drawing.Point(761, 122);
+            dateTimePickergiohen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            dateTimePickergiohen.Name = "dateTimePickergiohen";
+            dateTimePickergiohen.Size = new System.Drawing.Size(200, 27);
+            dateTimePickergiohen.TabIndex = 39;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.textBoxGC);
-            this.panel1.Controls.Add(this.dateTimePickergiohen);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.textBoxBN);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.buttonSearch);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBoxName);
-            this.panel1.Controls.Add(this.textBoxstt);
-            this.panel1.Controls.Add(this.textBoxNumber);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.textBoxAddress);
-            this.panel1.Controls.Add(this.textBoxMail);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.dateTimePickerBirth);
-            this.panel1.Controls.Add(this.comboBoxphong);
-            this.panel1.Controls.Add(this.buttonCreate);
-            this.panel1.Controls.Add(this.dateTimePickerngay);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.comboBoxTrangThai);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.comboBoxNS);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1344, 517);
-            this.panel1.TabIndex = 40;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label15, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView2, 1, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 529);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1344, 412);
-            this.tableLayoutPanel1.TabIndex = 41;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.buttonSubmit);
-            this.panel2.Controls.Add(this.buttonCancel);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 949);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1344, 97);
-            this.panel2.TabIndex = 42;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel2, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1350, 1050);
-            this.tableLayoutPanel2.TabIndex = 43;
+            panel1.Controls.Add(listBoxGender);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(textBoxGC);
+            panel1.Controls.Add(dateTimePickergiohen);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label11);
+            panel1.Controls.Add(textBoxBN);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(buttonSearch);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(textBoxName);
+            panel1.Controls.Add(textBoxstt);
+            panel1.Controls.Add(textBoxNumber);
+            panel1.Controls.Add(label13);
+            panel1.Controls.Add(textBoxAddress);
+            panel1.Controls.Add(textBoxMail);
+            panel1.Controls.Add(label9);
+            panel1.Controls.Add(dateTimePickerBirth);
+            panel1.Controls.Add(comboBoxphong);
+            panel1.Controls.Add(buttonCreate);
+            panel1.Controls.Add(dateTimePickerngay);
+            panel1.Controls.Add(label12);
+            panel1.Controls.Add(comboBoxTrangThai);
+            panel1.Controls.Add(label10);
+            panel1.Controls.Add(comboBoxNS);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(label7);
+            panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel1.Location = new System.Drawing.Point(3, 4);
+            panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(1194, 517);
+            panel1.TabIndex = 40;
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button2.Location = new System.Drawing.Point(-3, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 58);
-            this.button2.TabIndex = 40;
-            this.button2.Text = "<< Trở về";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.BackColor = System.Drawing.Color.LightSeaGreen;
+            button2.Location = new System.Drawing.Point(-3, 0);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(105, 58);
+            button2.TabIndex = 40;
+            button2.Text = "<< Trở về";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(dataGridView1, 0, 1);
+            tableLayoutPanel1.Controls.Add(label14, 0, 0);
+            tableLayoutPanel1.Controls.Add(label15, 1, 0);
+            tableLayoutPanel1.Controls.Add(dataGridView2, 1, 1);
+            tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            tableLayoutPanel1.Location = new System.Drawing.Point(3, 529);
+            tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93F));
+            tableLayoutPanel1.Size = new System.Drawing.Size(1194, 412);
+            tableLayoutPanel1.TabIndex = 41;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(buttonSubmit);
+            panel2.Controls.Add(buttonCancel);
+            panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel2.Location = new System.Drawing.Point(3, 949);
+            panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(1194, 97);
+            panel2.TabIndex = 42;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel2.Controls.Add(panel2, 0, 2);
+            tableLayoutPanel2.Controls.Add(tableLayoutPanel1, 0, 1);
+            tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            tableLayoutPanel2.Size = new System.Drawing.Size(1200, 1050);
+            tableLayoutPanel2.TabIndex = 43;
+            // 
+            // listBoxGender
+            // 
+            listBoxGender.FormattingEnabled = true;
+            listBoxGender.Location = new System.Drawing.Point(467, 371);
+            listBoxGender.Name = "listBoxGender";
+            listBoxGender.Size = new System.Drawing.Size(100, 24);
+            listBoxGender.TabIndex = 41;
             // 
             // AppointmentRequest
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 1050);
-            this.Controls.Add(this.tableLayoutPanel2);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "AppointmentRequest";
-            this.Text = "AppointmentRequest";
-            this.Load += new System.EventHandler(this.AppointmentRequest_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1200, 1050);
+            Controls.Add(tableLayoutPanel2);
+            Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            Name = "AppointmentRequest";
+            Text = "AppointmentRequest";
+            Load += AppointmentRequest_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
@@ -582,5 +591,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox listBoxGender;
     }
 }
