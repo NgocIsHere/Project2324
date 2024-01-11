@@ -16,7 +16,7 @@ namespace QLPHONGKHAM
     public partial class QuanLyBenhNhan : Form
     {
         public string backup;
-        public SqlConnection con = new SqlConnection("Data Source=MSI;Initial Catalog=PHONGKHAM_DB;Integrated Security=True");
+        public SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["PHONGKHAM_DBConnectionString"].ConnectionString);
         public QuanLyBenhNhan(string role)
         {
             InitializeComponent();
