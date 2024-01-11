@@ -1,0 +1,83 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="BenhNhan\BenhNhan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="BenhNhan\DanhSachDonThuoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\DonThuoc.cs" />
+    <Compile Update="Controls\LichLamViec.cs" />
+    <Compile Update="Controls\NhanVien.cs" />
+    <Compile Update="Controls\NhaSi.cs" />
+    <Compile Update="Controls\QuanLyThuoc.cs" />
+    <Compile Update="BenhNhan\Kehoachdieutri.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="BenhNhan\thanhtoan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="PHONGKHAM_DBDataSet.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PHONGKHAM_DBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="HNGOC_WINFORM\bin\Debug\net8.0-windows\Controls\QuanLyThuoc.cs" />
+    <Compile Remove="HNGOC_WINFORM\obj\Debug\net8.0-windows\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" />
+    <Compile Remove="HNGOC_WINFORM\obj\Debug\net8.0-windows\QLPHONGKHAM.AssemblyInfo.cs" />
+    <Compile Remove="HNGOC_WINFORM\obj\Debug\net8.0-windows\QLPHONGKHAM.GlobalUsings.g.cs" />
+    <Compile Remove="HoSoBenhNhan.cs" />
+    <Compile Remove="HoSoBenhNhan.Designer.cs" />
+    <EmbeddedResource Remove="HoSoBenhNhan.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="PHONGKHAM_DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PHONGKHAM_DBDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <PreBuildEvent>if exist "$(TargetPath).locked" del "$(TargetPath).locked"
+if exist "$(TargetPath)" if not exist "$(TargetPath).locked" move "$(TargetPath)" "$(TargetPath).locked"</PreBuildEvent>
+  </PropertyGroup>
+</Project>
