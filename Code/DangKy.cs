@@ -136,6 +136,15 @@ namespace QLPHONGKHAM
                     {
                         SqlCommand commandCount = new SqlCommand(number, con);
                         int count = (int)commandCount.ExecuteScalar() + 1;
+                        string gender;
+                        if (listBoxGender.SelectedItem.ToString() == "Nam")
+                        {
+                            gender = "Male";
+                        }
+                        else
+                        {
+                            gender = "Female";
+                        }
                         using (var cmd = new SqlCommand(sql, con))
                         {
                             cmd.Parameters.AddWithValue("@ID", role + count.ToString("D6"));
@@ -143,7 +152,7 @@ namespace QLPHONGKHAM
                             cmd.Parameters.AddWithValue("@NGAYSINH", selectedDateTime.ToString("MM/dd/yyyy"));
                             cmd.Parameters.AddWithValue("@DIACHI", textBox2.Text.ToString());
                             cmd.Parameters.AddWithValue("@SDT", textBox3.Text.ToString());
-                            cmd.Parameters.AddWithValue("@GIOITINH", listBoxGender.SelectedItem.ToString());
+                            cmd.Parameters.AddWithValue("@GIOITINH", gender);
                             cmd.Parameters.AddWithValue("@MATKHAU", textBox4.Text.ToString());
                             cmd.ExecuteNonQuery();
                         }
