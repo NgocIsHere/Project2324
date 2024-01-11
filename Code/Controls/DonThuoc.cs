@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
-namespace QLPHONGKHAM.Controls
+namespace QLPHONGKHAM
 {
-    public partial class DonThuoc : UserControl
+    public partial class DonThuoc : Form
     {
         Connection connection;
         Util util;
@@ -91,7 +91,7 @@ namespace QLPHONGKHAM.Controls
 
         private void donThuocButton_Click(object sender, EventArgs e)
         {
-            DanhSachDonThuoc dsdt = new DanhSachDonThuoc();
+            //DanhSachDonThuoc dsdt = new DanhSachDonThuoc();
         }
 
         private void benhNhanTable_CellContentClick(object sender, DataGridViewCellEventArgs e)

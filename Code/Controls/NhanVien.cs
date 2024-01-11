@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QLPHONGKHAM.Controls
+namespace QLPHONGKHAM
 {
-    public partial class NhanVien : UserControl
+    public partial class NhanVien : Form
     {
 
         Connection connection;

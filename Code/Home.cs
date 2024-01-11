@@ -22,69 +22,40 @@ namespace QLPHONGKHAM
         public Home(string role)
         {
             InitializeComponent();
-            InitializeNavigationControl();
-            InitializeNavigationButtons();
             this.role = role;
-        }
-
-        private void InitializeNavigationControl()
-        {
-            QuanLyThuoc qlthuoc = new QuanLyThuoc();
-            qlthuoc.role = role;
-            NhaSi ns = new NhaSi();
-            ns.role = role;
-            NhanVien nv = new NhanVien();
-            nv.role = role;
-            LichLamViec llv = new LichLamViec();
-            llv.role = role;
-            DonThuoc don = new DonThuoc();
-            don.role = role;
-            List<UserControl> userControls = new List<UserControl>() // Your UserControl list
-            {qlthuoc,ns,nv,llv,don};
-
-            navigationControl = new NavigationControl(userControls, content); // create an instance of NavigationControl class
-            navigationControl.Display(3); 
-        }
-
-        private void InitializeNavigationButtons()
-        {
-            List<Button> buttons = new List<Button>()
-            { thuocButton, NSButton, NVButton, LLVButton,button3};
-
-            // create a NavigationButtons instance
-            navigationButtons = new NavigationButtons(buttons, btnDefaultColor, btnSelectedtColor);
-
-            // Make a default selected button
-            navigationButtons.Highlight(LLVButton);
         }
 
         private void thuocButton_Click(object sender, EventArgs e)
         {
-            navigationControl.Display(0);
-            navigationButtons.Highlight(thuocButton);
+            QuanLyThuoc qlthuoc = new QuanLyThuoc();
+            qlthuoc.role = role;
+            qlthuoc.Show();
         }
 
         private void NSButton_Click(object sender, EventArgs e)
         {
-            navigationControl.Display(1);
-            navigationButtons.Highlight(NSButton);
+            NhaSi nhaSi = new NhaSi();
+            nhaSi.role = role;
+            nhaSi.Show();
         }
 
         private void NVButton_Click(object sender, EventArgs e)
         {
-            navigationControl.Display(2);
-            navigationButtons.Highlight(NVButton);
+            NhanVien nhanVien = new NhanVien();
+            nhanVien.role = role;
+            nhanVien.Show();
         }
         private void LLVButton_Click(object sender, EventArgs e)
         {
-            navigationControl.Display(3);
-            navigationButtons.Highlight(LLVButton);
+            LichLamViec llv = new LichLamViec();
+            llv.role = role;
+            llv.Show();
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             QuanLyBenhNhan qlbn = new QuanLyBenhNhan(role);
             qlbn.Show();
         }
@@ -99,14 +70,14 @@ namespace QLPHONGKHAM
         private void button2_Click(object sender, EventArgs e)
         {
             Appointment appointment = new Appointment(role);
-            this.Hide();
             appointment.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            navigationControl.Display(4);
-            navigationButtons.Highlight(button3);
+            DonThuoc donThuoc = new DonThuoc();
+            donThuoc.role = role;
+            donThuoc.Show();
         }
     } 
 }

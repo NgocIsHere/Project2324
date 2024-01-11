@@ -31,187 +31,186 @@ namespace QLPHONGKHAM
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.exitButton = new System.Windows.Forms.Button();
-            this.thuocButton = new System.Windows.Forms.Button();
-            this.NSButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.LLVButton = new System.Windows.Forms.Button();
-            this.NVButton = new System.Windows.Forms.Button();
-            this.content = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            button3 = new Button();
+            button2 = new Button();
+            exitButton = new Button();
+            thuocButton = new Button();
+            NSButton = new Button();
+            button1 = new Button();
+            LLVButton = new Button();
+            NVButton = new Button();
+            content = new Panel();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.exitButton);
-            this.panel1.Controls.Add(this.thuocButton);
-            this.panel1.Controls.Add(this.NSButton);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.LLVButton);
-            this.panel1.Controls.Add(this.NVButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(273, 764);
-            this.panel1.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 90);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(273, 89);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Cuộc hẹn";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // exitButton
-            // 
-            this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.exitButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.exitButton.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.exitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exitButton.Location = new System.Drawing.Point(0, 672);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(270, 89);
-            this.exitButton.TabIndex = 7;
-            this.exitButton.Text = "Đăng xuất";
-            this.exitButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.exitButton.UseVisualStyleBackColor = false;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
-            // thuocButton
-            // 
-            this.thuocButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.thuocButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.thuocButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.thuocButton.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.thuocButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.thuocButton.Location = new System.Drawing.Point(3, 481);
-            this.thuocButton.Name = "thuocButton";
-            this.thuocButton.Size = new System.Drawing.Size(270, 89);
-            this.thuocButton.TabIndex = 6;
-            this.thuocButton.Text = "Thuốc";
-            this.thuocButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.thuocButton.UseVisualStyleBackColor = false;
-            this.thuocButton.Click += new System.EventHandler(this.thuocButton_Click);
-            // 
-            // NSButton
-            // 
-            this.NSButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.NSButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.NSButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.NSButton.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.NSButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NSButton.Location = new System.Drawing.Point(-1, 185);
-            this.NSButton.Name = "NSButton";
-            this.NSButton.Size = new System.Drawing.Size(271, 89);
-            this.NSButton.TabIndex = 2;
-            this.NSButton.Text = "Nha Sĩ";
-            this.NSButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.NSButton.UseVisualStyleBackColor = false;
-            this.NSButton.Click += new System.EventHandler(this.NSButton_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(270, 82);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Bệnh nhân";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // LLVButton
-            // 
-            this.LLVButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.LLVButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.LLVButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.LLVButton.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.LLVButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LLVButton.Location = new System.Drawing.Point(-1, 280);
-            this.LLVButton.Name = "LLVButton";
-            this.LLVButton.Size = new System.Drawing.Size(274, 94);
-            this.LLVButton.TabIndex = 4;
-            this.LLVButton.Text = "Lịch làm việc";
-            this.LLVButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.LLVButton.UseVisualStyleBackColor = false;
-            this.LLVButton.Click += new System.EventHandler(this.LLVButton_Click);
-            // 
-            // NVButton
-            // 
-            this.NVButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.NVButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.NVButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.NVButton.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.NVButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NVButton.Location = new System.Drawing.Point(-2, 380);
-            this.NVButton.Name = "NVButton";
-            this.NVButton.Size = new System.Drawing.Size(275, 95);
-            this.NVButton.TabIndex = 3;
-            this.NVButton.Text = "Nhân viên";
-            this.NVButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.NVButton.UseVisualStyleBackColor = false;
-            this.NVButton.Click += new System.EventHandler(this.NVButton_Click);
-            // 
-            // content
-            // 
-            this.content.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            this.content.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.content.Enabled = false;
-            this.content.ForeColor = System.Drawing.Color.White;
-            this.content.Location = new System.Drawing.Point(273, 0);
-            this.content.Name = "content";
-            this.content.Size = new System.Drawing.Size(1146, 764);
-            this.content.TabIndex = 1;
+            panel1.BackColor = Color.FromArgb(35, 40, 45);
+            panel1.Controls.Add(button3);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(exitButton);
+            panel1.Controls.Add(thuocButton);
+            panel1.Controls.Add(NSButton);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(LLVButton);
+            panel1.Controls.Add(NVButton);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(243, 764);
+            panel1.TabIndex = 0;
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(3, 577);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(270, 89);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Đơn thuốc";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            button3.BackColor = Color.Teal;
+            button3.FlatStyle = FlatStyle.Popup;
+            button3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            button3.ForeColor = SystemColors.HighlightText;
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(3, 577);
+            button3.Name = "button3";
+            button3.Size = new Size(240, 89);
+            button3.TabIndex = 8;
+            button3.Text = "Đơn thuốc";
+            button3.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Teal;
+            button2.FlatStyle = FlatStyle.Popup;
+            button2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            button2.ForeColor = SystemColors.HighlightText;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(0, 90);
+            button2.Name = "button2";
+            button2.Size = new Size(243, 89);
+            button2.TabIndex = 3;
+            button2.Text = "Cuộc hẹn";
+            button2.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // exitButton
+            // 
+            exitButton.BackColor = Color.Teal;
+            exitButton.FlatStyle = FlatStyle.Popup;
+            exitButton.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            exitButton.ForeColor = SystemColors.HighlightText;
+            exitButton.ImageAlign = ContentAlignment.MiddleLeft;
+            exitButton.Location = new Point(2, 672);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(240, 89);
+            exitButton.TabIndex = 7;
+            exitButton.Text = "Đăng xuất";
+            exitButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            exitButton.UseVisualStyleBackColor = false;
+            exitButton.Click += exitButton_Click;
+            // 
+            // thuocButton
+            // 
+            thuocButton.BackColor = Color.Teal;
+            thuocButton.FlatStyle = FlatStyle.Popup;
+            thuocButton.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            thuocButton.ForeColor = SystemColors.HighlightText;
+            thuocButton.ImageAlign = ContentAlignment.MiddleLeft;
+            thuocButton.Location = new Point(3, 481);
+            thuocButton.Name = "thuocButton";
+            thuocButton.Size = new Size(240, 89);
+            thuocButton.TabIndex = 6;
+            thuocButton.Text = "Thuốc";
+            thuocButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            thuocButton.UseVisualStyleBackColor = false;
+            thuocButton.Click += thuocButton_Click;
+            // 
+            // NSButton
+            // 
+            NSButton.BackColor = Color.Teal;
+            NSButton.FlatStyle = FlatStyle.Popup;
+            NSButton.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            NSButton.ForeColor = SystemColors.HighlightText;
+            NSButton.ImageAlign = ContentAlignment.MiddleLeft;
+            NSButton.Location = new Point(-1, 185);
+            NSButton.Name = "NSButton";
+            NSButton.Size = new Size(241, 89);
+            NSButton.TabIndex = 2;
+            NSButton.Text = "Nha Sĩ";
+            NSButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            NSButton.UseVisualStyleBackColor = false;
+            NSButton.Click += NSButton_Click;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Teal;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            button1.ForeColor = SystemColors.HighlightText;
+            button1.Location = new Point(3, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(240, 82);
+            button1.TabIndex = 3;
+            button1.Text = "Bệnh nhân";
+            button1.TextImageRelation = TextImageRelation.TextBeforeImage;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // LLVButton
+            // 
+            LLVButton.BackColor = Color.Teal;
+            LLVButton.FlatStyle = FlatStyle.Popup;
+            LLVButton.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            LLVButton.ForeColor = SystemColors.HighlightText;
+            LLVButton.ImageAlign = ContentAlignment.MiddleLeft;
+            LLVButton.Location = new Point(-1, 280);
+            LLVButton.Name = "LLVButton";
+            LLVButton.Size = new Size(244, 94);
+            LLVButton.TabIndex = 4;
+            LLVButton.Text = "Lịch làm việc";
+            LLVButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            LLVButton.UseVisualStyleBackColor = false;
+            LLVButton.Click += LLVButton_Click;
+            // 
+            // NVButton
+            // 
+            NVButton.BackColor = Color.Teal;
+            NVButton.FlatStyle = FlatStyle.Popup;
+            NVButton.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            NVButton.ForeColor = SystemColors.HighlightText;
+            NVButton.ImageAlign = ContentAlignment.MiddleLeft;
+            NVButton.Location = new Point(-2, 380);
+            NVButton.Name = "NVButton";
+            NVButton.Size = new Size(244, 95);
+            NVButton.TabIndex = 3;
+            NVButton.Text = "Nhân viên";
+            NVButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            NVButton.UseVisualStyleBackColor = false;
+            NVButton.Click += NVButton_Click;
+            // 
+            // content
+            // 
+            content.Cursor = Cursors.SizeAll;
+            content.Dock = DockStyle.Fill;
+            content.Enabled = false;
+            content.ForeColor = Color.White;
+            content.Location = new Point(243, 0);
+            content.Name = "content";
+            content.Size = new Size(1018, 764);
+            content.TabIndex = 1;
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1419, 764);
-            this.Controls.Add(this.content);
-            this.Controls.Add(this.panel1);
-            this.Name = "Home";
-            this.Text = "QTV";
-            this.panel1.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Window;
+            ClientSize = new Size(1261, 764);
+            Controls.Add(content);
+            Controls.Add(panel1);
+            Name = "Home";
+            Text = "QTV";
+            panel1.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion

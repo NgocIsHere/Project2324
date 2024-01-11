@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QLPHONGKHAM.Controls
+namespace QLPHONGKHAM
 {
-    public partial class LichLamViec : UserControl
+    public partial class LichLamViec : Form
     {
 
         Connection connection;

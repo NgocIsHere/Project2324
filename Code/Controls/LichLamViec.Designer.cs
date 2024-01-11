@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace QLPHONGKHAM.Controls
+namespace QLPHONGKHAM
 {
     partial class LichLamViec
     {

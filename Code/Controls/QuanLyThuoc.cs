@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QLPHONGKHAM.Controls
+namespace QLPHONGKHAM
 {
-    public partial class QuanLyThuoc : UserControl
+    public partial class QuanLyThuoc : Form
     {
         Connection connection;
         Util util;
