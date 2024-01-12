@@ -210,6 +210,7 @@ namespace QLPHONGKHAM
             this.locButton.TabIndex = 22;
             this.locButton.Text = "LỌC";
             this.locButton.UseVisualStyleBackColor = false;
+            this.locButton.Click += new System.EventHandler(this.locButton_Click);
             // 
             // ngayradioButton
             // 

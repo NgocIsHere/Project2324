@@ -73,7 +73,7 @@ namespace QLPHONGKHAM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string query = "select ID, HOTEN, NGAYSINH, DIACHI, SDT, GIOITINH from BENHAN BN where BN.HOTEN LIKE  N'%"+ textBox1.Text.ToString()+"%'; ";
+            string query = "select * from BENHAN BN where BN.HOTEN LIKE  N'%"+ textBox1.Text.ToString()+"%'; ";
             con.Open();
             using (SqlDataAdapter adapter = new SqlDataAdapter(query, con))
             {
